@@ -14,6 +14,7 @@
     ],
     "files.associations": {
         "gpio.h": "c",
-        "usart.h": "c"
+        "usart.h": "c",
+        "aes_cmac.h": "c"
     }
 }
