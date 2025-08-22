@@ -20,6 +20,7 @@
 #include "main.h"
 #include "can.h"
 #include "dma.h"
+#include "iwdg.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -92,10 +93,11 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_CAN_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
-  aes_cmac_test();
   CAN_Filter_Config();
   uint8_t tx_data[8] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88};
+  HAL_UART_Transmit(&huart1, tx_data, sizeof(tx_data), 0xFFFF);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,6 +110,7 @@ int main(void)
 
     // CAN_Send_Message(0x123, tx_data, 8);
     // CAN_Receive_and_Reply();
+    HAL_IWDG_Refresh(&hiwdg);  //watch dog 500ms timeout
     HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin); // LED翻转
     HAL_Delay(200); // 延时200毫秒
   }
@@ -126,9 +129,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;

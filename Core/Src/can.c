@@ -101,19 +101,19 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
 
 /* USER CODE BEGIN 1 */
 
-// 简化版CAN过滤器配置：不过滤任何ID，直接接收所有标准帧
+// �?化版CAN过滤器配置：不过滤任何ID，直接接收所有标准帧
 void CAN_Filter_Config(void)
 {
   CAN_FilterTypeDef CAN_FilterInitStructure;
   
-  // 过滤器组0配置（单CAN外设场景）
+  // 过滤器组0配置（单CAN外设场景�?
   CAN_FilterInitStructure.FilterBank = 0;
-  // 掩码模式：全0掩码实现不过滤
+  // 掩码模式：全0掩码实现不过�?
   CAN_FilterInitStructure.FilterMode = CAN_FILTERMODE_IDMASK;
-  // 32位过滤器（适配标准帧11位ID）
+  // 32位过滤器（�?�配标准�?11位ID�?
   CAN_FilterInitStructure.FilterScale = CAN_FILTERSCALE_32BIT;
   
-  // 过滤器ID和掩码全0 → 接收所有标准帧
+  // 过滤器ID和掩码全0 �? 接收�?有标准帧
   CAN_FilterInitStructure.FilterIdHigh = 0x0000;
   CAN_FilterInitStructure.FilterIdLow = 0x0000;
   CAN_FilterInitStructure.FilterMaskIdHigh = 0x0000;
@@ -121,12 +121,12 @@ void CAN_Filter_Config(void)
   
   // 接收数据放入FIFO0
   CAN_FilterInitStructure.FilterFIFOAssignment = CAN_RX_FIFO0;
-  // 使能过滤器
+  // 使能过滤�?
   CAN_FilterInitStructure.FilterActivation = ENABLE;
   // 单CAN外设无需关心从机配置
   CAN_FilterInitStructure.SlaveStartFilterBank = 14;
   
-  // 配置过滤器
+  // 配置过滤�?
   if(HAL_CAN_ConfigFilter(&hcan, &CAN_FilterInitStructure) != HAL_OK)
   {
     Error_Handler();
@@ -148,7 +148,7 @@ void CAN_Filter_Config(void)
 // （接前面的过滤器配置和接收函数）
 uint8_t CAN_Receive_Message(uint32_t *id, uint8_t *data, uint8_t *len)
 {
-  // 函数体实现
+  // 函数体实�?
   CAN_RxHeaderTypeDef RxHeader;
   if(id == NULL || data == NULL || len == NULL)
     return 0;
@@ -165,34 +165,34 @@ uint8_t CAN_Send_Message(uint32_t id, uint8_t *data, uint8_t len)
   uint8_t TxMailbox;
   HAL_StatusTypeDef status;
   
-  // 1. 参数合法性检查（核心必要检查）
+  // 1. 参数合法性检查（核心必要�?查）
   if(data == NULL || len == 0 || len > 8 || id > 0x7FF)
   {
-    return 0; // 无效参数，返回失败
+    return 0; // 无效参数，返回失�?
   }
   
-  // 2. 配置发送帧头（标准帧配置）
+  // 2. 配置发�?�帧头（标准帧配置）
   TxHeader.StdId = id;               // 目标ID
   TxHeader.ExtId = 0;                // 不使用扩展ID
-  TxHeader.RTR = CAN_RTR_DATA;       // 数据帧（非远程帧）
-  TxHeader.IDE = CAN_ID_STD;         // 标准帧格式（11位ID）
-  TxHeader.DLC = len;                // 数据长度（1~8字节）
+  TxHeader.RTR = CAN_RTR_DATA;       // 数据帧（非远程帧�?
+  TxHeader.IDE = CAN_ID_STD;         // 标准帧格式（11位ID�?
+  TxHeader.DLC = len;                // 数据长度�?1~8字节�?
   TxHeader.TransmitGlobalTime = DISABLE; // 不包含发送时间戳
   
-  // 3. 发送数据（带状态判断）
+  // 3. 发�?�数据（带状态判断）
   status = HAL_CAN_AddTxMessage(&hcan, &TxHeader, data, &TxMailbox);
   if(status == HAL_OK)
   {
-    return 1; // 发送成功
+    return 1; // 发�?�成�?
   }
   else if(status == HAL_BUSY)
   {
-    // 发送邮箱已满（可根据需求添加重试逻辑）
+    // 发�?�邮箱已满（可根据需求添加重试�?�辑�?
     return 0;
   }
   else
   {
-    // 其他错误（如外设未启动、参数错误等）
+    // 其他错误（如外设未启动�?�参数错误等�?
     return 0;
   }
 }
@@ -200,26 +200,26 @@ uint8_t CAN_Send_Message(uint32_t id, uint8_t *data, uint8_t len)
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
   uint32_t rx_id;       // 接收的ID
-  uint32_t tx_id;       // 回复的ID（rx_id + 1）
+  uint32_t tx_id;       // 回复的ID（rx_id + 1�?
   uint8_t rx_data[8];   // 接收的数据缓冲区
-  uint8_t rx_len;       // 接收的数据长度
+  uint8_t rx_len;       // 接收的数据长�?
   
   // 1. 读取接收到的数据
   if(CAN_Receive_Message(&rx_id, rx_data, &rx_len) != 1)
   {
-    return; // 接收失败，直接返回
+    return; // 接收失败，直接返�?
   }
   HAL_UART_Transmit(&huart1, rx_data, rx_len, 0xFFFF);
 
-  // 2. 计算回复ID（原ID+1，限制在标准帧范围内）
+  // 2. 计算回复ID（原ID+1，限制在标准帧范围内�?
   tx_id = rx_id + 1;
-  if(tx_id > 0x7FF)    // 标准帧ID最大为0x7FF（11位）
+  if(tx_id > 0x7FF)    // 标准帧ID�?大为0x7FF�?11位）
   {
-    tx_id = 0x7FF;     // 超出范围时强制设为最大值
+    tx_id = 0x7FF;     // 超出范围时强制设为最大�??
   }
   
-  // 3. 发送回复（原数据原样返回，长度与接收一致）
+  // 3. 发�?�回复（原数据原样返回，长度与接收一致）
   (void)CAN_Send_Message(tx_id, rx_data, rx_len);
-  // 此处可根据需要添加发送失败的处理（如重试），简化场景下可忽略
+  // 此处可根据需要添加发送失败的处理（如重试），�?化场景下可忽�?
 }
 /* USER CODE END 1 */
