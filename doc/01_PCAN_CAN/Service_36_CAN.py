@@ -23,7 +23,7 @@ From the log:
 import sys
 from can_tp_transport import CanTpTransport
 from can_uds_log import (
-    CanUdsLog, bytes_to_hex,
+    CanUdsLog,
     check_positive_response, check_negative_response,
 )
 
@@ -51,9 +51,7 @@ def service_36_transfer_data(tp: CanTpTransport, log: CanUdsLog,
     log.start_test(desc)
 
     req = bytes([SID, block_seq & 0xFF]) + data
-    log.tx(bytes_to_hex(req), "TransferData")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
 
     passed = check_positive_response(resp, SID, log, "TransferData positive response")
     if passed:
@@ -73,13 +71,13 @@ if __name__ == "__main__":
         from Service_10_CAN import service_10_programming_session
         from Service_27_CAN import service_27_security_access
         from Service_34_CAN import service_34_request_download
-        from lin_tp_vbf_parser import parse_vbf
-        from can_tp_config import VBF_FILE
+        from s19_parser import parse_app_image
+        from can_tp_config import APP_S19_FILE
 
         service_10_programming_session(tp, log)
         service_27_security_access(tp, log)
 
-        hdr, blocks = parse_vbf(VBF_FILE)
+        hdr, blocks = parse_app_image(APP_S19_FILE)
         blk = blocks[0]
         max_block = service_34_request_download(tp, log,
                                                   data_format=hdr.data_format_identifier,

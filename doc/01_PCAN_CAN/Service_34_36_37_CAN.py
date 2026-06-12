@@ -73,7 +73,13 @@ def download_vbf_block(tp: CanTpTransport, log: CanUdsLog,
     crc        = initial_crc
 
     # Effective payload per 0x36 = max_block - 2 (SID + seq bytes)
-    chunk_size = max(1, max_block - 2)
+    # IMPORTANT: STM32F1 flash uses FLASH_TYPEPROGRAM_WORD (32-bit writes),
+    # which requires the write address to be word (4-byte) aligned.
+    # Round chunk_size DOWN to the nearest multiple of 4.
+    raw_chunk = max_block - 2
+    chunk_size = (raw_chunk // 4) * 4
+    if chunk_size < 4:
+        chunk_size = 4   # minimum write size is 4 bytes (one word)
 
     while offset < total:
         chunk     = data[offset:offset + chunk_size]

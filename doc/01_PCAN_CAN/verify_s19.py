@@ -54,9 +54,9 @@ def main():
     print()
     print("--- Address Verification ---")
     if blocks[0].address == 0x0800C000:
-        print(f"  ✓ APP address: 0x0800C000 (APPLICATION_ADDRESS)")
+        print("  [OK] APP address: 0x0800C000 (APPLICATION_ADDRESS)")
     else:
-        print(f"  ✗ APP address: 0x{blocks[0].address:08X} (expected 0x0800C000)")
+        print(f"  [FAIL] APP address: 0x{blocks[0].address:08X} (expected 0x0800C000)")
 
     last_end = blocks[-1].address + blocks[-1].length
     print(f"  APP range     : 0x{blocks[0].address:08X} - 0x{last_end:08X}")
@@ -69,7 +69,7 @@ def main():
     for b in blocks:
         crc = crc16_ccitt(b.data, crc)
     print(f"  Accumulated CRC16: 0x{crc:04X}")
-    print(f"  (Matches FBL's internal crc_1 after all TransferData)")
+    print("  (Matches FBL's internal crc_1 after all TransferData)")
 
     # Erase region check
     print()
@@ -77,9 +77,9 @@ def main():
     for addr, length in hdr.erase_regions:
         print(f"  Erase 0x{addr:08X} - 0x{addr + length:08X} (size 0x{length:X})")
         if addr % 0x400 == 0 and (addr + length) % 0x400 == 0:
-            print(f"  ✓ Page-aligned")
+            print("  [OK] Page-aligned")
         else:
-            print(f"  ⚠ Not page-aligned!")
+            print("  [WARN] Not page-aligned!")
 
     print()
     print("=" * 60)

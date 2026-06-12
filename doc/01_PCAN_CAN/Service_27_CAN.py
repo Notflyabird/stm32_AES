@@ -87,9 +87,7 @@ def service_27_security_access(tp: CanTpTransport, log: CanUdsLog) -> bool:
     log.start_test("0x27 01 – SecurityAccess: Request Seed")
 
     req_seed = bytes([0x27, SA_REQUEST_LEVEL])
-    log.tx(bytes_to_hex(req_seed), "SecurityAccess requestSeed")
     resp = tp.send_uds(req_seed)
-    log.rx(bytes_to_hex(resp))
 
     if not check_positive_response(resp, SID, log, "RequestSeed positive response"):
         return False
@@ -108,9 +106,7 @@ def service_27_security_access(tp: CanTpTransport, log: CanUdsLog) -> bool:
     log.info(f"Computed key ({len(key)} bytes): {bytes_to_hex(key)}")
 
     req_key = bytes([0x27, SA_SEND_KEY_LEVEL]) + key
-    log.tx(bytes_to_hex(req_key), "SecurityAccess sendKey")
     resp = tp.send_uds(req_key)
-    log.rx(bytes_to_hex(resp))
 
     return check_positive_response(resp, SID, log, "SendKey positive response")
 
@@ -132,9 +128,7 @@ def service_27_wrong_key(tp: CanTpTransport, log: CanUdsLog) -> bool:
 
     # Send wrong key
     req = bytes([0x27, SA_SEND_KEY_LEVEL]) + _WRONG_KEY
-    log.tx(bytes_to_hex(req), "SecurityAccess sendWrongKey")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     return check_negative_response(resp, SID, NRC_INVALID_KEY, log, "NRC 0x35 for wrong key")
 
 

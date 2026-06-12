@@ -18,7 +18,7 @@ Common DIDs:
 import sys
 from can_tp_transport import CanTpTransport
 from can_uds_log import (
-    CanUdsLog, bytes_to_hex,
+    CanUdsLog,
     check_positive_response, check_negative_response,
     read_current_session,
 )
@@ -44,9 +44,7 @@ def service_22_read_by_identifier(tp: CanTpTransport, log: CanUdsLog,
     log.start_test(desc)
 
     req = bytes([SID, (did >> 8) & 0xFF, did & 0xFF])
-    log.tx(bytes_to_hex(req), "ReadDataByIdentifier")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
 
     check_positive_response(resp, SID, log, f"ReadDataByIdentifier 0x{did:04X}")
     return resp

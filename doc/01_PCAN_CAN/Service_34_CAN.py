@@ -30,7 +30,7 @@ Where:
 import sys
 import struct
 from can_tp_transport import CanTpTransport
-from can_uds_log import CanUdsLog, bytes_to_hex, check_positive_response
+from can_uds_log import CanUdsLog, check_positive_response
 from can_tp_config import ADDR_LEN_FORMAT
 
 
@@ -61,19 +61,23 @@ def service_34_request_download(tp: CanTpTransport, log: CanUdsLog,
             f"fmt=0x{addr_len_format:02X} dataFmt=0x{data_format:02X}")
     log.start_test(desc)
 
-    req = (bytes([SID, 0x00, addr_len_format, data_format])
+    # FBL format: 34 <dataFormat> <addrLenFormat> <address 4B> <size 4B>
+    # NOTE: No sub-function byte — the FBL parses byte[1] as dataFormatIdentifier
+    req = (bytes([SID, data_format, addr_len_format])
            + struct.pack(">I", address)
            + struct.pack(">I", length))
-    log.tx(bytes_to_hex(req), "RequestDownload")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
 
     if not check_positive_response(resp, SID, log, "RequestDownload positive response"):
         return 0
 
-    # Parse max_block_size from response (74 + max_block_size 3 bytes)
+    # Parse max_block_size from response
+    # FBL response format: 74 <0x20> <MSB> <LSB>
+    #   74         = positive response SID
+    #   0x20       = fixed format byte (always 0x20)
+    #   MSB / LSB  = maxNumberOfBlockLength (16-bit big-endian)
     if len(resp) >= 4:
-        max_block = (resp[1] << 16) | (resp[2] << 8) | resp[3]
+        max_block = (resp[2] << 8) | resp[3]   # 16-bit only!
         log.info(f"Max block size: {max_block} bytes (0x{max_block:04X})")
         return max_block
     else:

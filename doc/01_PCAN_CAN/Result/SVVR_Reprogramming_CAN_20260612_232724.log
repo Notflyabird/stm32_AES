@@ -1,0 +1,74 @@
+23:27:24.522 ========================================================================
+23:27:24.522 [START ] Script : Reprogramming_CAN
+23:27:24.522 [START ] Log    : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\Result\SVVR_Reprogramming_CAN_20260612_232724.log
+23:27:24.522 ========================================================================
+23:27:24.615 [INFO  ] Opening PCAN [CAN 2.0] channel=PCAN_USBBUS1 bitrate=500000 tx_id=0x123 rx_id=0x122
+23:27:24.798 [INFO  ] CAN TP transport open  (tx=0x123 rx=0x122 CAN 2.0)
+23:27:24.799 [INFO  ] ============================================================
+23:27:24.799 [INFO  ] CAN ECU Reprogramming START (S19 / uncompressed)
+23:27:24.799 [INFO  ] APP file : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\APP_files\a.s19
+23:27:24.799 [INFO  ] CAN route: TX=0x123 RX=0x122
+23:27:24.799 [INFO  ] ============================================================
+23:27:24.799 ------------------------------------------------------------------------
+23:27:24.799 [STEP  ] Parse S19 APP file
+23:27:24.804 [INFO  ] S19 parsed OK
+23:27:24.804 [INFO  ]   first_address  : 0x0800C000
+23:27:24.804 [INFO  ]   total_size     : 0x00014000 (81920 bytes)
+23:27:24.804 [INFO  ]   data_format    : 0x00 (uncompressed)
+23:27:24.804 [INFO  ]   erase region   : [('0x800c000', '0x14000')]
+23:27:24.804 [INFO  ]   data blocks    : 1
+23:27:24.804 [INFO  ]     S19DataBlock(address=0x0800C000, length=0x00014000)
+23:27:24.804 [PASS  ] S19 parse OK
+23:27:24.804 [INFO  ] --- 1/8 Entering Extended Session ---
+23:27:24.804 ------------------------------------------------------------------------
+23:27:24.804 [STEP  ] 0x10 03 – Switch to Extended Session
+23:27:24.804 [TX DiagnosticSessionControl extendedSession] 10 03
+23:27:24.804 [RX    ] 71 01 FF 00
+23:27:24.805 [FAIL  ] ExtendedSession positive response | expected: 50 ... | received: 71 01 FF 00
+23:27:24.905 [INFO  ] --- 2/8 Entering Programming Session (suppress ×2) ---
+23:27:24.905 ------------------------------------------------------------------------
+23:27:24.905 [STEP  ] 0x10 82 – Programming Session (suppress positive response)
+23:27:24.905 [TX DiagnosticSessionControl programmingSession suppressPosRsp] 10 82
+23:27:24.905 [RX    ] 50 03 00 32 01 90
+23:27:24.905 [FAIL  ] No response expected (suppress bit set) | expected: (no response) | received: 50 03 00 32 01 90
+23:27:24.905 ------------------------------------------------------------------------
+23:27:24.905 [STEP  ] 0x10 82 – Programming Session (suppress positive response)
+23:27:24.905 [TX DiagnosticSessionControl programmingSession suppressPosRsp] 10 82
+23:27:25.050 [INFO  ] No response received (suppress positive response – expected)
+23:27:25.050 [RX    ] (no response)
+23:27:25.050 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+23:27:25.050 [INFO  ] 等待 ECU 重启进入编程模式...
+23:27:26.050 [INFO  ] --- 3/8 Security Access ---
+23:27:26.050 ------------------------------------------------------------------------
+23:27:26.050 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+23:27:26.050 [TX SecurityAccess requestSeed] 27 01
+23:27:26.058 [RX    ] 67 01 4B 97 E2 AE FA 46 12 5D A9 75 C0 0D D8 24 70 3C
+23:27:26.058 [PASS  ] RequestSeed positive response | expected: 67 ... | received: 67 01 4B 97 E2 AE FA 46 12 5D A9 75 C0 0D D8 24 70 3C
+23:27:26.058 [INFO  ] Seed (16 bytes): 4B 97 E2 AE FA 46 12 5D A9 75 C0 0D D8 24 70 3C
+23:27:26.058 ------------------------------------------------------------------------
+23:27:26.058 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+23:27:26.076 [INFO  ] Computed key (16 bytes): FA 43 C6 31 86 72 09 55 1E 36 32 EA 07 F8 88 AA
+23:27:26.076 [TX SecurityAccess sendKey] 27 02 FA 43 C6 31 86 72 09 55 1E 36 32 EA 07 F8 88 AA
+23:27:26.084 [RX    ] 67 02
+23:27:26.084 [PASS  ] SendKey positive response | expected: 67 ... | received: 67 02
+23:27:26.084 [INFO  ] --- 4/8 Erase Memory ---
+23:27:26.084 ------------------------------------------------------------------------
+23:27:26.084 [STEP  ] 0x31 01 FF00 – EraseMemory @ 0x0800C000 len=0x00014000
+23:27:26.084 [TX RoutineControl EraseMemory] 31 01 FF 00 08 00 C0 00 00 01 40 00
+23:27:26.969 [RX    ] 71 01 FF 00
+23:27:26.969 [PASS  ] EraseMemory positive response | expected: 71 ... | received: 71 01 FF 00
+23:27:26.969 [INFO  ] Erase OK @ 0x0800C000 len=0x00014000
+23:27:26.969 [INFO  ] --- 5/8 Download Data Blocks ---
+23:27:26.969 [INFO  ] Downloading block 1/1: S19DataBlock(address=0x0800C000, length=0x00014000)
+23:27:26.969 [INFO  ] --- Downloading block: S19DataBlock(address=0x0800C000, length=0x00014000) ---
+23:27:26.969 ------------------------------------------------------------------------
+23:27:26.969 [STEP  ] 0x34 – RequestDownload  addr=0x0800C000 len=0x00014000  fmt=0x44 dataFmt=0x00
+23:27:26.969 [TX RequestDownload] 34 00 44 00 08 00 C0 00 00 01 40 00
+23:27:26.974 [RX    ] 7F 34 31
+23:27:26.974 [FAIL  ] RequestDownload positive response | expected: 74 ... | received: NegResp 7F 34 31 (requestOutOfRange)
+23:27:26.974 [ERROR ] RequestDownload failed or returned zero block size
+23:27:26.974 [ERROR ] Block 1 download FAILED: S19DataBlock(address=0x0800C000, length=0x00014000)
+23:27:27.051 [INFO  ] CAN TP transport closed
+23:27:27.051 ========================================================================
+23:27:27.051 [SUMRY ] PASS=5  FAIL=5  TOTAL=10  FAILED
+23:27:27.051 ========================================================================

@@ -59,7 +59,18 @@ class S19Header:
       .sw_version             (str)
       .sw_part_type           (str)
     """
-    def __init__(self, first_address: int, total_size: int):
+    def __init__(self, first_address: int, total_size: int,
+                 min_erase_addr: int = None):
+        """
+        Args:
+            first_address: Start address of APP data.
+            total_size:    Total size of APP data in bytes.
+            min_erase_addr: Optional minimum erase address (inclusive).
+                           The erase region will start at or before this
+                           address (page-aligned). Use to ensure areas
+                           like the APP valid flag (0x0800A000) are
+                           erased before writing.
+        """
         self.first_address          = first_address
         self.total_size             = total_size
         self.data_format_identifier = 0x00   # uncompressed
@@ -72,7 +83,13 @@ class S19Header:
         # STM32F103 page size: 1 KB (medium-density) or 2 KB (high-density).
         # Use 1 KB granularity (each 1 KB is evenly divisible into 2 KB).
         PAGE_SIZE = 0x0400  # 1 KB
-        erase_start = (first_address // PAGE_SIZE) * PAGE_SIZE
+
+        # Extend erase start downward to cover min_erase_addr (e.g. APP valid flag)
+        raw_start = first_address
+        if min_erase_addr is not None and min_erase_addr < raw_start:
+            raw_start = min_erase_addr
+
+        erase_start = (raw_start // PAGE_SIZE) * PAGE_SIZE
         erase_end   = ((first_address + total_size + PAGE_SIZE - 1)
                        // PAGE_SIZE) * PAGE_SIZE
         self.erase_regions = [(erase_start, erase_end - erase_start)]
@@ -107,7 +124,7 @@ def _s19_checksum_valid(line: str) -> bool:
 # Main parser
 # ==========================================================================
 
-def parse_s19(filepath: str):
+def parse_s19(filepath: str, min_erase_addr: int = None):
     """Parse S19 file, return (S19Header, [S19DataBlock, ...]).
 
     Reads all S3 records, merges contiguous address ranges into blocks,
@@ -115,6 +132,10 @@ def parse_s19(filepath: str):
 
     Args:
         filepath: Path to the .s19 file (e.g. APP_files/a.s19).
+        min_erase_addr: Optional minimum erase start address.
+                       For STM32 F103 FBL, the APP valid flag is at
+                       0x0800A000, so use min_erase_addr=0x0800A000
+                       to ensure that area is erased before writing.
 
     Returns:
         (S19Header, list of S19DataBlock)
@@ -181,7 +202,7 @@ def parse_s19(filepath: str):
     last_end   = blocks[-1].address + blocks[-1].length
     total_size = last_end - first_addr
 
-    header = S19Header(first_addr, total_size)
+    header = S19Header(first_addr, total_size, min_erase_addr=min_erase_addr)
 
     return header, blocks
 
@@ -190,11 +211,14 @@ def parse_s19(filepath: str):
 # Convenience function (compatible with parse_vbf call sites)
 # ==========================================================================
 
-def parse_app_image(filepath: str = None):
+def parse_app_image(filepath: str = None, min_erase_addr: int = 0x0800A000):
     """Parse the APP binary (S19) for reprogramming.
 
     If *filepath* is None, looks for ``APP_files/a.s19`` relative to
     this script's directory.
+
+    The default *min_erase_addr* is 0x0800A000 (APP_VALID_FLAG_ADDR),
+    which ensures the APP valid flag area is erased before writing.
 
     Returns (S19Header, [S19DataBlock, ...]).
     """
@@ -203,7 +227,7 @@ def parse_app_image(filepath: str = None):
             os.path.dirname(os.path.abspath(__file__)),
             "APP_files", "a.s19",
         )
-    return parse_s19(filepath)
+    return parse_s19(filepath, min_erase_addr=min_erase_addr)
 
 
 # ==========================================================================

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(python verify_s19.py)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Read(//c/Users/zhoul/AppData/Local/Microsoft/WindowsApps/**)",
+      "Read(//c/Users/zhoul/AppData/Local/Programs/Python//**)",
+      "Bash(ls /c/Python*/python.exe)",
+      "Bash(/c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe --version)",
+      "Bash(/c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe verify_s19.py)",
+      "Bash(PYTHONIOENCODING=utf-8 /c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe verify_s19.py)",
+      "Bash(PYTHONIOENCODING=utf-8 /c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe -c \"import can; print\\('python-can OK:', can.__version__\\)\")",
+      "Bash(/c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe -m pip install python-can can-isotp)",
+      "Bash(PYTHONIOENCODING=utf-8 /c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe Reprogramming_CAN.py)",
+      "Bash(/c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe -m pip install cryptography)",
+      "Bash(head -80 \"d:/03_project/stm32/f103/01_code/FBL/stm32_Bootload_UDS/doc/01_PCAN_CAN/../TI_MSPM0_Reprog_Script/TI_MSPM0_Reprog_Script/pytester_2026_03_12_00_11_31.log\" 2>/dev/null || head -80 \"d:/03_project/stm32/f103/01_code/TI_MSPM0_Reprog_Script/TI_MSPM0_Reprog_Script/pytester_2026_03_12_00_11_31.log\")",
+      "Read(//d/03_project/stm32/f103/01_code/FBL/stm32_Bootload_UDS/doc/TI_MSPM0_Reprog_Script/TI_MSPM0_Reprog_Script/**)",
+      "Bash(cat ~/.bashrc 2>/dev/null || echo \"No .bashrc found\")",
+      "Read(//c/Users/zhoul/**)",
+      "Bash(PYTHONIOENCODING=utf-8 python verify_s19.py)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\zhoul"
+    ]
+  }
+}

@@ -23,7 +23,7 @@ import sys
 import time
 from can_tp_transport import CanTpTransport
 from can_uds_log import (
-    CanUdsLog, bytes_to_hex,
+    CanUdsLog,
     check_positive_response, check_negative_response, check_no_response,
     read_current_session,
 )
@@ -42,9 +42,7 @@ def service_10_extended_session(tp: CanTpTransport, log: CanUdsLog) -> bool:
     """10 03 – Switch to Extended Session."""
     log.start_test("0x10 03 – Switch to Extended Session")
     req = bytes([0x10, 0x03])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl extendedSession")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     return check_positive_response(resp, SID, log, "ExtendedSession positive response")
 
 
@@ -52,9 +50,7 @@ def service_10_programming_session(tp: CanTpTransport, log: CanUdsLog) -> bool:
     """10 02 – Switch to Programming Session."""
     log.start_test("0x10 02 – Switch to Programming Session")
     req = bytes([0x10, 0x02])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl programmingSession")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     return check_positive_response(resp, SID, log, "ProgrammingSession positive response")
 
 
@@ -62,9 +58,7 @@ def service_10_default_session(tp: CanTpTransport, log: CanUdsLog) -> bool:
     """10 01 – Switch to Default Session."""
     log.start_test("0x10 01 – Switch to Default Session")
     req = bytes([0x10, 0x01])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl defaultSession")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     return check_positive_response(resp, SID, log, "DefaultSession positive response")
 
 
@@ -72,9 +66,7 @@ def service_10_extended_session_suppress(tp: CanTpTransport, log: CanUdsLog) -> 
     """10 83 – Extended Session with suppress positive response; expect no reply."""
     log.start_test("0x10 83 – Extended Session (suppress positive response)")
     req = bytes([0x10, 0x83])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl extendedSession suppressPosRsp")
     resp = tp.send_uds(req, expect_response=False)
-    log.rx(bytes_to_hex(resp) if resp else "(no response)")
     return check_no_response(resp, log, "No response expected (suppress bit set)")
 
 
@@ -82,9 +74,7 @@ def service_10_programming_session_suppress(tp: CanTpTransport, log: CanUdsLog) 
     """10 82 – Programming Session with suppress positive response; expect no reply."""
     log.start_test("0x10 82 – Programming Session (suppress positive response)")
     req = bytes([0x10, 0x82])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl programmingSession suppressPosRsp")
     resp = tp.send_uds(req, expect_response=False)
-    log.rx(bytes_to_hex(resp) if resp else "(no response)")
     return check_no_response(resp, log, "No response expected (suppress bit set)")
 
 
@@ -92,9 +82,7 @@ def service_10_default_session_suppress(tp: CanTpTransport, log: CanUdsLog) -> b
     """10 81 – Default Session with suppress positive response; expect no reply."""
     log.start_test("0x10 81 – Default Session (suppress positive response)")
     req = bytes([0x10, 0x81])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl defaultSession suppressPosRsp")
     resp = tp.send_uds(req, expect_response=False)
-    log.rx(bytes_to_hex(resp) if resp else "(no response)")
     return check_no_response(resp, log, "No response expected (suppress bit set)")
 
 
@@ -109,9 +97,7 @@ def service_10_nrc12(tp: CanTpTransport, log: CanUdsLog) -> bool:
     for subfn, desc in [(0x00, "reserved"), (0x04, "out of range"), (0xFF, "max")]:
         log.start_test(f"0x10 {subfn:02X} – NRC 0x12 ({desc})")
         req = bytes([0x10, subfn])
-        log.tx(bytes_to_hex(req), f"DiagnosticSessionControl subFunction=0x{subfn:02X}")
         resp = tp.send_uds(req)
-        log.rx(bytes_to_hex(resp))
         all_pass &= check_negative_response(resp, SID, NRC_SUB_FUNC_NOT_SUPPORTED, log,
                                             f"NRC 0x12 for sub-function 0x{subfn:02X}")
 
@@ -125,18 +111,14 @@ def service_10_nrc13(tp: CanTpTransport, log: CanUdsLog) -> bool:
     # Too short: SID only
     log.start_test("0x10 – NRC 0x13 incorrectMessageLength (SID only)")
     req = bytes([0x10])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl length=1 (too short)")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     all_pass &= check_negative_response(resp, SID, NRC_INCORRECT_MSG_LENGTH, log,
                                         "NRC 0x13 for length=1")
 
     # Too long: SID + sub-function + extra byte
     log.start_test("0x10 01 00 – NRC 0x13 incorrectMessageLength (extra byte)")
     req = bytes([0x10, 0x01, 0x00])
-    log.tx(bytes_to_hex(req), "DiagnosticSessionControl length=3 (too long)")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
     all_pass &= check_negative_response(resp, SID, NRC_INCORRECT_MSG_LENGTH, log,
                                         "NRC 0x13 for length=3")
 

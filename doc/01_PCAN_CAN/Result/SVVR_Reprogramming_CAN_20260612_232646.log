@@ -1,0 +1,63 @@
+23:26:46.509 ========================================================================
+23:26:46.509 [START ] Script : Reprogramming_CAN
+23:26:46.509 [START ] Log    : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\Result\SVVR_Reprogramming_CAN_20260612_232646.log
+23:26:46.509 ========================================================================
+23:26:46.633 [INFO  ] Opening PCAN [CAN 2.0] channel=PCAN_USBBUS1 bitrate=500000 tx_id=0x123 rx_id=0x122
+23:26:46.815 [INFO  ] CAN TP transport open  (tx=0x123 rx=0x122 CAN 2.0)
+23:26:46.815 [INFO  ] ============================================================
+23:26:46.815 [INFO  ] CAN ECU Reprogramming START (S19 / uncompressed)
+23:26:46.815 [INFO  ] APP file : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\APP_files\a.s19
+23:26:46.815 [INFO  ] CAN route: TX=0x123 RX=0x122
+23:26:46.815 [INFO  ] ============================================================
+23:26:46.815 ------------------------------------------------------------------------
+23:26:46.815 [STEP  ] Parse S19 APP file
+23:26:46.820 [INFO  ] S19 parsed OK
+23:26:46.820 [INFO  ]   first_address  : 0x0800C000
+23:26:46.820 [INFO  ]   total_size     : 0x00014000 (81920 bytes)
+23:26:46.820 [INFO  ]   data_format    : 0x00 (uncompressed)
+23:26:46.820 [INFO  ]   erase region   : [('0x800c000', '0x14000')]
+23:26:46.820 [INFO  ]   data blocks    : 1
+23:26:46.820 [INFO  ]     S19DataBlock(address=0x0800C000, length=0x00014000)
+23:26:46.820 [PASS  ] S19 parse OK
+23:26:46.820 [INFO  ] --- 1/8 Entering Extended Session ---
+23:26:46.820 ------------------------------------------------------------------------
+23:26:46.820 [STEP  ] 0x10 03 – Switch to Extended Session
+23:26:46.820 [TX DiagnosticSessionControl extendedSession] 10 03
+23:26:46.825 [RX    ] 50 03 00 32 01 90
+23:26:46.825 [PASS  ] ExtendedSession positive response | expected: 50 ... | received: 50 03 00 32 01 90
+23:26:46.925 [INFO  ] --- 2/8 Entering Programming Session (suppress ×2) ---
+23:26:46.925 ------------------------------------------------------------------------
+23:26:46.925 [STEP  ] 0x10 82 – Programming Session (suppress positive response)
+23:26:46.925 [TX DiagnosticSessionControl programmingSession suppressPosRsp] 10 82
+23:26:47.080 [INFO  ] No response received (suppress positive response – expected)
+23:26:47.080 [RX    ] (no response)
+23:26:47.080 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+23:26:47.080 ------------------------------------------------------------------------
+23:26:47.080 [STEP  ] 0x10 82 – Programming Session (suppress positive response)
+23:26:47.080 [TX DiagnosticSessionControl programmingSession suppressPosRsp] 10 82
+23:26:47.237 [INFO  ] No response received (suppress positive response – expected)
+23:26:47.237 [RX    ] (no response)
+23:26:47.237 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+23:26:47.237 [INFO  ] 等待 ECU 重启进入编程模式...
+23:26:48.237 [INFO  ] --- 3/8 Security Access ---
+23:26:48.237 ------------------------------------------------------------------------
+23:26:48.237 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+23:26:48.237 [TX SecurityAccess requestSeed] 27 01
+23:26:48.244 [RX    ] 67 01 56 23 6E B9 86 D1 1D E9 35 80 CB 98 E3 2F FB 47
+23:26:48.244 [PASS  ] RequestSeed positive response | expected: 67 ... | received: 67 01 56 23 6E B9 86 D1 1D E9 35 80 CB 98 E3 2F FB 47
+23:26:48.244 [INFO  ] Seed (16 bytes): 56 23 6E B9 86 D1 1D E9 35 80 CB 98 E3 2F FB 47
+23:26:48.244 ------------------------------------------------------------------------
+23:26:48.244 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+23:26:48.265 [INFO  ] Computed key (16 bytes): 24 74 29 B2 FA E0 A1 91 A9 C4 06 78 1E 96 E4 EF
+23:26:48.265 [TX SecurityAccess sendKey] 27 02 24 74 29 B2 FA E0 A1 91 A9 C4 06 78 1E 96 E4 EF
+23:26:48.272 [RX    ] 67 02
+23:26:48.272 [PASS  ] SendKey positive response | expected: 67 ... | received: 67 02
+23:26:48.272 [INFO  ] --- 4/8 Erase Memory ---
+23:26:48.272 ------------------------------------------------------------------------
+23:26:48.272 [STEP  ] 0x31 01 FF00 – EraseMemory @ 0x0800C000 len=0x00014000
+23:26:48.272 [TX RoutineControl EraseMemory] 31 01 FF 00 08 00 C0 00 00 01 40 00
+23:26:48.426 [ERROR ] CAN TP: No response from ECU (timeout=150ms)
+23:26:48.507 [INFO  ] CAN TP transport closed
+23:26:48.507 ========================================================================
+23:26:48.507 [SUMRY ] PASS=6  FAIL=1  TOTAL=7  FAILED
+23:26:48.507 ========================================================================

@@ -25,7 +25,7 @@ from can_uds_log import (
     CanUdsLog, bytes_to_hex,
     check_positive_response,
 )
-from can_tp_config import APP_S19_FILE
+from can_tp_config import APP_S19_FILE, P2_STAR_TIMEOUT_MS
 from s19_parser import parse_app_image
 
 
@@ -82,9 +82,8 @@ def service_31_erase_memory(tp: CanTpTransport, log: CanUdsLog,
     req = (bytes([SID, 0x01, 0xFF, 0x00])
            + struct.pack(">I", address)
            + struct.pack(">I", length))
-    log.tx(bytes_to_hex(req), "RoutineControl EraseMemory")
-    resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
+    # Flash erase takes longer than P2. Use P2* extended timeout (5000ms).
+    resp = tp.send_uds(req, timeout_ms=P2_STAR_TIMEOUT_MS)
 
     return check_positive_response(resp, SID, log, "EraseMemory positive response")
 
@@ -110,9 +109,7 @@ def service_31_check_integrity_0202(tp: CanTpTransport, log: CanUdsLog,
 
     crc_bytes = struct.pack(">H", crc_value & 0xFFFF)
     req = bytes([SID, 0x01, 0x02, 0x02]) + crc_bytes
-    log.tx(bytes_to_hex(req), f"RoutineControl CheckIntegrity CRC=0x{crc_value:04X}")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
 
     passed = check_positive_response(resp, SID, log, "CheckIntegrity positive response")
     if passed and len(resp) >= 5:
@@ -150,9 +147,7 @@ def service_31_check_complete_and_compatible_0205(tp: CanTpTransport,
     """
     log.start_test("0x31 01 0205 – CheckCompleteAndCompatible")
     req = bytes([SID, 0x01, 0x02, 0x05])
-    log.tx(bytes_to_hex(req), "RoutineControl CheckCompleteAndCompatible")
     resp = tp.send_uds(req)
-    log.rx(bytes_to_hex(resp))
 
     passed = check_positive_response(resp, SID, log,
                                      "CheckCompleteAndCompatible positive response")
