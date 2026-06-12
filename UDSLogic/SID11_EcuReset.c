@@ -1,6 +1,7 @@
 #include "SID11_EcuReset.h"
 #include "service_cfg.h"
 #include "uds_service.h"
+#include "stm32f1xx_hal.h"
 
 
 typedef enum __UDS_RESET_T_
@@ -53,9 +54,10 @@ void service_11_EcuReset(const uint8_t* msg_buf, uint16_t msg_dlc)
 			rsp_buf[0] = USD_GET_POSITIVE_RSP(SID_11);
 			rsp_buf[1] = UDS_RESET_HARD;
 			uds_positive_rsp(rsp_buf, 2);
-			
-			// Wait a moment for hard reset
-			// Add hard reset here
+
+			// 等待 CAN 响应发送完成，然后执行硬件复位
+			HAL_Delay(10);
+			HAL_NVIC_SystemReset();
 			break;
 
 		case UDS_RESET_SOFT:
@@ -63,8 +65,9 @@ void service_11_EcuReset(const uint8_t* msg_buf, uint16_t msg_dlc)
 			rsp_buf[1] = UDS_RESET_SOFT;
 			uds_positive_rsp(rsp_buf, 2);
 
-			// Wait a moment for hard reset
-			// Add soft reset here
+			// 等待 CAN 响应发送完成，然后执行硬件复位（Cortex-M3 软复位等同于硬复位）
+			HAL_Delay(10);
+			HAL_NVIC_SystemReset();
 			break;
 		
 		default:

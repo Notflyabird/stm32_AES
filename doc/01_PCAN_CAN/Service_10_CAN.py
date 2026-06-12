@@ -75,6 +75,7 @@ def service_10_programming_session_suppress(tp: CanTpTransport, log: CanUdsLog) 
     log.start_test("0x10 82 – Programming Session (suppress positive response)")
     req = bytes([0x10, 0x82])
     resp = tp.send_uds(req, expect_response=False)
+    time.sleep(1.0)  # 等待 ECU 从 APP 切换到 FBL 模式
     return check_no_response(resp, log, "No response expected (suppress bit set)")
 
 
