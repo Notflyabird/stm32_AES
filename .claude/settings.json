@@ -18,7 +18,12 @@
       "Read(//d/03_project/stm32/f103/01_code/FBL/stm32_Bootload_UDS/doc/TI_MSPM0_Reprog_Script/TI_MSPM0_Reprog_Script/**)",
       "Bash(cat ~/.bashrc 2>/dev/null || echo \"No .bashrc found\")",
       "Read(//c/Users/zhoul/**)",
-      "Bash(PYTHONIOENCODING=utf-8 python verify_s19.py)"
+      "Bash(PYTHONIOENCODING=utf-8 python verify_s19.py)",
+      "Bash(PYTHONIOENCODING=utf-8 /c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe -c \"import importlib; importlib.import_module\\('Reprogramming_CAN'\\); print\\('import OK'\\)\")",
+      "Bash(grep -n \"WindowsApps\\\\|PATH\" /etc/profile 2>/dev/null | head -20)",
+      "Read(//etc/**)",
+      "Bash(PYTHONIOENCODING=utf-8 /c/Users/zhoul/AppData/Local/Programs/Python/Python39/python.exe \"d:/03_project/stm32/f103/01_code/FBL/stm32_Bootload_UDS/doc/01_PCAN_CAN/verify_s19.py\")",
+      "Bash(echo \"EXIT: $?\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\zhoul"

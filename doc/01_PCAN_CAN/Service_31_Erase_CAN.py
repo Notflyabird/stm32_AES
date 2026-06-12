@@ -25,7 +25,7 @@ from can_uds_log import (
     CanUdsLog, bytes_to_hex,
     check_positive_response,
 )
-from can_tp_config import APP_S19_FILE, P2_STAR_TIMEOUT_MS
+from can_tp_config import APP_FILE, P2_STAR_TIMEOUT_MS
 from s19_parser import parse_app_image
 
 
@@ -171,7 +171,7 @@ if __name__ == "__main__":
     tp = CanTpTransport(logger=log)
     try:
         tp.open()
-        hdr, blocks = parse_app_image(APP_S19_FILE)
+        hdr, blocks = parse_app_image(APP_FILE)
         log.info(f"S19: {hdr}")
         log.info(f"Erase regions: {hdr.erase_regions}")
 

@@ -4,7 +4,7 @@ CAN TP Flash Configuration
 ==========================
 Project : STM32 FBL UDS Reprogramming (CAN)
 Hardware: PCAN-USB (or PCAN-USB Pro FD) – PEAK System
-APP     : APP_files/a.s19  (Motorola S-record, no compression)
+APP     : APP_files/a.hex  (Intel HEX, no compression)
 
 Author  : zlc
 Date    : 2026-06-12
@@ -66,7 +66,7 @@ SA_SEND_KEY_LEVEL   = 0x02          # Key send sub-function
 # APP Binary (S19)
 # --------------------------------------------------------------------------
 _SCRIPT_DIR          = os.path.dirname(os.path.abspath(__file__))
-APP_S19_FILE         = os.path.join(_SCRIPT_DIR, "APP_files", "a.s19")
+APP_FILE             = os.path.join(_SCRIPT_DIR, "APP_files", "a.hex")
 
 # --------------------------------------------------------------------------
 # Result / Log Output

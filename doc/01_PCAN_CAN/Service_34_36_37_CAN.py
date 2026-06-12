@@ -24,7 +24,7 @@ import time
 from can_tp_transport import CanTpTransport
 from can_uds_log import CanUdsLog, bytes_to_hex
 from s19_parser import parse_app_image, S19DataBlock, S19Header
-from can_tp_config import APP_S19_FILE
+from can_tp_config import APP_FILE
 
 from Service_34_CAN import service_34_request_download
 from Service_36_CAN import service_36_transfer_data
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     tp = CanTpTransport(logger=log)
     try:
         tp.open()
-        hdr, blocks = parse_app_image(APP_S19_FILE)
+        hdr, blocks = parse_app_image(APP_FILE)
         log.info(f"S19: {hdr}")
         log.info(f"Data blocks: {len(blocks)}")
 

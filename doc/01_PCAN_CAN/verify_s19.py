@@ -23,7 +23,7 @@ from Service_31_Erase_CAN import crc16_ccitt
 
 
 def main():
-    s19_path = os.path.join(os.path.dirname(__file__), "APP_files", "a.s19")
+    s19_path = os.path.join(os.path.dirname(__file__), "APP_files", "a.hex")
     if not os.path.exists(s19_path):
         print(f"ERROR: S19 file not found: {s19_path}")
         sys.exit(1)

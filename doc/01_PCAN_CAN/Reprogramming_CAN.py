@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-CAN ECU Reprogramming – S19 APP (STM32 F103 FBL UDS)
-=======================================================
+CAN ECU Reprogramming – APP (STM32 F103 FBL UDS)
+===================================================
 Project : STM32 F103 Bootloader UDS
 Hardware: PCAN-USB, CAN 2.0 @ 500 kbps
-APP     : APP_files/a.s19 (S-record, uncompressed)
+APP     : APP_files/a.hex (Intel HEX, uncompressed)
 
 CAN IDs:
   TX: 0x123  (tester → ECU, 物理请求)
@@ -28,7 +28,7 @@ Transport: ISO 15765-2 (ISO-TP) over CAN 2.0
 重要: 此 FBL 没有实现 0x0212 (CheckMemory), 不要调用!
 
 Usage:
-  python Reprogramming_CAN.py [--s19 APP_files/a.s19]
+  python Reprogramming_CAN.py [--app APP_files/a.hex]
 
 Author: zlc  2026-06-12
 """
@@ -38,9 +38,9 @@ import time
 import argparse
 
 from can_tp_transport import CanTpTransport
-from can_uds_log import CanUdsLog
+from can_uds_log import CanUdsLog, read_current_session
 from s19_parser import parse_app_image
-from can_tp_config import APP_S19_FILE
+from can_tp_config import APP_FILE
 
 # CAN Service modules
 from Service_10_CAN import service_10_extended_session, service_10_programming_session_suppress
@@ -55,23 +55,23 @@ from Service_34_36_37_CAN import download_vbf_block
 
 
 # --------------------------------------------------------------------------
-def run_reprogramming(s19_path: str, log: CanUdsLog, tp: CanTpTransport) -> bool:
+def run_reprogramming(app_path: str, log: CanUdsLog, tp: CanTpTransport) -> bool:
     """
-    执行完整的 CAN 刷写流程 (S19 无压缩).
+    执行完整的 CAN 刷写流程 (无压缩).
     所有步骤通过则返回 True.
     """
     log.info("=" * 60)
-    log.info("CAN ECU Reprogramming START (S19 / uncompressed)")
-    log.info(f"APP file : {s19_path}")
+    log.info("CAN ECU Reprogramming START (uncompressed)")
+    log.info(f"APP file : {app_path}")
     log.info(f"CAN route: TX=0x{tp.tx_id:X} RX=0x{tp.rx_id:X}")
     log.info("=" * 60)
 
     # ---------------------------------------------------------------
-    # 0. 解析 S19 APP 文件
+    # 0. 解析 APP 文件
     # ---------------------------------------------------------------
-    log.start_test("Parse S19 APP file")
-    hdr, blocks = parse_app_image(s19_path)
-    log.info(f"S19 parsed OK")
+    log.start_test("Parse APP file")
+    hdr, blocks = parse_app_image(app_path)
+    log.info(f"APP parsed OK")
     log.info(f"  first_address  : 0x{hdr.first_address:08X}")
     log.info(f"  total_size     : 0x{hdr.total_size:08X} ({hdr.total_size} bytes)")
     log.info(f"  data_format    : 0x{hdr.data_format_identifier:02X} (uncompressed)")
@@ -97,7 +97,13 @@ def run_reprogramming(s19_path: str, log: CanUdsLog, tp: CanTpTransport) -> bool
     time.sleep(1.0)
 
     # ---------------------------------------------------------------
-    # 2. Security Access (27 01/02)
+    # [FBL] Read current session – 确认 ECU 已进入 FBL 模式
+    # ---------------------------------------------------------------
+    log.info("--- Read Session (in FBL) ---")
+    read_current_session(tp, log)
+
+    # ---------------------------------------------------------------
+    # 3. Security Access (27 01/02)
     # ---------------------------------------------------------------
     log.info("--- 3/8 Security Access ---")
     if not service_27_security_access(tp, log):
@@ -148,10 +154,19 @@ def run_reprogramming(s19_path: str, log: CanUdsLog, tp: CanTpTransport) -> bool
         return False
 
     # ---------------------------------------------------------------
-    # 7. ECU Reset – 0x11 01
+    # 8. ECU Reset – 0x11 01
     # ---------------------------------------------------------------
     log.info("--- 8/8 ECU Reset ---")
     service_11_hard_reset(tp, log)
+
+    # ---------------------------------------------------------------
+    # [APP] Read current session – 等待 APP 启动后读取会话
+    # ---------------------------------------------------------------
+    log.info("等待 APP 启动...")
+    time.sleep(3.0)
+
+    log.info("--- Read Session (in APP) ---")
+    read_current_session(tp, log)
 
     log.info("=" * 60)
     log.info("CAN ECU Reprogramming DONE")
@@ -163,8 +178,8 @@ def run_reprogramming(s19_path: str, log: CanUdsLog, tp: CanTpTransport) -> bool
 def main():
     parser = argparse.ArgumentParser(
         description="CAN ECU Reprogramming via PCAN – S19 APP (STM32 F103 FBL UDS)")
-    parser.add_argument("--s19", dest="s19_path", default=APP_S19_FILE,
-                        help=f"S19 APP file path (default: {APP_S19_FILE})")
+    parser.add_argument("--app", dest="app_path", default=APP_FILE,
+                        help=f"APP file path (default: {APP_FILE})")
     args = parser.parse_args()
 
     log = CanUdsLog("Reprogramming_CAN")
@@ -172,7 +187,7 @@ def main():
 
     try:
         tp.open()
-        success = run_reprogramming(args.s19_path, log, tp)
+        success = run_reprogramming(args.app_path, log, tp)
     except KeyboardInterrupt:
         log.error("Interrupted by user")
         success = False

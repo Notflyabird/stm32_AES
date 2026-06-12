@@ -72,12 +72,12 @@ if __name__ == "__main__":
         from Service_27_CAN import service_27_security_access
         from Service_34_CAN import service_34_request_download
         from s19_parser import parse_app_image
-        from can_tp_config import APP_S19_FILE
+        from can_tp_config import APP_FILE
 
         service_10_programming_session(tp, log)
         service_27_security_access(tp, log)
 
-        hdr, blocks = parse_app_image(APP_S19_FILE)
+        hdr, blocks = parse_app_image(APP_FILE)
         blk = blocks[0]
         max_block = service_34_request_download(tp, log,
                                                   data_format=hdr.data_format_identifier,

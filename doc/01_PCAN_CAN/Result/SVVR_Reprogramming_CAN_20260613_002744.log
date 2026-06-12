@@ -1,0 +1,72 @@
+0:00:00.014 -                     :     - INFO  : Tester initialization...
+0:00:00.014 -                     :     - INFO  : ========================================================================
+0:00:00.014 -                     :     - INFO  : Log started Sat 13. Jun 2026 00:27:44
+0:00:00.014 -                     :     - INFO  : ========================================================================
+0:00:00.014 -                     :     - INFO  : Script : Reprogramming_CAN
+0:00:00.014 -                     :     - INFO  : Log    : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\Result\SVVR_Reprogramming_CAN_20260613_002744.log
+0:00:00.108 -                     :     - INFO  : Opening PCAN [CAN 2.0] channel=PCAN_USBBUS1 bitrate=500000 tx_id=0x123 rx_id=0x122
+0:00:00.296 -                     :     - INFO  : CAN TP transport open  (tx=0x123 rx=0x122 CAN 2.0)
+0:00:00.296 -                     :     - INFO  : ============================================================
+0:00:00.296 -                     :     - INFO  : CAN ECU Reprogramming START (uncompressed)
+0:00:00.296 -                     :     - INFO  : APP file : D:\03_project\stm32\f103\01_code\FBL\stm32_Bootload_UDS\doc\01_PCAN_CAN\APP_files\a.hex
+0:00:00.296 -                     :     - INFO  : CAN route: TX=0x123 RX=0x122
+0:00:00.296 -                     :     - INFO  : ============================================================
+0:00:00.296 -                     :     - INFO  : APP parsed OK
+0:00:00.296 -                     :     - INFO  :   first_address  : 0x0800C000
+0:00:00.296 -                     :     - INFO  :   total_size     : 0x00014000 (81920 bytes)
+0:00:00.296 -                     :     - INFO  :   data_format    : 0x00 (uncompressed)
+0:00:00.296 -                     :     - INFO  :   erase region   : [('0x800a000', '0x16000')]
+0:00:00.296 -                     :     - INFO  :   data blocks    : 1
+0:00:00.296 -                     :     - INFO  :     S19DataBlock(address=0x0800C000, length=0x00014000)
+0:00:00.296 -                     :     - PASS  : S19 parse OK
+0:00:00.296 -                     :     - INFO  : --- 1/8 Entering Extended Session ---
+0:00:00.296 -                     :     - INFO  : Tx    123    02 10 03 AA AA AA AA AA  ........
+0:00:00.296 -                     :     - INFO  : ISO TP message (single frame): 021003AAAAAAAAAA
+0:00:00.296 -                     :     - INFO  : size: 0x2(2)
+0:00:00.296 -                     :     - INFO  : data: 10 03
+0:00:00.296 -                     :     - INFO  : Rx    122    06 50 03 00 32 01 90 AA  .P..2...
+0:00:00.296 -                     :     - INFO  : ISO TP message (single frame): 06500300320190AA
+0:00:00.296 -                     :     - INFO  : size: 0x6(6)
+0:00:00.296 -                     :     - INFO  : data: 50 03 00 32 01 90
+0:00:00.296 -                     :     - PASS  : ExtendedSession positive response | expected: 50 ... | received: 50 03 00 32 01 90
+0:00:00.389 -                     :     - INFO  : --- 2/8 Entering Programming Session (suppress ×2) ---
+0:00:00.389 -                     :     - INFO  : Tx    123    02 10 82 AA AA AA AA AA  ........
+0:00:00.389 -                     :     - INFO  : ISO TP message (single frame): 021082AAAAAAAAAA
+0:00:00.389 -                     :     - INFO  : size: 0x2(2)
+0:00:00.406 -                     :     - INFO  : data: 10 82
+0:00:00.562 -                     :     - INFO  : No response received (suppress positive response – expected)
+0:00:00.562 -                     :     - PASS  : No response expected (suppress bit set) | expected: (no response) | received: (empty)
+0:00:00.562 -                     :     - INFO  : Tx    123    02 10 82 AA AA AA AA AA  ........
+0:00:00.562 -                     :     - INFO  : ISO TP message (single frame): 021082AAAAAAAAAA
+0:00:00.562 -                     :     - INFO  : size: 0x2(2)
+0:00:00.562 -                     :     - INFO  : data: 10 82
+0:00:00.717 -                     :     - INFO  : No response received (suppress positive response – expected)
+0:00:00.717 -                     :     - PASS  : No response expected (suppress bit set) | expected: (no response) | received: (empty)
+0:00:00.717 -                     :     - INFO  : 等待 ECU 重启进入编程模式...
+0:00:01.717 -                     :     - INFO  : --- Read Session (in FBL) ---
+0:00:01.717 -                     :     - INFO  : Tx    123    03 22 F1 86 AA AA AA AA  ."......
+0:00:01.717 -                     :     - INFO  : ISO TP message (single frame): 0322F186AAAAAAAA
+0:00:01.717 -                     :     - INFO  : size: 0x3(3)
+0:00:01.717 -                     :     - INFO  : data: 22 F1 86
+0:00:01.717 -                     :     - INFO  : Rx    122    04 62 F1 86 01 AA AA AA  .b......
+0:00:01.717 -                     :     - INFO  : ISO TP message (single frame): 0462F18601AAAAAA
+0:00:01.717 -                     :     - INFO  : size: 0x4(4)
+0:00:01.717 -                     :     - INFO  : data: 62 F1 86 01
+0:00:01.717 -                     :     - INFO  : Current session: 0x01 (DefaultSession)
+0:00:01.717 -                     :     - PASS  : Read active session OK
+0:00:01.717 -                     :     - INFO  : --- 3/8 Security Access ---
+0:00:01.717 -                     :     - INFO  : Tx    123    02 27 01 AA AA AA AA AA  .'......
+0:00:01.717 -                     :     - INFO  : ISO TP message (single frame): 022701AAAAAAAAAA
+0:00:01.717 -                     :     - INFO  : size: 0x2(2)
+0:00:01.717 -                     :     - INFO  : data: 27 01
+0:00:01.717 -                     :     - INFO  : Rx    122    03 7F 27 7F AA AA AA AA  ..'.....
+0:00:01.717 -                     :     - INFO  : ISO TP message (single frame): 037F277FAAAAAAAA
+0:00:01.717 -                     :     - INFO  : size: 0x3(3)
+0:00:01.717 -                     :     - INFO  : data: 7F 27 7F
+0:00:01.717 -                     :     - FAIL  : RequestSeed positive response | expected: 67 ... | received: NegResp 7F 27 7F (unknown(0x7F))
+0:00:01.717 -                     :     - ERROR : Security access failed
+0:00:01.796 -                     :     - INFO  : CAN TP transport closed
+0:00:01.796 -                     :     - INFO  : ========================================================================
+0:00:01.796 -                     :     - INFO  : PASS=5  FAIL=2  TOTAL=7  FAILED
+0:00:01.796 -                     :     - INFO  : ========================================================================
+0:00:01.796 -                     :     - INFO  : PCANTester Destruction
