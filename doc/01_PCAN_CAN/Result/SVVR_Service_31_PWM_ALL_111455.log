@@ -1,0 +1,182 @@
+11:14:55.908 ========================================================================
+11:14:55.908 [START ] Script : Service_31_PWM_ALL
+11:14:55.909 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_31_PWM_ALL_111455.log
+11:14:55.909 ========================================================================
+11:14:56.209 [INFO  ] Opening PCAN bus [CAN-FD] channel=PCAN_USBBUS1 bitrate=500000 data_bitrate=5000000 tx_id=0x772 rx_id=0x77A
+11:14:56.666 [INFO  ] ISO-TP tx_data_length=DLC16 tx_data_min_length=DLC8 (max SF payload=14 bytes)
+11:14:56.668 [INFO  ] PCAN active mode: CAN-FD
+11:14:56.672 [INFO  ] --- Channel 1/28: P1.13 1000Hz 50% ---
+11:14:56.672 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 01 0D 03 E8 32
+11:14:56.682 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.682 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.682 [INFO  ]   P1.13           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.682 [INFO  ] --- Channel 2/28: P2.2 1000Hz 50% ---
+11:14:56.682 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 02 02 03 E8 32
+11:14:56.693 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.693 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.694 [INFO  ]   P2.2            1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.694 [INFO  ] --- Channel 3/28: P2.3 1000Hz 50% ---
+11:14:56.694 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 02 03 03 E8 32
+11:14:56.707 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.707 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.708 [INFO  ]   P2.3            1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.708 [INFO  ] --- Channel 4/28: P2.7 1000Hz 50% ---
+11:14:56.709 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 02 07 03 E8 32
+11:14:56.723 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.724 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.724 [INFO  ]   P2.7            1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.724 [INFO  ] --- Channel 5/28: P2.8 1000Hz 50% ---
+11:14:56.725 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 02 08 03 E8 32
+11:14:56.738 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.738 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.739 [INFO  ]   P2.8            1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.739 [INFO  ] --- Channel 6/28: P11.14 1000Hz 50% ---
+11:14:56.739 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0B 0E 03 E8 32
+11:14:56.754 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.754 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.755 [INFO  ]   P11.14          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.755 [INFO  ] --- Channel 7/28: P11.15 1000Hz 50% ---
+11:14:56.755 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0B 0F 03 E8 32
+11:14:56.768 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.769 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.769 [INFO  ]   P11.15          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.769 [INFO  ] --- Channel 8/28: P13.4 1000Hz 50% ---
+11:14:56.770 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 04 03 E8 32
+11:14:56.784 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.785 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.785 [INFO  ]   P13.4           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.785 [INFO  ] --- Channel 9/28: P13.6 1000Hz 50% ---
+11:14:56.786 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 06 03 E8 32
+11:14:56.799 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.799 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.800 [INFO  ]   P13.6           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.800 [INFO  ] --- Channel 10/28: P13.10 1000Hz 50% ---
+11:14:56.800 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 0A 03 E8 32
+11:14:56.813 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.813 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.813 [INFO  ]   P13.10          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.814 [INFO  ] --- Channel 11/28: P13.11 1000Hz 50% ---
+11:14:56.814 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 0B 03 E8 32
+11:14:56.823 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.823 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.824 [INFO  ]   P13.11          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.824 [INFO  ] --- Channel 12/28: P13.13 1000Hz 50% ---
+11:14:56.824 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 0D 03 E8 32
+11:14:56.838 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.839 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.839 [INFO  ]   P13.13          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.840 [INFO  ] --- Channel 13/28: P13.14 1000Hz 50% ---
+11:14:56.840 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 0E 03 E8 32
+11:14:56.849 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.849 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.849 [INFO  ]   P13.14          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.849 [INFO  ] --- Channel 14/28: P13.15 1000Hz 50% ---
+11:14:56.850 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0D 0F 03 E8 32
+11:14:56.865 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.865 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.865 [INFO  ]   P13.15          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.866 [INFO  ] --- Channel 15/28: P14.12 1000Hz 50% ---
+11:14:56.866 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0E 0C 03 E8 32
+11:14:56.878 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.910 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.911 [INFO  ]   P14.12          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.911 [INFO  ] --- Channel 16/28: P14.13 1000Hz 50% ---
+11:14:56.912 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0E 0D 03 E8 32
+11:14:56.923 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.924 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.924 [INFO  ]   P14.13          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.925 [INFO  ] --- Channel 17/28: P14.14 1000Hz 50% ---
+11:14:56.925 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0E 0E 03 E8 32
+11:14:56.937 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.937 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.938 [INFO  ]   P14.14          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.938 [INFO  ] --- Channel 18/28: P14.15 1000Hz 50% ---
+11:14:56.938 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 0E 0F 03 E8 32
+11:14:56.947 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.947 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.948 [INFO  ]   P14.15          1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.948 [INFO  ] --- Channel 19/28: P20.0 1000Hz 50% ---
+11:14:56.948 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 14 00 03 E8 32
+11:14:56.958 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.958 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.959 [INFO  ]   P20.0           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.959 [INFO  ] --- Channel 20/28: P22.8 1000Hz 50% ---
+11:14:56.959 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 16 08 03 E8 32
+11:14:56.973 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.974 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.974 [INFO  ]   P22.8           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.974 [INFO  ] --- Channel 21/28: P22.9 1000Hz 50% ---
+11:14:56.974 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 16 09 03 E8 32
+11:14:56.987 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:56.988 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:56.989 [INFO  ]   P22.9           1000 Hz   50%  →  PASS  (Config Success)
+11:14:56.989 [INFO  ] --- Channel 22/28: P22.10 1000Hz 50% ---
+11:14:56.989 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 16 0A 03 E8 32
+11:14:57.002 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.002 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.003 [INFO  ]   P22.10          1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.003 [INFO  ] --- Channel 23/28: P22.11 1000Hz 50% ---
+11:14:57.004 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 16 0B 03 E8 32
+11:14:57.017 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.018 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.018 [INFO  ]   P22.11          1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.018 [INFO  ] --- Channel 24/28: P25.0 1000Hz 50% ---
+11:14:57.018 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 19 00 03 E8 32
+11:14:57.027 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.027 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.028 [INFO  ]   P25.0           1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.028 [INFO  ] --- Channel 25/28: P25.1 1000Hz 50% ---
+11:14:57.028 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 19 01 03 E8 32
+11:14:57.038 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.039 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.039 [INFO  ]   P25.1           1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.040 [INFO  ] --- Channel 26/28: P25.2 1000Hz 50% ---
+11:14:57.041 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 19 02 03 E8 32
+11:14:57.053 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.053 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.054 [INFO  ]   P25.2           1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.054 [INFO  ] --- Channel 27/28: P25.9 1000Hz 50% ---
+11:14:57.054 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 19 09 03 E8 32
+11:14:57.067 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.067 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.068 [INFO  ]   P25.9           1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.068 [INFO  ] --- Channel 28/28: P31.6 1000Hz 50% ---
+11:14:57.068 [INFO  ] [TX CAN 0x772 RoutineControl PWM] 31 01 A0 45 01 01 1F 06 03 E8 32
+11:14:57.078 [INFO  ] [RX CAN 0x77A PWM Response] 71 01 A0 45 02 00 00
+11:14:57.078 [INFO  ]   RINF=0x02  RSTS=0x00 (Execution OK)
+11:14:57.078 [INFO  ]   P31.6           1000 Hz   50%  →  PASS  (Config Success)
+11:14:57.078 [INFO  ] ========================================================
+11:14:57.079 [INFO  ] PWM channel summary:
+11:14:57.079 [INFO  ] Channel       Freq(Hz)  Duty%  Result  Status
+11:14:57.079 [INFO  ] P1.13             1000     50  PASS    Config Success
+11:14:57.079 [INFO  ] P2.2              1000     50  PASS    Config Success
+11:14:57.079 [INFO  ] P2.3              1000     50  PASS    Config Success
+11:14:57.079 [INFO  ] P2.7              1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P2.8              1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P11.14            1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P11.15            1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P13.4             1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P13.6             1000     50  PASS    Config Success
+11:14:57.080 [INFO  ] P13.10            1000     50  PASS    Config Success
+11:14:57.081 [INFO  ] P13.11            1000     50  PASS    Config Success
+11:14:57.081 [INFO  ] P13.13            1000     50  PASS    Config Success
+11:14:57.082 [INFO  ] P13.14            1000     50  PASS    Config Success
+11:14:57.082 [INFO  ] P13.15            1000     50  PASS    Config Success
+11:14:57.082 [INFO  ] P14.12            1000     50  PASS    Config Success
+11:14:57.083 [INFO  ] P14.13            1000     50  PASS    Config Success
+11:14:57.083 [INFO  ] P14.14            1000     50  PASS    Config Success
+11:14:57.084 [INFO  ] P14.15            1000     50  PASS    Config Success
+11:14:57.084 [INFO  ] P20.0             1000     50  PASS    Config Success
+11:14:57.084 [INFO  ] P22.8             1000     50  PASS    Config Success
+11:14:57.084 [INFO  ] P22.9             1000     50  PASS    Config Success
+11:14:57.085 [INFO  ] P22.10            1000     50  PASS    Config Success
+11:14:57.085 [INFO  ] P22.11            1000     50  PASS    Config Success
+11:14:57.085 [INFO  ] P25.0             1000     50  PASS    Config Success
+11:14:57.085 [INFO  ] P25.1             1000     50  PASS    Config Success
+11:14:57.086 [INFO  ] P25.2             1000     50  PASS    Config Success
+11:14:57.086 [INFO  ] P25.9             1000     50  PASS    Config Success
+11:14:57.086 [INFO  ] P31.6             1000     50  PASS    Config Success
+11:14:57.086 [INFO  ] Total: 28/28 PASS
+11:14:57.258 ========================================================================
+11:14:57.259 [SUMRY ] PASS=0 FAIL=0 TOTAL=0 ALL PASS
+11:14:57.260 ========================================================================

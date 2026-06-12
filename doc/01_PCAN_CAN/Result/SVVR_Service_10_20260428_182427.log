@@ -1,0 +1,109 @@
+18:24:27.745 ========================================================================
+18:24:27.746 [START ] Script : Service_10
+18:24:27.746 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_10_20260428_182427.log
+18:24:27.746 ========================================================================
+18:24:27.753 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+18:24:27.753 [INFO  ] ============================================================
+18:24:27.753 [INFO  ] Service 0x10 DiagnosticSessionControl – Full Test
+18:24:27.756 [INFO  ] ============================================================
+18:24:27.756 ------------------------------------------------------------------------
+18:24:27.756 [STEP  ] 0x22 F1 86 – Read Active Diagnostic Session
+18:24:27.757 [TX ReadDataByIdentifier activeDiagnosticSession] 22 F1 86
+18:24:27.757 [TX SF ] 67 03 22 F1 86 FF FF FF
+18:24:27.788 [RX SF ] 67 04 62 F1 86 02 FF FF
+18:24:27.788 [RX    ] 62 F1 86 02
+18:24:27.788 [INFO  ] Current session: 0x02 (ProgrammingSession)
+18:24:27.788 [PASS  ] Read active session OK
+18:24:27.789 [INFO  ] --- Positive Tests: Session Switching ---
+18:24:27.789 ------------------------------------------------------------------------
+18:24:27.789 [STEP  ] 0x10 02 – Switch to Programming Session
+18:24:27.789 [TX DiagnosticSessionControl programmingSession] 10 02
+18:24:27.790 [TX SF ] 67 02 10 02 FF FF FF FF
+18:24:27.820 [RX SF ] 67 06 50 02 00 32 01 F4
+18:24:27.821 [RX    ] 50 02 00 32 01 F4
+18:24:27.821 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+18:24:27.923 ------------------------------------------------------------------------
+18:24:27.923 [STEP  ] 0x10 01 – Switch to Default Session
+18:24:27.923 [TX DiagnosticSessionControl defaultSession] 10 01
+18:24:27.924 [TX SF ] 67 02 10 01 FF FF FF FF
+18:24:27.953 [RX SF ] 67 06 50 01 00 32 01 F4
+18:24:27.953 [RX    ] 50 01 00 32 01 F4
+18:24:27.953 [PASS  ] DefaultSession positive response | expected: 50 ... | received: 50 01 00 32 01 F4
+18:24:28.055 [INFO  ] --- Suppress Positive Response Tests ---
+18:24:28.055 ------------------------------------------------------------------------
+18:24:28.055 [STEP  ] 0x10 82 – Programming Session (suppress positive response)
+18:24:28.056 [TX DiagnosticSessionControl programmingSession suppressPosRsp] 10 82
+18:24:28.056 [TX SF ] 67 02 10 82 FF FF FF FF
+18:24:28.228 [INFO  ] No response received (suppress positive response – expected)
+18:24:28.228 [RX    ] (no response)
+18:24:28.228 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+18:24:28.330 ------------------------------------------------------------------------
+18:24:28.330 [STEP  ] 0x10 81 – Default Session (suppress positive response)
+18:24:28.331 [TX DiagnosticSessionControl defaultSession suppressPosRsp] 10 81
+18:24:28.331 [TX SF ] 67 02 10 81 FF FF FF FF
+18:24:28.523 [INFO  ] No response received (suppress positive response – expected)
+18:24:28.523 [RX    ] (no response)
+18:24:28.523 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+18:24:29.023 [INFO  ] --- Negative Tests: NRC 0x12 subFunctionNotSupported ---
+18:24:29.023 ------------------------------------------------------------------------
+18:24:29.023 [STEP  ] 0x10 00 – NRC 0x12 subFunctionNotSupported (sub-function 0x00)
+18:24:29.024 [TX DiagnosticSessionControl subFunction=0x00] 10 00
+18:24:29.025 [TX SF ] 67 02 10 00 FF FF FF FF
+18:24:29.057 [RX SF ] 67 03 7F 10 12 FF FF FF
+18:24:29.057 [RX    ] 7F 10 12
+18:24:29.057 [PASS  ] NRC 0x12 for sub-function 0x00 | expected: 7F 10 12 | received: 7F 10 12
+18:24:29.057 ------------------------------------------------------------------------
+18:24:29.057 [STEP  ] 0x10 03 – NRC 0x12 subFunctionNotSupported (extended session not supported in FBL)
+18:24:29.057 [TX DiagnosticSessionControl extendedSession (unsupported in FBL)] 10 03
+18:24:29.058 [TX SF ] 67 02 10 03 FF FF FF FF
+18:24:29.086 [RX SF ] 67 03 7F 10 12 FF FF FF
+18:24:29.086 [RX    ] 7F 10 12
+18:24:29.087 [PASS  ] NRC 0x12 for sub-function 0x03 (FBL) | expected: 7F 10 12 | received: 7F 10 12
+18:24:29.087 ------------------------------------------------------------------------
+18:24:29.087 [STEP  ] 0x10 04 – NRC 0x12 subFunctionNotSupported (sub-function 0x04)
+18:24:29.087 [TX DiagnosticSessionControl subFunction=0x04] 10 04
+18:24:29.088 [TX SF ] 67 02 10 04 FF FF FF FF
+18:24:29.118 [RX SF ] 67 03 7F 10 12 FF FF FF
+18:24:29.118 [RX    ] 7F 10 12
+18:24:29.118 [PASS  ] NRC 0x12 for sub-function 0x04 | expected: 7F 10 12 | received: 7F 10 12
+18:24:29.118 ------------------------------------------------------------------------
+18:24:29.119 [STEP  ] 0x10 FF – NRC 0x12 subFunctionNotSupported (sub-function 0xFF)
+18:24:29.119 [TX DiagnosticSessionControl subFunction=0xFF] 10 FF
+18:24:29.119 [TX SF ] 67 02 10 FF FF FF FF FF
+18:24:29.148 [RX SF ] 67 03 7F 10 12 FF FF FF
+18:24:29.148 [RX    ] 7F 10 12
+18:24:29.148 [PASS  ] NRC 0x12 for sub-function 0xFF | expected: 7F 10 12 | received: 7F 10 12
+18:24:29.148 [INFO  ] --- Negative Tests: NRC 0x13 incorrectMessageLength ---
+18:24:29.148 ------------------------------------------------------------------------
+18:24:29.149 [STEP  ] 0x10 – NRC 0x13 incorrectMessageLength (length < 2, SID only)
+18:24:29.149 [TX DiagnosticSessionControl length=1 (too short)] 10
+18:24:29.150 [TX SF ] 67 01 10 FF FF FF FF FF
+18:24:29.182 [RX SF ] 67 03 7F 10 13 FF FF FF
+18:24:29.182 [RX    ] 7F 10 13
+18:24:29.182 [PASS  ] NRC 0x13 for length=1 | expected: 7F 10 13 | received: 7F 10 13
+18:24:29.183 ------------------------------------------------------------------------
+18:24:29.183 [STEP  ] 0x10 01 00 – NRC 0x13 incorrectMessageLength (length > 2)
+18:24:29.183 [TX DiagnosticSessionControl length=3 (too long)] 10 01 00
+18:24:29.185 [TX SF ] 67 03 10 01 00 FF FF FF
+18:24:29.216 [RX SF ] 67 03 7F 10 13 FF FF FF
+18:24:29.217 [RX    ] 7F 10 13
+18:24:29.217 [PASS  ] NRC 0x13 for length=3 | expected: 7F 10 13 | received: 7F 10 13
+18:24:29.218 [INFO  ] --- Functional Addressing Tests (NAD=0x7E) – no response expected ---
+18:24:29.218 ------------------------------------------------------------------------
+18:24:29.218 [STEP  ] 0x10 02 [NAD=7E] – Functional Addressing: Programming Session (no response)
+18:24:29.218 [TX DiagnosticSessionControl programmingSession (NAD=0x7E)] 10 02
+18:24:29.219 [TX SF ] 7E 02 10 02 FF FF FF FF
+18:24:29.409 [INFO  ] No response received (suppress positive response – expected)
+18:24:29.409 [RX    ] (no response)
+18:24:29.409 [PASS  ] No response expected for functional programmingSession | expected: (no response) | received: (empty)
+18:24:29.510 ------------------------------------------------------------------------
+18:24:29.510 [STEP  ] 0x10 01 [NAD=7E] – Functional Addressing: Default Session (no response)
+18:24:29.510 [TX DiagnosticSessionControl defaultSession (NAD=0x7E)] 10 01
+18:24:29.511 [TX SF ] 7E 02 10 01 FF FF FF FF
+18:24:29.699 [INFO  ] No response received (suppress positive response – expected)
+18:24:29.699 [RX    ] (no response)
+18:24:29.700 [PASS  ] No response expected for functional defaultSession | expected: (no response) | received: (empty)
+18:24:30.200 [INFO  ] LIN TP transport closed
+18:24:30.202 ========================================================================
+18:24:30.202 [SUMRY ] PASS=13  FAIL=0  TOTAL=13  ALL PASS
+18:24:30.202 ========================================================================

@@ -1,0 +1,357 @@
+14:28:06.694 ========================================================================
+14:28:06.694 [START ] Script : Service_34
+14:28:06.694 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_34_20260509_142806.log
+14:28:06.695 ========================================================================
+14:28:06.699 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+14:28:06.705 [INFO  ] ============================================================
+14:28:06.705 [INFO  ] Service 0x34 RequestDownload – Full NRC Test
+14:28:06.706 [INFO  ] ============================================================
+14:28:06.707 [INFO  ] --- NRC 0x33: securityAccessDenied (no SA) ---
+14:28:06.707 ------------------------------------------------------------------------
+14:28:06.707 [STEP  ] 0x10 02 – Switch to Programming Session
+14:28:06.707 [TX DiagnosticSessionControl programmingSession] 10 02
+14:28:06.709 [TX SF ] 67 02 10 02 FF FF FF FF
+14:28:06.729 [RX SF ] 67 06 50 02 00 32 01 F4
+14:28:06.730 [RX    ] 50 02 00 32 01 F4
+14:28:06.730 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+14:28:06.731 ------------------------------------------------------------------------
+14:28:06.731 [STEP  ] 0x34 – NRC 0x33 securityAccessDenied (no SA)
+14:28:06.731 [TX RequestDownload (no security access)] 34 10 44 00 03 8B C0 00 00 00 32
+14:28:06.731 [TX FF ] 67 10 0B 34 10 44 00 03
+14:28:06.742 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:06.762 [RX SF ] 67 03 7F 34 33 FF FF FF
+14:28:06.762 [RX    ] 7F 34 33
+14:28:06.762 [PASS  ] NRC 0x33 securityAccessDenied | expected: 7F 34 33 | received: 7F 34 33
+14:28:06.763 [INFO  ] --- NRC 0x70: uploadDownloadNotAccepted (non-erased region) ---
+14:28:06.763 ------------------------------------------------------------------------
+14:28:06.763 [STEP  ] 0x10 02 – Switch to Programming Session
+14:28:06.763 [TX DiagnosticSessionControl programmingSession] 10 02
+14:28:06.763 [TX SF ] 67 02 10 02 FF FF FF FF
+14:28:06.786 [RX SF ] 67 06 50 02 00 32 01 F4
+14:28:06.786 [RX    ] 50 02 00 32 01 F4
+14:28:06.787 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+14:28:06.787 ------------------------------------------------------------------------
+14:28:06.787 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+14:28:06.788 [TX SecurityAccess requestSeed] 27 01
+14:28:06.788 [TX SF ] 67 02 27 01 FF FF FF FF
+14:28:06.809 [RX FF ] 67 10 12 67 01 F1 00 1B
+14:28:06.818 [RX CF1] 67 21 3C F3 40 57 C3 D7
+14:28:06.826 [RX CF2] 67 22 0F 9C 5D 04 2D 45
+14:28:06.836 [RX CF3] 67 23 4F FF FF FF FF FF
+14:28:06.836 [RX    ] 67 01 F1 00 1B 3C F3 40 57 C3 D7 0F 9C 5D 04 2D 45 4F
+14:28:06.837 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 F1 00 1B 3C F3 40 57 C3 D7 0F 9C 5D 04 2D 45 4F
+14:28:06.837 [INFO  ] Seed received: F1 00 1B 3C F3 40 57 C3 D7 0F 9C 5D 04 2D 45 4F
+14:28:06.837 ------------------------------------------------------------------------
+14:28:06.837 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+14:28:06.902 [TX SecurityAccess sendKey] 27 02 88 C1 0E 92 92 3E 6B 07 4F 45 AF 0A 96 FF 57 05
+14:28:06.903 [TX FF ] 67 10 12 27 02 88 C1 0E
+14:28:06.914 [TX CF1] 67 21 92 92 3E 6B 07 4F
+14:28:06.924 [TX CF2] 67 22 45 AF 0A 96 FF 57
+14:28:06.936 [TX CF3] 67 23 05 FF FF FF FF FF
+14:28:06.956 [RX SF ] 67 02 67 02 FF FF FF FF
+14:28:06.957 [RX    ] 67 02
+14:28:06.957 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+14:28:06.957 ------------------------------------------------------------------------
+14:28:06.958 [STEP  ] 0x34 – NRC 0x70 uploadDownloadNotAccepted (non-erased region)
+14:28:06.958 [TX RequestDownload to non-erased region] 34 10 44 00 03 8B C0 00 00 00 32
+14:28:06.959 [TX FF ] 67 10 0B 34 10 44 00 03
+14:28:06.969 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:06.990 [RX SF ] 67 03 7F 34 70 FF FF FF
+14:28:06.990 [RX    ] 7F 34 70
+14:28:06.991 [PASS  ] NRC 0x70 uploadDownloadNotAccepted (non-erased) | expected: 7F 34 70 | received: 7F 34 70
+14:28:06.991 [INFO  ] --- NRC 0x13: incorrectMessageLength ---
+14:28:06.992 ------------------------------------------------------------------------
+14:28:06.992 [STEP  ] 0x10 02 – Switch to Programming Session
+14:28:06.992 [TX DiagnosticSessionControl programmingSession] 10 02
+14:28:06.993 [TX SF ] 67 02 10 02 FF FF FF FF
+14:28:07.014 [RX SF ] 67 06 50 02 00 32 01 F4
+14:28:07.014 [RX    ] 50 02 00 32 01 F4
+14:28:07.014 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+14:28:07.015 ------------------------------------------------------------------------
+14:28:07.015 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+14:28:07.015 [TX SecurityAccess requestSeed] 27 01
+14:28:07.015 [TX SF ] 67 02 27 01 FF FF FF FF
+14:28:07.035 [RX FF ] 67 10 12 67 01 8F E9 B9
+14:28:07.044 [RX CF1] 67 21 B6 4B 55 72 E5 06
+14:28:07.053 [RX CF2] 67 22 A6 44 4B 24 A1 F6
+14:28:07.062 [RX CF3] 67 23 30 FF FF FF FF FF
+14:28:07.062 [RX    ] 67 01 8F E9 B9 B6 4B 55 72 E5 06 A6 44 4B 24 A1 F6 30
+14:28:07.063 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 8F E9 B9 B6 4B 55 72 E5 06 A6 44 4B 24 A1 F6 30
+14:28:07.063 [INFO  ] Seed received: 8F E9 B9 B6 4B 55 72 E5 06 A6 44 4B 24 A1 F6 30
+14:28:07.063 ------------------------------------------------------------------------
+14:28:07.063 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+14:28:07.063 [TX SecurityAccess sendKey] 27 02 DA 8B 61 AA 6C 30 DC 1B 38 1D FE B8 19 50 0C 6D
+14:28:07.064 [TX FF ] 67 10 12 27 02 DA 8B 61
+14:28:07.075 [TX CF1] 67 21 AA 6C 30 DC 1B 38
+14:28:07.085 [TX CF2] 67 22 1D FE B8 19 50 0C
+14:28:07.097 [TX CF3] 67 23 6D FF FF FF FF FF
+14:28:07.115 [RX SF ] 67 02 67 02 FF FF FF FF
+14:28:07.115 [RX    ] 67 02
+14:28:07.116 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+14:28:07.116 ------------------------------------------------------------------------
+14:28:07.116 [STEP  ] 0x31 01 FF00 – EraseMemory @ 0x0000C000 len=0x0002D000
+14:28:07.117 [TX RoutineControl EraseMemory] 31 01 FF 00 00 00 C0 00 00 02 D0 00
+14:28:07.117 [TX FF ] 67 10 0C 31 01 FF 00 00
+14:28:07.127 [TX CF1] 67 21 00 C0 00 00 02 D0
+14:28:07.138 [TX CF2] 67 22 00 FF FF FF FF FF
+14:28:07.157 [RX SF ] 67 03 7F 31 78 FF FF FF
+14:28:07.158 [INFO  ] NRC 0x78 – ResponsePending, waiting P2*...
+14:28:07.168 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.179 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.189 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.199 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.208 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.217 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.226 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.236 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.245 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.255 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.266 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.274 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.284 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.293 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.303 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.313 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.324 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.333 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.344 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.355 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.366 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.374 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.384 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.393 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.401 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.410 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.419 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.429 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.438 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.447 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.459 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.468 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.478 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.486 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.496 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.505 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.514 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.522 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.531 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.541 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.550 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.560 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.569 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.578 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.586 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.596 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.605 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.617 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.626 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.635 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.644 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.655 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.664 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.673 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.683 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.693 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.702 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.714 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.722 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.734 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.743 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.754 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.763 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.772 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.781 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.791 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.799 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.810 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.819 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.828 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.837 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.846 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.856 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.866 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.875 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.887 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:07.895 [RX SF (after NRC78)] 67 05 71 01 FF 00 10 FF
+14:28:07.895 [RX    ] 71 01 FF 00 10
+14:28:07.896 [PASS  ] EraseMemory positive response | expected: 71 ... | received: 71 01 FF 00 10
+14:28:07.896 [INFO  ] Erase routine status: 0x10
+14:28:07.896 ------------------------------------------------------------------------
+14:28:07.897 [STEP  ] 0x34 – NRC 0x13 incorrectMessageLength (2 bytes, too short)
+14:28:07.897 [TX RequestDownload length=2 (too short)] 34 10
+14:28:07.897 [TX SF ] 67 02 34 10 FF FF FF FF
+14:28:07.918 [RX SF ] 67 03 7F 34 13 FF FF FF
+14:28:07.919 [RX    ] 7F 34 13
+14:28:07.919 [PASS  ] NRC 0x13 for length=2 | expected: 7F 34 13 | received: 7F 34 13
+14:28:07.919 ------------------------------------------------------------------------
+14:28:07.920 [STEP  ] 0x34 – NRC 0x13 incorrectMessageLength (10 bytes, 1 byte short)
+14:28:07.920 [TX RequestDownload length=10 (too short)] 34 10 44 00 03 8B C0 00 00 00
+14:28:07.921 [TX FF ] 67 10 0A 34 10 44 00 03
+14:28:07.933 [TX CF1] 67 21 8B C0 00 00 00 FF
+14:28:07.955 [RX SF ] 67 03 7F 34 13 FF FF FF
+14:28:07.956 [RX    ] 7F 34 13
+14:28:07.957 [PASS  ] NRC 0x13 for length=10 | expected: 7F 34 13 | received: 7F 34 13
+14:28:07.957 [INFO  ] --- NRC 0x31: requestOutOfRange ---
+14:28:07.957 ------------------------------------------------------------------------
+14:28:07.957 [STEP  ] 0x34 – NRC 0x31 requestOutOfRange (invalid addrLenFmt 0x02)
+14:28:07.958 [TX RequestDownload invalid addrLenFmt=0x02] 34 10 02 00 03 8B C0 00 00 00 32
+14:28:07.958 [TX FF ] 67 10 0B 34 10 02 00 03
+14:28:07.968 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:07.988 [RX SF ] 67 03 7F 34 31 FF FF FF
+14:28:07.989 [RX    ] 7F 34 31
+14:28:07.989 [PASS  ] NRC 0x31 for invalid addrLenFmt 0x02 | expected: 7F 34 31 | received: 7F 34 31
+14:28:07.989 ------------------------------------------------------------------------
+14:28:07.990 [STEP  ] 0x34 – NRC 0x31 requestOutOfRange (address 0xFFFFFF00 out of range)
+14:28:07.990 [TX RequestDownload out-of-range address 0xFFFFFF00] 34 10 44 FF FF FF 00 00 00 00 60
+14:28:07.991 [TX FF ] 67 10 0B 34 10 44 FF FF
+14:28:08.001 [TX CF1] 67 21 FF 00 00 00 00 60
+14:28:08.023 [RX SF ] 67 03 7F 34 31 FF FF FF
+14:28:08.023 [RX    ] 7F 34 31
+14:28:08.024 [PASS  ] NRC 0x31 for out-of-range address 0xFFFFFF00 | expected: 7F 34 31 | received: 7F 34 31
+14:28:08.024 [INFO  ] --- NRC 0x22: conditionsNotCorrect (re-enter during transfer) ---
+14:28:08.024 ------------------------------------------------------------------------
+14:28:08.024 [STEP  ] 0x34 – NRC 0x22 conditionsNotCorrect (34→36→34 without TransferExit)
+14:28:08.025 [TX RequestDownload (step 1)] 34 10 44 00 03 8B C0 00 00 00 32
+14:28:08.025 [TX FF ] 67 10 0B 34 10 44 00 03
+14:28:08.036 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:08.057 [RX SF ] 67 04 74 20 07 FA FF FF
+14:28:08.057 [RX    ] 74 20 07 FA
+14:28:08.058 [TX TransferData block=1 (dummy, step 2)] 36 01 FF
+14:28:08.058 [TX SF ] 67 03 36 01 FF FF FF FF
+14:28:08.078 [RX SF ] 67 02 76 01 FF FF FF FF
+14:28:08.079 [RX    ] 76 01
+14:28:08.080 [TX RequestDownload (step 3, re-enter → NRC 0x22)] 34 10 44 00 03 8B C0 00 00 00 32
+14:28:08.081 [TX FF ] 67 10 0B 34 10 44 00 03
+14:28:08.091 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:08.111 [RX SF ] 67 03 7F 34 22 FF FF FF
+14:28:08.111 [RX    ] 7F 34 22
+14:28:08.112 [PASS  ] NRC 0x22 conditionsNotCorrect (re-enter during transfer) | expected: 7F 34 22 | received: 7F 34 22
+14:28:08.112 [INFO  ] --- Positive Test: RequestDownload (block 1 only) ---
+14:28:08.112 ------------------------------------------------------------------------
+14:28:08.113 [STEP  ] 0x10 02 – Switch to Programming Session
+14:28:08.113 [TX DiagnosticSessionControl programmingSession] 10 02
+14:28:08.114 [TX SF ] 67 02 10 02 FF FF FF FF
+14:28:08.134 [RX SF ] 67 06 50 02 00 32 01 F4
+14:28:08.135 [RX    ] 50 02 00 32 01 F4
+14:28:08.135 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+14:28:08.135 ------------------------------------------------------------------------
+14:28:08.135 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+14:28:08.136 [TX SecurityAccess requestSeed] 27 01
+14:28:08.136 [TX SF ] 67 02 27 01 FF FF FF FF
+14:28:08.155 [RX FF ] 67 10 12 67 01 F5 25 7B
+14:28:08.164 [RX CF1] 67 21 7E 17 0A 87 5D B5
+14:28:08.174 [RX CF2] 67 22 AA 80 3B 7E 36 E6
+14:28:08.183 [RX CF3] 67 23 EB FF FF FF FF FF
+14:28:08.184 [RX    ] 67 01 F5 25 7B 7E 17 0A 87 5D B5 AA 80 3B 7E 36 E6 EB
+14:28:08.184 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 F5 25 7B 7E 17 0A 87 5D B5 AA 80 3B 7E 36 E6 EB
+14:28:08.184 [INFO  ] Seed received: F5 25 7B 7E 17 0A 87 5D B5 AA 80 3B 7E 36 E6 EB
+14:28:08.184 ------------------------------------------------------------------------
+14:28:08.185 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+14:28:08.185 [TX SecurityAccess sendKey] 27 02 3D 83 47 07 E0 60 14 73 CC 45 C8 0D 26 C3 5F 6B
+14:28:08.186 [TX FF ] 67 10 12 27 02 3D 83 47
+14:28:08.198 [TX CF1] 67 21 07 E0 60 14 73 CC
+14:28:08.209 [TX CF2] 67 22 45 C8 0D 26 C3 5F
+14:28:08.220 [TX CF3] 67 23 6B FF FF FF FF FF
+14:28:08.240 [RX SF ] 67 02 67 02 FF FF FF FF
+14:28:08.241 [RX    ] 67 02
+14:28:08.241 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+14:28:08.242 ------------------------------------------------------------------------
+14:28:08.242 [STEP  ] 0x31 01 FF00 – EraseMemory @ 0x0000C000 len=0x0002D000
+14:28:08.242 [TX RoutineControl EraseMemory] 31 01 FF 00 00 00 C0 00 00 02 D0 00
+14:28:08.243 [TX FF ] 67 10 0C 31 01 FF 00 00
+14:28:08.254 [TX CF1] 67 21 00 C0 00 00 02 D0
+14:28:08.266 [TX CF2] 67 22 00 FF FF FF FF FF
+14:28:08.286 [RX SF ] 67 03 7F 31 78 FF FF FF
+14:28:08.286 [INFO  ] NRC 0x78 – ResponsePending, waiting P2*...
+14:28:08.296 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.305 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.316 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.326 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.335 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.345 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.355 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.365 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.374 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.383 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.393 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.401 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.412 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.422 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.430 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.441 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.449 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.459 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.469 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.478 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.489 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.499 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.510 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.519 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.529 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.537 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.549 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.560 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.570 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.579 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.588 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.597 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.607 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.617 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.627 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.638 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.649 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.660 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.669 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.680 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.690 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.700 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.709 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.719 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.730 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.740 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.750 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.761 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.771 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.782 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.792 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.802 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.812 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.820 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.828 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.839 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.849 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.859 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.867 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.875 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.885 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.894 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.903 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.911 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.920 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.930 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.940 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.950 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.958 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.969 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.978 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.988 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:08.999 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:09.009 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:09.017 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+14:28:09.026 [RX SF (after NRC78)] 67 05 71 01 FF 00 10 FF
+14:28:09.027 [RX    ] 71 01 FF 00 10
+14:28:09.027 [PASS  ] EraseMemory positive response | expected: 71 ... | received: 71 01 FF 00 10
+14:28:09.027 [INFO  ] Erase routine status: 0x10
+14:28:09.027 ------------------------------------------------------------------------
+14:28:09.029 [STEP  ] 0x34 – RequestDownload  addr=0x00038BC0  len=0x00000032  fmt=0x10
+14:28:09.029 [TX RequestDownload] 34 10 44 00 03 8B C0 00 00 00 32
+14:28:09.030 [TX FF ] 67 10 0B 34 10 44 00 03
+14:28:09.040 [TX CF1] 67 21 8B C0 00 00 00 32
+14:28:09.060 [RX SF ] 67 04 74 20 07 FA FF FF
+14:28:09.060 [RX    ] 74 20 07 FA
+14:28:09.061 [PASS  ] RequestDownload positive response | expected: 74 ... | received: 74 20 07 FA
+14:28:09.061 [INFO  ] ECU max block size: 0x7FA (2042) bytes
+14:28:09.062 [INFO  ] LIN TP transport closed
+14:28:09.062 ========================================================================
+14:28:09.063 [SUMRY ] PASS=20  FAIL=0  TOTAL=20  ALL PASS
+14:28:09.063 ========================================================================

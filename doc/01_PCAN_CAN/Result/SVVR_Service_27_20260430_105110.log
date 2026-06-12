@@ -1,0 +1,356 @@
+10:51:10.961 ========================================================================
+10:51:10.963 [START ] Script : Service_27
+10:51:10.964 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_27_20260430_105110.log
+10:51:10.964 ========================================================================
+10:51:10.982 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+10:51:11.041 [INFO  ] ============================================================
+10:51:11.043 [INFO  ] Service 0x27 SecurityAccess – Full Test
+10:51:11.044 [INFO  ] ============================================================
+10:51:11.046 ------------------------------------------------------------------------
+10:51:11.046 [STEP  ] 0x22 F1 86 – Read Active Diagnostic Session
+10:51:11.048 [TX ReadDataByIdentifier activeDiagnosticSession] 22 F1 86
+10:51:11.049 [TX SF ] 67 03 22 F1 86 FF FF FF
+10:51:11.079 [RX SF ] 67 04 62 F1 86 02 FF FF
+10:51:11.080 [RX    ] 62 F1 86 02
+10:51:11.081 [INFO  ] Current session: 0x02 (ProgrammingSession)
+10:51:11.081 [PASS  ] Read active session OK
+10:51:11.082 [INFO  ] --- Setup: Enter Programming Session ---
+10:51:11.083 ------------------------------------------------------------------------
+10:51:11.083 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:11.084 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:11.085 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:11.116 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:11.117 [RX    ] 50 02 00 32 01 F4
+10:51:11.118 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:11.220 [INFO  ] --- [P-01/P-02] Positive Test: Seed-Key Security Access ---
+10:51:11.220 ------------------------------------------------------------------------
+10:51:11.221 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+10:51:11.222 [TX SecurityAccess requestSeed] 27 01
+10:51:11.223 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:11.253 [RX FF ] 67 10 12 67 01 20 A8 D2
+10:51:11.263 [RX CF1] 67 21 20 CB 5B F7 D0 EC
+10:51:11.272 [RX CF2] 67 22 77 B9 55 EE 13 2E
+10:51:11.281 [RX CF3] 67 23 0C FF FF FF FF FF
+10:51:11.281 [RX    ] 67 01 20 A8 D2 20 CB 5B F7 D0 EC 77 B9 55 EE 13 2E 0C
+10:51:11.282 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 20 A8 D2 20 CB 5B F7 D0 EC 77 B9 55 EE 13 2E 0C
+10:51:11.282 [INFO  ] Seed received: 20 A8 D2 20 CB 5B F7 D0 EC 77 B9 55 EE 13 2E 0C
+10:51:11.283 ------------------------------------------------------------------------
+10:51:11.283 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+10:51:11.504 [TX SecurityAccess sendKey] 27 02 E0 D0 11 20 6A 95 CD 56 8B 77 C8 85 F3 84 6A EA
+10:51:11.506 [TX FF ] 67 10 12 27 02 E0 D0 11
+10:51:11.526 [TX CF1] 67 21 20 6A 95 CD 56 8B
+10:51:11.549 [TX CF2] 67 22 77 C8 85 F3 84 6A
+10:51:11.571 [TX CF3] 67 23 EA FF FF FF FF FF
+10:51:11.601 [RX SF ] 67 02 67 02 FF FF FF FF
+10:51:11.602 [RX    ] 67 02
+10:51:11.603 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+10:51:11.604 [INFO  ] --- [N12] Negative Tests: NRC 0x12 subFunctionNotSupported ---
+10:51:11.604 ------------------------------------------------------------------------
+10:51:11.605 [STEP  ] 0x27 00 – NRC 0x12 subFunctionNotSupported (sub-function 0x00)
+10:51:11.605 [TX SecurityAccess subFunction=0x00] 27 00
+10:51:11.606 [TX SF ] 67 02 27 00 FF FF FF FF
+10:51:11.636 [RX SF ] 67 03 7F 27 12 FF FF FF
+10:51:11.636 [RX    ] 7F 27 12
+10:51:11.637 [PASS  ] NRC 0x12 for sub-function 0x00 | expected: 7F 27 12 | received: 7F 27 12
+10:51:11.638 ------------------------------------------------------------------------
+10:51:11.638 [STEP  ] 0x27 03 – NRC 0x12 subFunctionNotSupported (sub-function 0x03)
+10:51:11.639 [TX SecurityAccess subFunction=0x03] 27 03
+10:51:11.640 [TX SF ] 67 02 27 03 FF FF FF FF
+10:51:11.670 [RX SF ] 67 03 7F 27 12 FF FF FF
+10:51:11.671 [RX    ] 7F 27 12
+10:51:11.671 [PASS  ] NRC 0x12 for sub-function 0x03 | expected: 7F 27 12 | received: 7F 27 12
+10:51:11.671 [INFO  ] --- [N13-01/02] Negative Tests: NRC 0x13 incorrectMessageLength (cases 1 & 2) ---
+10:51:11.671 ------------------------------------------------------------------------
+10:51:11.672 [STEP  ] 0x27 – NRC 0x13 incorrectMessageLength (SID only, length=1)
+10:51:11.673 [TX SecurityAccess length=1 (too short)] 27
+10:51:11.674 [TX SF ] 67 01 27 FF FF FF FF FF
+10:51:11.704 [RX SF ] 67 03 7F 27 13 FF FF FF
+10:51:11.705 [RX    ] 7F 27 13
+10:51:11.706 [PASS  ] NRC 0x13 for length=1 | expected: 7F 27 13 | received: 7F 27 13
+10:51:11.707 ------------------------------------------------------------------------
+10:51:11.708 [STEP  ] 0x27 01 00 – NRC 0x13 incorrectMessageLength (seed request length > 2)
+10:51:11.708 [TX SecurityAccess seedRequest length=3 (too long)] 27 01 00
+10:51:11.709 [TX SF ] 67 03 27 01 00 FF FF FF
+10:51:11.740 [RX SF ] 67 03 7F 27 13 FF FF FF
+10:51:11.741 [RX    ] 7F 27 13
+10:51:11.742 [PASS  ] NRC 0x13 for 27 01 length=3 | expected: 7F 27 13 | received: 7F 27 13
+10:51:11.743 [INFO  ] --- [N24-01] Negative Tests: NRC 0x24 requestSequenceError ---
+10:51:11.743 ------------------------------------------------------------------------
+10:51:11.744 [STEP  ] 0x27 02 + key – NRC 0x24 requestSequenceError (key before seed)
+10:51:11.745 [TX SecurityAccess sendKey without prior seedRequest] 27 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+10:51:11.747 [TX FF ] 67 10 12 27 02 00 00 00
+10:51:11.769 [TX CF1] 67 21 00 00 00 00 00 00
+10:51:11.792 [TX CF2] 67 22 00 00 00 00 00 00
+10:51:11.814 [TX CF3] 67 23 00 FF FF FF FF FF
+10:51:11.844 [RX SF ] 67 03 7F 27 24 FF FF FF
+10:51:11.845 [RX    ] 7F 27 24
+10:51:11.846 [PASS  ] NRC 0x24 key before seed | expected: 7F 27 24 | received: 7F 27 24
+10:51:11.847 [INFO  ] --- Reset to locked state (11 01 hardReset, cnt=0) ---
+10:51:11.848 ------------------------------------------------------------------------
+10:51:11.849 [STEP  ] 0x11 01 – ECUReset hardReset
+10:51:11.849 [TX ECUReset hardReset] 11 01
+10:51:11.851 [TX SF ] 67 02 11 01 FF FF FF FF
+10:51:11.881 [RX SF ] 67 02 51 01 FF FF FF FF
+10:51:11.881 [RX    ] 51 01
+10:51:11.882 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+10:51:11.883 [INFO  ] Waiting 2.0s for ECU restart...
+10:51:13.885 ------------------------------------------------------------------------
+10:51:13.885 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:13.886 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:13.887 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:13.919 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:13.920 [RX    ] 50 02 00 32 01 F4
+10:51:13.920 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:14.021 [INFO  ] --- [N13-03] Negative Tests: NRC 0x13 key-length case (locked state) ---
+10:51:14.022 ------------------------------------------------------------------------
+10:51:14.023 [STEP  ] 0x27 01 – NRC 0x13 pre-step: request seed before wrong-length key
+10:51:14.023 [TX SecurityAccess requestSeed (pre-step for NRC 0x13 key-length test)] 27 01
+10:51:14.025 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:14.057 [RX FF ] 67 10 12 67 01 F5 3B FF
+10:51:14.066 [RX CF1] 67 21 71 75 56 48 59 16
+10:51:14.076 [RX CF2] 67 22 B9 AE 3C B0 06 FE
+10:51:14.088 [RX CF3] 67 23 85 FF FF FF FF FF
+10:51:14.089 [RX    ] 67 01 F5 3B FF 71 75 56 48 59 16 B9 AE 3C B0 06 FE 85
+10:51:14.089 [PASS  ] Seed received (NRC 0x13 pre-step) | expected: 67 ... | received: 67 01 F5 3B FF 71 75 56 48 59 16 B9 AE 3C B0 06 FE 85
+10:51:14.090 ------------------------------------------------------------------------
+10:51:14.091 [STEP  ] 0x27 02 00 – NRC 0x13 incorrectMessageLength (key length wrong, need 18 bytes)
+10:51:14.091 [TX SecurityAccess sendKey length=3 wrong (need 18)] 27 02 00
+10:51:14.093 [TX SF ] 67 03 27 02 00 FF FF FF
+10:51:14.123 [RX SF ] 67 03 7F 27 13 FF FF FF
+10:51:14.125 [RX    ] 7F 27 13
+10:51:14.126 [PASS  ] NRC 0x13 for 27 02 wrong key length | expected: 7F 27 13 | received: 7F 27 13
+10:51:14.127 [INFO  ] --- Reset to clear attempt counter before NRC 0x35 test (cnt=0) ---
+10:51:14.265 ------------------------------------------------------------------------
+10:51:14.266 [STEP  ] 0x11 01 – ECUReset hardReset
+10:51:14.266 [TX ECUReset hardReset] 11 01
+10:51:14.267 [TX SF ] 67 02 11 01 FF FF FF FF
+10:51:14.298 [RX SF ] 67 02 51 01 FF FF FF FF
+10:51:14.299 [RX    ] 51 01
+10:51:14.299 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+10:51:14.300 [INFO  ] Waiting 2.0s for ECU restart...
+10:51:16.301 ------------------------------------------------------------------------
+10:51:16.301 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:16.302 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:16.303 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:16.335 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:16.336 [RX    ] 50 02 00 32 01 F4
+10:51:16.336 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:16.436 [INFO  ] --- [N35-01] Negative Tests: NRC 0x35 invalidKey (attempt 1, cnt: 0→1) ---
+10:51:16.436 ------------------------------------------------------------------------
+10:51:16.437 [STEP  ] 0x27 01 – NRC 0x35 invalidKey: request seed
+10:51:16.437 [TX SecurityAccess requestSeed] 27 01
+10:51:16.439 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:16.468 [RX FF ] 67 10 12 67 01 1C BE 94
+10:51:16.479 [RX CF1] 67 21 50 37 7B 4F 32 A3
+10:51:16.492 [RX CF2] 67 22 D1 E4 67 4B B6 3A
+10:51:16.503 [RX CF3] 67 23 58 FF FF FF FF FF
+10:51:16.504 [RX    ] 67 01 1C BE 94 50 37 7B 4F 32 A3 D1 E4 67 4B B6 3A 58
+10:51:16.504 [PASS  ] Seed received for NRC 0x35 test | expected: 67 ... | received: 67 01 1C BE 94 50 37 7B 4F 32 A3 D1 E4 67 4B B6 3A 58
+10:51:16.505 ------------------------------------------------------------------------
+10:51:16.505 [STEP  ] 0x27 02 + wrong key – NRC 0x35 invalidKey
+10:51:16.506 [TX SecurityAccess sendKey wrong key (attempt 1)] 27 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+10:51:16.508 [TX FF ] 67 10 12 27 02 00 00 00
+10:51:16.530 [TX CF1] 67 21 00 00 00 00 00 00
+10:51:16.551 [TX CF2] 67 22 00 00 00 00 00 00
+10:51:16.572 [TX CF3] 67 23 00 FF FF FF FF FF
+10:51:16.604 [RX SF ] 67 03 7F 27 35 FF FF FF
+10:51:16.606 [RX    ] 7F 27 35
+10:51:16.607 [PASS  ] NRC 0x35 wrong key attempt 1 | expected: 7F 27 35 | received: 7F 27 35
+10:51:16.607 [INFO  ] --- [N36-01] Negative Tests: NRC 0x36 exceededNumberOfAttempts (attempt 2, T1 starts) ---
+10:51:16.608 ------------------------------------------------------------------------
+10:51:16.609 [STEP  ] 0x27 01 – NRC 0x36 exceededAttempts: request seed again
+10:51:16.609 [TX SecurityAccess requestSeed] 27 01
+10:51:16.610 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:16.643 [RX FF ] 67 10 12 67 01 CF 48 7E
+10:51:16.653 [RX CF1] 67 21 D0 9C BB 60 2A D5
+10:51:16.664 [RX CF2] 67 22 17 84 80 CA FB 5B
+10:51:16.674 [RX CF3] 67 23 52 FF FF FF FF FF
+10:51:16.674 [RX    ] 67 01 CF 48 7E D0 9C BB 60 2A D5 17 84 80 CA FB 5B 52
+10:51:16.675 [PASS  ] Seed received for NRC 0x36 test | expected: 67 ... | received: 67 01 CF 48 7E D0 9C BB 60 2A D5 17 84 80 CA FB 5B 52
+10:51:16.676 ------------------------------------------------------------------------
+10:51:16.676 [STEP  ] 0x27 02 + wrong key – NRC 0x36 exceededNumberOfAttempts
+10:51:16.677 [TX SecurityAccess sendKey wrong key (attempt 2 – triggers lockout)] 27 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+10:51:16.678 [TX FF ] 67 10 12 27 02 00 00 00
+10:51:16.698 [TX CF1] 67 21 00 00 00 00 00 00
+10:51:16.719 [TX CF2] 67 22 00 00 00 00 00 00
+10:51:16.741 [TX CF3] 67 23 00 FF FF FF FF FF
+10:51:16.773 [RX SF ] 67 03 7F 27 36 FF FF FF
+10:51:16.774 [RX    ] 7F 27 36
+10:51:16.775 [PASS  ] NRC 0x36 exceeded attempts | expected: 7F 27 36 | received: 7F 27 36
+10:51:16.775 [INFO  ] --- [N37-01] Negative Tests: NRC 0x37 requiredTimeDelayNotExpired (immediately after lockout) ---
+10:51:16.776 ------------------------------------------------------------------------
+10:51:16.777 [STEP  ] 0x27 01 – NRC 0x37 requiredTimeDelayNotExpired (after lockout)
+10:51:16.777 [TX SecurityAccess requestSeed during delay timer] 27 01
+10:51:16.778 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:16.806 [RX SF ] 67 03 7F 27 37 FF FF FF
+10:51:16.807 [RX    ] 7F 27 37
+10:51:16.808 [PASS  ] NRC 0x37 time delay not expired | expected: 7F 27 37 | received: 7F 27 37
+10:51:16.808 [INFO  ] --- [N37-02] NRC 0x37 NVM persistence: ECUReset after lockout → NRC 0x37 still returned ---
+10:51:16.808 ------------------------------------------------------------------------
+10:51:16.809 [STEP  ] 0x11 01 – ECUReset hardReset
+10:51:16.810 [TX ECUReset hardReset] 11 01
+10:51:16.811 [TX SF ] 67 02 11 01 FF FF FF FF
+10:51:16.841 [RX SF ] 67 02 51 01 FF FF FF FF
+10:51:16.841 [RX    ] 51 01
+10:51:16.842 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+10:51:16.842 [INFO  ] Waiting 2.0s for ECU restart...
+10:51:18.844 ------------------------------------------------------------------------
+10:51:18.845 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:18.846 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:18.847 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:18.877 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:18.878 [RX    ] 50 02 00 32 01 F4
+10:51:18.878 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:18.980 ------------------------------------------------------------------------
+10:51:18.981 [STEP  ] 0x27 01 – NRC 0x37 requiredTimeDelayNotExpired (after lockout)
+10:51:18.981 [TX SecurityAccess requestSeed during delay timer] 27 01
+10:51:18.982 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:19.013 [RX SF ] 67 03 7F 27 37 FF FF FF
+10:51:19.013 [RX    ] 7F 27 37
+10:51:19.014 [PASS  ] NRC 0x37 time delay not expired | expected: 7F 27 37 | received: 7F 27 37
+10:51:19.015 [INFO  ] --- Waiting T1=10.0s for delay timer to expire (ReqID 661292) ---
+10:51:26.717 [INFO  ] --- [N37-03] NRC 0x37 test at T1-2s ---
+10:51:26.718 ------------------------------------------------------------------------
+10:51:26.718 [STEP  ] 0x27 01 – NRC 0x37 requiredTimeDelayNotExpired (after lockout)
+10:51:26.719 [TX SecurityAccess requestSeed during delay timer] 27 01
+10:51:26.720 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:26.751 [RX SF ] 67 03 7F 27 37 FF FF FF
+10:51:26.752 [RX    ] 7F 27 37
+10:51:26.753 [PASS  ] NRC 0x37 time delay not expired | expected: 7F 27 37 | received: 7F 27 37
+10:51:28.755 [INFO  ] --- Post-T1: Enter Programming Session and Verify Security Access ---
+10:51:28.755 ------------------------------------------------------------------------
+10:51:28.756 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:28.756 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:28.758 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:28.789 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:28.790 [RX    ] 50 02 00 32 01 F4
+10:51:28.791 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:28.892 ------------------------------------------------------------------------
+10:51:28.892 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+10:51:28.892 [TX SecurityAccess requestSeed] 27 01
+10:51:28.896 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:28.926 [RX FF ] 67 10 12 67 01 99 48 31
+10:51:28.938 [RX CF1] 67 21 49 E8 D9 9A 7B BB
+10:51:28.948 [RX CF2] 67 22 6E AD 2B 26 6D C0
+10:51:28.958 [RX CF3] 67 23 56 FF FF FF FF FF
+10:51:28.959 [RX    ] 67 01 99 48 31 49 E8 D9 9A 7B BB 6E AD 2B 26 6D C0 56
+10:51:28.961 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 99 48 31 49 E8 D9 9A 7B BB 6E AD 2B 26 6D C0 56
+10:51:28.961 [INFO  ] Seed received: 99 48 31 49 E8 D9 9A 7B BB 6E AD 2B 26 6D C0 56
+10:51:28.962 ------------------------------------------------------------------------
+10:51:28.962 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+10:51:28.964 [TX SecurityAccess sendKey] 27 02 86 B7 6B AB AC D5 C3 15 45 B5 49 A0 28 D8 B3 DB
+10:51:28.965 [TX FF ] 67 10 12 27 02 86 B7 6B
+10:51:28.987 [TX CF1] 67 21 AB AC D5 C3 15 45
+10:51:29.009 [TX CF2] 67 22 B5 49 A0 28 D8 B3
+10:51:29.030 [TX CF3] 67 23 DB FF FF FF FF FF
+10:51:29.064 [RX SF ] 67 02 67 02 FF FF FF FF
+10:51:29.064 [RX    ] 67 02
+10:51:29.065 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+10:51:29.066 [INFO  ] --- [N37-04] ECUReset at T1-5s: setup lockout again ---
+10:51:29.067 ------------------------------------------------------------------------
+10:51:29.067 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:29.068 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:29.070 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:29.100 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:29.101 [RX    ] 50 02 00 32 01 F4
+10:51:29.101 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:29.203 [INFO  ] --- [N37-04] Setup: 2 wrong keys to trigger lockout ---
+10:51:29.204 ------------------------------------------------------------------------
+10:51:29.205 [STEP  ] 0x27 01 – NRC 0x35 invalidKey: request seed
+10:51:29.205 [TX SecurityAccess requestSeed] 27 01
+10:51:29.207 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:29.237 [RX FF ] 67 10 12 67 01 A9 2D 03
+10:51:29.247 [RX CF1] 67 21 37 D2 2A 81 1B 3F
+10:51:29.259 [RX CF2] 67 22 52 46 FA BF 7D C7
+10:51:29.270 [RX CF3] 67 23 2F FF FF FF FF FF
+10:51:29.271 [RX    ] 67 01 A9 2D 03 37 D2 2A 81 1B 3F 52 46 FA BF 7D C7 2F
+10:51:29.272 [PASS  ] Seed received for NRC 0x35 test | expected: 67 ... | received: 67 01 A9 2D 03 37 D2 2A 81 1B 3F 52 46 FA BF 7D C7 2F
+10:51:29.272 ------------------------------------------------------------------------
+10:51:29.273 [STEP  ] 0x27 02 + wrong key – NRC 0x35 invalidKey
+10:51:29.274 [TX SecurityAccess sendKey wrong key (attempt 1)] 27 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+10:51:29.275 [TX FF ] 67 10 12 27 02 00 00 00
+10:51:29.297 [TX CF1] 67 21 00 00 00 00 00 00
+10:51:29.318 [TX CF2] 67 22 00 00 00 00 00 00
+10:51:29.339 [TX CF3] 67 23 00 FF FF FF FF FF
+10:51:29.371 [RX SF ] 67 03 7F 27 35 FF FF FF
+10:51:29.372 [RX    ] 7F 27 35
+10:51:29.373 [PASS  ] NRC 0x35 wrong key attempt 1 | expected: 7F 27 35 | received: 7F 27 35
+10:51:29.373 ------------------------------------------------------------------------
+10:51:29.374 [STEP  ] 0x27 01 – NRC 0x36 exceededAttempts: request seed again
+10:51:29.375 [TX SecurityAccess requestSeed] 27 01
+10:51:29.376 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:29.408 [RX FF ] 67 10 12 67 01 FB D2 9C
+10:51:29.418 [RX CF1] 67 21 CE BA 1B 43 D3 C0
+10:51:29.429 [RX CF2] 67 22 E7 47 A9 9F FE B5
+10:51:29.440 [RX CF3] 67 23 FD FF FF FF FF FF
+10:51:29.441 [RX    ] 67 01 FB D2 9C CE BA 1B 43 D3 C0 E7 47 A9 9F FE B5 FD
+10:51:29.442 [PASS  ] Seed received for NRC 0x36 test | expected: 67 ... | received: 67 01 FB D2 9C CE BA 1B 43 D3 C0 E7 47 A9 9F FE B5 FD
+10:51:29.443 ------------------------------------------------------------------------
+10:51:29.443 [STEP  ] 0x27 02 + wrong key – NRC 0x36 exceededNumberOfAttempts
+10:51:29.444 [TX SecurityAccess sendKey wrong key (attempt 2 – triggers lockout)] 27 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+10:51:29.446 [TX FF ] 67 10 12 27 02 00 00 00
+10:51:29.468 [TX CF1] 67 21 00 00 00 00 00 00
+10:51:29.489 [TX CF2] 67 22 00 00 00 00 00 00
+10:51:29.511 [TX CF3] 67 23 00 FF FF FF FF FF
+10:51:29.543 [RX SF ] 67 03 7F 27 36 FF FF FF
+10:51:29.545 [RX    ] 7F 27 36
+10:51:29.545 [PASS  ] NRC 0x36 exceeded attempts | expected: 7F 27 36 | received: 7F 27 36
+10:51:29.545 [INFO  ] --- [N37-04] Waiting 5.0s (T1-5s) before ECUReset ---
+10:51:34.547 [INFO  ] --- [N37-04] ECUReset at T1-5s ---
+10:51:34.548 ------------------------------------------------------------------------
+10:51:34.549 [STEP  ] 0x11 01 – ECUReset hardReset
+10:51:34.550 [TX ECUReset hardReset] 11 01
+10:51:34.552 [TX SF ] 67 02 11 01 FF FF FF FF
+10:51:34.581 [RX SF ] 67 02 51 01 FF FF FF FF
+10:51:34.582 [RX    ] 51 01
+10:51:34.583 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+10:51:34.584 [INFO  ] Waiting 2.0s for ECU restart...
+10:51:36.585 ------------------------------------------------------------------------
+10:51:36.586 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:36.586 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:36.588 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:36.619 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:36.620 [RX    ] 50 02 00 32 01 F4
+10:51:36.620 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:36.720 [INFO  ] --- [N37-04a] NRC 0x37 immediately after reset at T1-5s ---
+10:51:36.721 ------------------------------------------------------------------------
+10:51:36.721 [STEP  ] 0x27 01 – NRC 0x37 requiredTimeDelayNotExpired (after lockout)
+10:51:36.722 [TX SecurityAccess requestSeed during delay timer] 27 01
+10:51:36.723 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:36.754 [RX SF ] 67 03 7F 27 37 FF FF FF
+10:51:36.755 [RX    ] 7F 27 37
+10:51:36.755 [PASS  ] NRC 0x37 time delay not expired | expected: 7F 27 37 | received: 7F 27 37
+10:51:36.756 [INFO  ] --- [N37-04] Waiting 5.0s for remaining T1 to expire ---
+10:51:41.757 [INFO  ] --- [N37-04b] Positive SecurityAccess after remaining T1 expired ---
+10:51:41.758 ------------------------------------------------------------------------
+10:51:41.758 [STEP  ] 0x10 02 – Switch to Programming Session
+10:51:41.759 [TX DiagnosticSessionControl programmingSession] 10 02
+10:51:41.760 [TX SF ] 67 02 10 02 FF FF FF FF
+10:51:41.791 [RX SF ] 67 06 50 02 00 32 01 F4
+10:51:41.792 [RX    ] 50 02 00 32 01 F4
+10:51:41.793 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+10:51:41.894 ------------------------------------------------------------------------
+10:51:41.895 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+10:51:41.896 [TX SecurityAccess requestSeed] 27 01
+10:51:41.898 [TX SF ] 67 02 27 01 FF FF FF FF
+10:51:41.927 [RX FF ] 67 10 12 67 01 ED F0 25
+10:51:41.938 [RX CF1] 67 21 12 B1 48 CB 34 DF
+10:51:41.949 [RX CF2] 67 22 1D 86 F9 81 68 72
+10:51:41.962 [RX CF3] 67 23 62 FF FF FF FF FF
+10:51:41.963 [RX    ] 67 01 ED F0 25 12 B1 48 CB 34 DF 1D 86 F9 81 68 72 62
+10:51:41.964 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 ED F0 25 12 B1 48 CB 34 DF 1D 86 F9 81 68 72 62
+10:51:41.965 [INFO  ] Seed received: ED F0 25 12 B1 48 CB 34 DF 1D 86 F9 81 68 72 62
+10:51:41.966 ------------------------------------------------------------------------
+10:51:41.966 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+10:51:41.966 [TX SecurityAccess sendKey] 27 02 CA AF A1 87 FC 49 4D D6 B2 8C 82 2D 26 43 3B 81
+10:51:41.967 [TX FF ] 67 10 12 27 02 CA AF A1
+10:51:41.989 [TX CF1] 67 21 87 FC 49 4D D6 B2
+10:51:42.010 [TX CF2] 67 22 8C 82 2D 26 43 3B
+10:51:42.033 [TX CF3] 67 23 81 FF FF FF FF FF
+10:51:42.064 [RX SF ] 67 02 67 02 FF FF FF FF
+10:51:42.065 [RX    ] 67 02
+10:51:42.066 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+10:51:42.067 [INFO  ] LIN TP transport closed
+10:51:42.068 ========================================================================
+10:51:42.068 [SUMRY ] PASS=38  FAIL=0  TOTAL=38  ALL PASS
+10:51:42.069 ========================================================================

@@ -1,0 +1,1129 @@
+17:23:24.835 ========================================================================
+17:23:24.835 [START ] Script : Service_31_ADC_ALL_CH
+17:23:24.835 [START ] Log    : U:\sandbox_2\GAC_ZCU\02_tool\PCAN_CAN\PCAN_LIN\Result\SVVR_Service_31_ADC_ALL_CH_172324.log
+17:23:24.836 ========================================================================
+17:23:25.150 [INFO  ] Opening PCAN bus [CAN-FD] channel=PCAN_USBBUS1 bitrate=500000 data_bitrate=5000000 tx_id=0x772 rx_id=0x77A
+17:23:25.689 [INFO  ] ISO-TP tx_data_length=DLC12 (max SF payload=10 bytes)
+17:23:25.694 [INFO  ] --- Channel 1/93: P0.1 ---
+17:23:25.695 ------------------------------------------------------------------------
+17:23:25.695 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.696 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.696 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.697 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 01
+17:23:25.719 [RX CAN 0x77A] 71 01 A0 43 02 00 00 01 00 09
+17:23:25.720 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.720 [INFO  ] Extra response bytes: 00 01 00 09
+17:23:25.721 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 01 00 09
+17:23:25.721 [INFO  ] ADC result[0] Port=0x00 Pin=0x01 Value=0x0009 (9)
+17:23:25.721 [INFO  ] --- Channel 2/93: P0.2 ---
+17:23:25.721 ------------------------------------------------------------------------
+17:23:25.722 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.722 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.722 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.723 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 02
+17:23:25.744 [RX CAN 0x77A] 71 01 A0 43 02 00 00 02 00 00
+17:23:25.745 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.745 [INFO  ] Extra response bytes: 00 02 00 00
+17:23:25.745 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 02 00 00
+17:23:25.746 [INFO  ] ADC result[0] Port=0x00 Pin=0x02 Value=0x0000 (0)
+17:23:25.746 [INFO  ] --- Channel 3/93: P0.3 ---
+17:23:25.746 ------------------------------------------------------------------------
+17:23:25.746 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.747 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.747 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.747 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 03
+17:23:25.768 [RX CAN 0x77A] 71 01 A0 43 02 00 00 03 00 00
+17:23:25.769 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.769 [INFO  ] Extra response bytes: 00 03 00 00
+17:23:25.769 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 03 00 00
+17:23:25.770 [INFO  ] ADC result[0] Port=0x00 Pin=0x03 Value=0x0000 (0)
+17:23:25.770 [INFO  ] --- Channel 4/93: P0.4 ---
+17:23:25.771 ------------------------------------------------------------------------
+17:23:25.771 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.771 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.772 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.772 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 04
+17:23:25.795 [RX CAN 0x77A] 71 01 A0 43 02 00 00 04 00 00
+17:23:25.796 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.796 [INFO  ] Extra response bytes: 00 04 00 00
+17:23:25.796 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 04 00 00
+17:23:25.797 [INFO  ] ADC result[0] Port=0x00 Pin=0x04 Value=0x0000 (0)
+17:23:25.797 [INFO  ] --- Channel 5/93: P0.5 ---
+17:23:25.797 ------------------------------------------------------------------------
+17:23:25.797 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.798 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.798 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.798 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 05
+17:23:25.830 [RX CAN 0x77A] 71 01 A0 43 02 00 00 05 00 00
+17:23:25.830 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.831 [INFO  ] Extra response bytes: 00 05 00 00
+17:23:25.831 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 05 00 00
+17:23:25.831 [INFO  ] ADC result[0] Port=0x00 Pin=0x05 Value=0x0000 (0)
+17:23:25.832 [INFO  ] --- Channel 6/93: P0.6 ---
+17:23:25.832 ------------------------------------------------------------------------
+17:23:25.833 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.833 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.833 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.834 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 06
+17:23:25.856 [RX CAN 0x77A] 71 01 A0 43 02 00 00 06 0F FF
+17:23:25.856 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.857 [INFO  ] Extra response bytes: 00 06 0F FF
+17:23:25.857 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 06 0F FF
+17:23:25.857 [INFO  ] ADC result[0] Port=0x00 Pin=0x06 Value=0x0FFF (4095)
+17:23:25.857 [INFO  ] --- Channel 7/93: P0.7 ---
+17:23:25.858 ------------------------------------------------------------------------
+17:23:25.858 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.858 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.859 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.859 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 07
+17:23:25.883 [RX CAN 0x77A] 71 01 A0 43 02 00 00 07 0D 8C
+17:23:25.884 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.884 [INFO  ] Extra response bytes: 00 07 0D 8C
+17:23:25.884 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 07 0D 8C
+17:23:25.885 [INFO  ] ADC result[0] Port=0x00 Pin=0x07 Value=0x0D8C (3468)
+17:23:25.885 [INFO  ] --- Channel 8/93: P0.8 ---
+17:23:25.885 ------------------------------------------------------------------------
+17:23:25.886 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.886 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.886 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.886 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 08
+17:23:25.918 [RX CAN 0x77A] 71 01 A0 43 02 00 00 08 0F FF
+17:23:25.919 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.919 [INFO  ] Extra response bytes: 00 08 0F FF
+17:23:25.920 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 08 0F FF
+17:23:25.921 [INFO  ] ADC result[0] Port=0x00 Pin=0x08 Value=0x0FFF (4095)
+17:23:25.921 [INFO  ] --- Channel 9/93: P0.9 ---
+17:23:25.922 ------------------------------------------------------------------------
+17:23:25.922 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.923 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.923 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.923 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 09
+17:23:25.945 [RX CAN 0x77A] 71 01 A0 43 02 00 00 09 0F F8
+17:23:25.945 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.946 [INFO  ] Extra response bytes: 00 09 0F F8
+17:23:25.946 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 09 0F F8
+17:23:25.946 [INFO  ] ADC result[0] Port=0x00 Pin=0x09 Value=0x0FF8 (4088)
+17:23:25.947 [INFO  ] --- Channel 10/93: P0.10 ---
+17:23:25.947 ------------------------------------------------------------------------
+17:23:25.948 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.948 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.948 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.949 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 0A
+17:23:25.979 [RX CAN 0x77A] 71 01 A0 43 02 00 00 0A 05 3D
+17:23:25.980 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:25.980 [INFO  ] Extra response bytes: 00 0A 05 3D
+17:23:25.980 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 0A 05 3D
+17:23:25.981 [INFO  ] ADC result[0] Port=0x00 Pin=0x0A Value=0x053D (1341)
+17:23:25.981 [INFO  ] --- Channel 11/93: P0.11 ---
+17:23:25.981 ------------------------------------------------------------------------
+17:23:25.982 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:25.982 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:25.982 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:25.983 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 0B
+17:23:26.004 [RX CAN 0x77A] 71 01 A0 43 02 00 00 0B 07 FF
+17:23:26.005 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.005 [INFO  ] Extra response bytes: 00 0B 07 FF
+17:23:26.006 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 0B 07 FF
+17:23:26.006 [INFO  ] ADC result[0] Port=0x00 Pin=0x0B Value=0x07FF (2047)
+17:23:26.006 [INFO  ] --- Channel 12/93: P0.12 ---
+17:23:26.007 ------------------------------------------------------------------------
+17:23:26.007 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.008 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.008 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.008 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 00 0C
+17:23:26.029 [RX CAN 0x77A] 71 01 A0 43 02 00 00 0C 00 00
+17:23:26.029 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.030 [INFO  ] Extra response bytes: 00 0C 00 00
+17:23:26.030 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 00 0C 00 00
+17:23:26.030 [INFO  ] ADC result[0] Port=0x00 Pin=0x0C Value=0x0000 (0)
+17:23:26.031 [INFO  ] --- Channel 13/93: P1.3 ---
+17:23:26.031 ------------------------------------------------------------------------
+17:23:26.032 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.032 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.032 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.032 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 01 03
+17:23:26.055 [RX CAN 0x77A] 71 01 A0 43 02 00 01 03 00 00
+17:23:26.055 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.056 [INFO  ] Extra response bytes: 01 03 00 00
+17:23:26.056 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 01 03 00 00
+17:23:26.057 [INFO  ] ADC result[0] Port=0x01 Pin=0x03 Value=0x0000 (0)
+17:23:26.057 [INFO  ] --- Channel 14/93: P1.4 ---
+17:23:26.057 ------------------------------------------------------------------------
+17:23:26.058 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.058 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.058 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.059 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 01 04
+17:23:26.090 [RX CAN 0x77A] 71 01 A0 43 02 00 01 04 00 00
+17:23:26.090 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.091 [INFO  ] Extra response bytes: 01 04 00 00
+17:23:26.091 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 01 04 00 00
+17:23:26.092 [INFO  ] ADC result[0] Port=0x01 Pin=0x04 Value=0x0000 (0)
+17:23:26.093 [INFO  ] --- Channel 15/93: P1.5 ---
+17:23:26.093 ------------------------------------------------------------------------
+17:23:26.093 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.094 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.094 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.094 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 01 05
+17:23:26.115 [RX CAN 0x77A] 71 01 A0 43 02 00 01 05 00 00
+17:23:26.116 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.116 [INFO  ] Extra response bytes: 01 05 00 00
+17:23:26.116 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 01 05 00 00
+17:23:26.117 [INFO  ] ADC result[0] Port=0x01 Pin=0x05 Value=0x0000 (0)
+17:23:26.117 [INFO  ] --- Channel 16/93: P2.11 ---
+17:23:26.117 ------------------------------------------------------------------------
+17:23:26.118 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.118 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.118 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.119 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 02 0B
+17:23:26.138 [RX CAN 0x77A] 71 01 A0 43 02 00 02 0B 00 00
+17:23:26.139 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.140 [INFO  ] Extra response bytes: 02 0B 00 00
+17:23:26.140 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 02 0B 00 00
+17:23:26.141 [INFO  ] ADC result[0] Port=0x02 Pin=0x0B Value=0x0000 (0)
+17:23:26.142 [INFO  ] --- Channel 17/93: P33.4 ---
+17:23:26.142 ------------------------------------------------------------------------
+17:23:26.143 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.143 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.143 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.144 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 21 04
+17:23:26.164 [RX CAN 0x77A] 71 01 A0 43 02 00 21 04 00 02
+17:23:26.165 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.165 [INFO  ] Extra response bytes: 21 04 00 02
+17:23:26.165 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 21 04 00 02
+17:23:26.166 [INFO  ] ADC result[0] Port=0x21 Pin=0x04 Value=0x0002 (2)
+17:23:26.166 [INFO  ] --- Channel 18/93: P33.5 ---
+17:23:26.166 ------------------------------------------------------------------------
+17:23:26.166 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.167 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.167 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.167 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 21 05
+17:23:26.199 [RX CAN 0x77A] 71 01 A0 43 02 00 21 05 00 00
+17:23:26.200 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.200 [INFO  ] Extra response bytes: 21 05 00 00
+17:23:26.201 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 21 05 00 00
+17:23:26.201 [INFO  ] ADC result[0] Port=0x21 Pin=0x05 Value=0x0000 (0)
+17:23:26.201 [INFO  ] --- Channel 19/93: P34.2 ---
+17:23:26.202 ------------------------------------------------------------------------
+17:23:26.202 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.202 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.202 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.203 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 22 02
+17:23:26.223 [RX CAN 0x77A] 71 01 A0 43 02 00 22 02 00 2F
+17:23:26.224 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.224 [INFO  ] Extra response bytes: 22 02 00 2F
+17:23:26.225 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 22 02 00 2F
+17:23:26.225 [INFO  ] ADC result[0] Port=0x22 Pin=0x02 Value=0x002F (47)
+17:23:26.226 [INFO  ] --- Channel 20/93: P34.3 ---
+17:23:26.226 ------------------------------------------------------------------------
+17:23:26.227 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.227 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.227 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.227 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 22 03
+17:23:26.260 [RX CAN 0x77A] 71 01 A0 43 02 00 22 03 0F FF
+17:23:26.260 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.261 [INFO  ] Extra response bytes: 22 03 0F FF
+17:23:26.261 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 22 03 0F FF
+17:23:26.261 [INFO  ] ADC result[0] Port=0x22 Pin=0x03 Value=0x0FFF (4095)
+17:23:26.262 [INFO  ] --- Channel 21/93: P34.4 ---
+17:23:26.262 ------------------------------------------------------------------------
+17:23:26.262 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.263 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.263 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.263 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 22 04
+17:23:26.285 [RX CAN 0x77A] 71 01 A0 43 02 00 22 04 00 00
+17:23:26.285 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.286 [INFO  ] Extra response bytes: 22 04 00 00
+17:23:26.286 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 22 04 00 00
+17:23:26.286 [INFO  ] ADC result[0] Port=0x22 Pin=0x04 Value=0x0000 (0)
+17:23:26.287 [INFO  ] --- Channel 22/93: P40.0 ---
+17:23:26.287 ------------------------------------------------------------------------
+17:23:26.288 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.288 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.289 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.290 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 00
+17:23:26.315 [RX CAN 0x77A] 71 01 A0 43 02 00 28 00 04 19
+17:23:26.315 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.315 [INFO  ] Extra response bytes: 28 00 04 19
+17:23:26.316 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 00 04 19
+17:23:26.316 [INFO  ] ADC result[0] Port=0x28 Pin=0x00 Value=0x0419 (1049)
+17:23:26.317 [INFO  ] --- Channel 23/93: P40.1 ---
+17:23:26.317 ------------------------------------------------------------------------
+17:23:26.317 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.318 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.318 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.319 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 01
+17:23:26.350 [RX CAN 0x77A] 71 01 A0 43 02 00 28 01 02 3A
+17:23:26.350 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.350 [INFO  ] Extra response bytes: 28 01 02 3A
+17:23:26.351 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 01 02 3A
+17:23:26.351 [INFO  ] ADC result[0] Port=0x28 Pin=0x01 Value=0x023A (570)
+17:23:26.351 [INFO  ] --- Channel 24/93: P40.2 ---
+17:23:26.351 ------------------------------------------------------------------------
+17:23:26.352 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.352 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.352 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.353 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 02
+17:23:26.373 [RX CAN 0x77A] 71 01 A0 43 02 00 28 02 00 00
+17:23:26.375 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.375 [INFO  ] Extra response bytes: 28 02 00 00
+17:23:26.376 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 02 00 00
+17:23:26.376 [INFO  ] ADC result[0] Port=0x28 Pin=0x02 Value=0x0000 (0)
+17:23:26.376 [INFO  ] --- Channel 25/93: P40.3 ---
+17:23:26.377 ------------------------------------------------------------------------
+17:23:26.377 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.378 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.378 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.378 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 03
+17:23:26.399 [RX CAN 0x77A] 71 01 A0 43 02 00 28 03 00 00
+17:23:26.400 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.400 [INFO  ] Extra response bytes: 28 03 00 00
+17:23:26.400 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 03 00 00
+17:23:26.401 [INFO  ] ADC result[0] Port=0x28 Pin=0x03 Value=0x0000 (0)
+17:23:26.401 [INFO  ] --- Channel 26/93: P40.4 ---
+17:23:26.401 ------------------------------------------------------------------------
+17:23:26.402 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.402 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.402 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.403 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 04
+17:23:26.424 [RX CAN 0x77A] 71 01 A0 43 02 00 28 04 00 00
+17:23:26.425 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.425 [INFO  ] Extra response bytes: 28 04 00 00
+17:23:26.425 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 04 00 00
+17:23:26.425 [INFO  ] ADC result[0] Port=0x28 Pin=0x04 Value=0x0000 (0)
+17:23:26.427 [INFO  ] --- Channel 27/93: P40.5 ---
+17:23:26.427 ------------------------------------------------------------------------
+17:23:26.427 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.427 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.428 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.428 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 05
+17:23:26.459 [RX CAN 0x77A] 71 01 A0 43 02 00 28 05 00 00
+17:23:26.460 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.460 [INFO  ] Extra response bytes: 28 05 00 00
+17:23:26.460 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 05 00 00
+17:23:26.460 [INFO  ] ADC result[0] Port=0x28 Pin=0x05 Value=0x0000 (0)
+17:23:26.461 [INFO  ] --- Channel 28/93: P40.6 ---
+17:23:26.461 ------------------------------------------------------------------------
+17:23:26.461 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.461 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.461 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.462 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 06
+17:23:26.485 [RX CAN 0x77A] 71 01 A0 43 02 00 28 06 00 01
+17:23:26.485 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.486 [INFO  ] Extra response bytes: 28 06 00 01
+17:23:26.486 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 06 00 01
+17:23:26.486 [INFO  ] ADC result[0] Port=0x28 Pin=0x06 Value=0x0001 (1)
+17:23:26.487 [INFO  ] --- Channel 29/93: P40.7 ---
+17:23:26.487 ------------------------------------------------------------------------
+17:23:26.487 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.488 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.488 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.489 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 07
+17:23:26.514 [RX CAN 0x77A] 71 01 A0 43 02 00 28 07 00 00
+17:23:26.515 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.515 [INFO  ] Extra response bytes: 28 07 00 00
+17:23:26.515 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 07 00 00
+17:23:26.516 [INFO  ] ADC result[0] Port=0x28 Pin=0x07 Value=0x0000 (0)
+17:23:26.516 [INFO  ] --- Channel 30/93: P40.8 ---
+17:23:26.516 ------------------------------------------------------------------------
+17:23:26.516 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.516 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.517 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.517 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 08
+17:23:26.549 [RX CAN 0x77A] 71 01 A0 43 02 00 28 08 00 01
+17:23:26.549 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.550 [INFO  ] Extra response bytes: 28 08 00 01
+17:23:26.550 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 08 00 01
+17:23:26.550 [INFO  ] ADC result[0] Port=0x28 Pin=0x08 Value=0x0001 (1)
+17:23:26.550 [INFO  ] --- Channel 31/93: P40.9 ---
+17:23:26.551 ------------------------------------------------------------------------
+17:23:26.551 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.551 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.551 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.552 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 09
+17:23:26.576 [RX CAN 0x77A] 71 01 A0 43 02 00 28 09 00 00
+17:23:26.577 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.578 [INFO  ] Extra response bytes: 28 09 00 00
+17:23:26.579 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 09 00 00
+17:23:26.580 [INFO  ] ADC result[0] Port=0x28 Pin=0x09 Value=0x0000 (0)
+17:23:26.580 [INFO  ] --- Channel 32/93: P40.10 ---
+17:23:26.580 ------------------------------------------------------------------------
+17:23:26.581 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.581 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.582 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.583 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0A
+17:23:26.604 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0A 0F F8
+17:23:26.607 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.608 [INFO  ] Extra response bytes: 28 0A 0F F8
+17:23:26.608 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0A 0F F8
+17:23:26.608 [INFO  ] ADC result[0] Port=0x28 Pin=0x0A Value=0x0FF8 (4088)
+17:23:26.609 [INFO  ] --- Channel 33/93: P40.11 ---
+17:23:26.609 ------------------------------------------------------------------------
+17:23:26.610 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.611 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.611 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.611 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0B
+17:23:26.636 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0B 0F F9
+17:23:26.637 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.637 [INFO  ] Extra response bytes: 28 0B 0F F9
+17:23:26.638 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0B 0F F9
+17:23:26.640 [INFO  ] ADC result[0] Port=0x28 Pin=0x0B Value=0x0FF9 (4089)
+17:23:26.642 [INFO  ] --- Channel 34/93: P40.12 ---
+17:23:26.642 ------------------------------------------------------------------------
+17:23:26.644 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.645 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.645 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.645 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0C
+17:23:26.679 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0C 0F F7
+17:23:26.680 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.680 [INFO  ] Extra response bytes: 28 0C 0F F7
+17:23:26.680 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0C 0F F7
+17:23:26.681 [INFO  ] ADC result[0] Port=0x28 Pin=0x0C Value=0x0FF7 (4087)
+17:23:26.681 [INFO  ] --- Channel 35/93: P40.13 ---
+17:23:26.681 ------------------------------------------------------------------------
+17:23:26.681 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.681 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.681 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.682 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0D
+17:23:26.703 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0D 01 81
+17:23:26.703 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.704 [INFO  ] Extra response bytes: 28 0D 01 81
+17:23:26.704 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0D 01 81
+17:23:26.704 [INFO  ] ADC result[0] Port=0x28 Pin=0x0D Value=0x0181 (385)
+17:23:26.704 [INFO  ] --- Channel 36/93: P40.14 ---
+17:23:26.704 ------------------------------------------------------------------------
+17:23:26.705 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.705 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.705 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.705 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0E
+17:23:26.739 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0E 01 B2
+17:23:26.740 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.740 [INFO  ] Extra response bytes: 28 0E 01 B2
+17:23:26.740 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0E 01 B2
+17:23:26.740 [INFO  ] ADC result[0] Port=0x28 Pin=0x0E Value=0x01B2 (434)
+17:23:26.741 [INFO  ] --- Channel 37/93: P40.15 ---
+17:23:26.741 ------------------------------------------------------------------------
+17:23:26.741 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.741 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.742 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.742 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 28 0F
+17:23:26.763 [RX CAN 0x77A] 71 01 A0 43 02 00 28 0F 0F F8
+17:23:26.763 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.764 [INFO  ] Extra response bytes: 28 0F 0F F8
+17:23:26.764 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 28 0F 0F F8
+17:23:26.765 [INFO  ] ADC result[0] Port=0x28 Pin=0x0F Value=0x0FF8 (4088)
+17:23:26.765 [INFO  ] --- Channel 38/93: P41.0 ---
+17:23:26.765 ------------------------------------------------------------------------
+17:23:26.766 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.766 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.766 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.766 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 00
+17:23:26.790 [RX CAN 0x77A] 71 01 A0 43 02 00 29 00 0F F7
+17:23:26.790 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.791 [INFO  ] Extra response bytes: 29 00 0F F7
+17:23:26.791 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 00 0F F7
+17:23:26.792 [INFO  ] ADC result[0] Port=0x29 Pin=0x00 Value=0x0FF7 (4087)
+17:23:26.792 [INFO  ] --- Channel 39/93: P41.1 ---
+17:23:26.792 ------------------------------------------------------------------------
+17:23:26.792 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.793 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.793 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.793 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 01
+17:23:26.814 [RX CAN 0x77A] 71 01 A0 43 02 00 29 01 0F F8
+17:23:26.815 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.815 [INFO  ] Extra response bytes: 29 01 0F F8
+17:23:26.815 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 01 0F F8
+17:23:26.816 [INFO  ] ADC result[0] Port=0x29 Pin=0x01 Value=0x0FF8 (4088)
+17:23:26.816 [INFO  ] --- Channel 40/93: P41.2 ---
+17:23:26.816 ------------------------------------------------------------------------
+17:23:26.817 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.817 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.817 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.818 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 02
+17:23:26.849 [RX CAN 0x77A] 71 01 A0 43 02 00 29 02 0F FA
+17:23:26.849 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.850 [INFO  ] Extra response bytes: 29 02 0F FA
+17:23:26.850 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 02 0F FA
+17:23:26.850 [INFO  ] ADC result[0] Port=0x29 Pin=0x02 Value=0x0FFA (4090)
+17:23:26.850 [INFO  ] --- Channel 41/93: P41.3 ---
+17:23:26.851 ------------------------------------------------------------------------
+17:23:26.851 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.851 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.852 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.852 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 03
+17:23:26.876 [RX CAN 0x77A] 71 01 A0 43 02 00 29 03 0F FB
+17:23:26.876 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.877 [INFO  ] Extra response bytes: 29 03 0F FB
+17:23:26.877 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 03 0F FB
+17:23:26.877 [INFO  ] ADC result[0] Port=0x29 Pin=0x03 Value=0x0FFB (4091)
+17:23:26.877 [INFO  ] --- Channel 42/93: P41.4 ---
+17:23:26.878 ------------------------------------------------------------------------
+17:23:26.878 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.879 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.879 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.879 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 04
+17:23:26.906 [RX CAN 0x77A] 71 01 A0 43 02 00 29 04 00 08
+17:23:26.906 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.907 [INFO  ] Extra response bytes: 29 04 00 08
+17:23:26.907 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 04 00 08
+17:23:26.907 [INFO  ] ADC result[0] Port=0x29 Pin=0x04 Value=0x0008 (8)
+17:23:26.907 [INFO  ] --- Channel 43/93: P41.5 ---
+17:23:26.908 ------------------------------------------------------------------------
+17:23:26.908 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.909 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.909 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.909 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 05
+17:23:26.940 [RX CAN 0x77A] 71 01 A0 43 02 00 29 05 00 01
+17:23:26.940 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.941 [INFO  ] Extra response bytes: 29 05 00 01
+17:23:26.941 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 05 00 01
+17:23:26.941 [INFO  ] ADC result[0] Port=0x29 Pin=0x05 Value=0x0001 (1)
+17:23:26.942 [INFO  ] --- Channel 44/93: P41.6 ---
+17:23:26.942 ------------------------------------------------------------------------
+17:23:26.942 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.942 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.943 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.943 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 06
+17:23:26.963 [RX CAN 0x77A] 71 01 A0 43 02 00 29 06 00 06
+17:23:26.964 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:26.964 [INFO  ] Extra response bytes: 29 06 00 06
+17:23:26.965 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 06 00 06
+17:23:26.965 [INFO  ] ADC result[0] Port=0x29 Pin=0x06 Value=0x0006 (6)
+17:23:26.966 [INFO  ] --- Channel 45/93: P41.7 ---
+17:23:26.966 ------------------------------------------------------------------------
+17:23:26.966 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:26.967 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:26.967 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:26.968 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 07
+17:23:26.999 [RX CAN 0x77A] 71 01 A0 43 02 00 29 07 00 04
+17:23:27.000 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.000 [INFO  ] Extra response bytes: 29 07 00 04
+17:23:27.001 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 07 00 04
+17:23:27.001 [INFO  ] ADC result[0] Port=0x29 Pin=0x07 Value=0x0004 (4)
+17:23:27.001 [INFO  ] --- Channel 46/93: P41.8 ---
+17:23:27.001 ------------------------------------------------------------------------
+17:23:27.002 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.002 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.002 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.003 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 29 08
+17:23:27.024 [RX CAN 0x77A] 71 01 A0 43 02 00 29 08 00 04
+17:23:27.025 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.025 [INFO  ] Extra response bytes: 29 08 00 04
+17:23:27.025 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 29 08 00 04
+17:23:27.025 [INFO  ] ADC result[0] Port=0x29 Pin=0x08 Value=0x0004 (4)
+17:23:27.026 [INFO  ] --- Channel 47/93: AN0 ---
+17:23:27.026 ------------------------------------------------------------------------
+17:23:27.026 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.026 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.027 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.027 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 00
+17:23:27.050 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 00 00 00
+17:23:27.051 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.051 [INFO  ] Extra response bytes: FF 00 00 00
+17:23:27.052 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 00 00 00
+17:23:27.052 [INFO  ] ADC result[0] Port=0xFF Pin=0x00 Value=0x0000 (0)
+17:23:27.052 [INFO  ] --- Channel 48/93: AN1 ---
+17:23:27.052 ------------------------------------------------------------------------
+17:23:27.053 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.053 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.053 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.054 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 01
+17:23:27.075 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 01 00 01
+17:23:27.076 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.076 [INFO  ] Extra response bytes: FF 01 00 01
+17:23:27.077 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 01 00 01
+17:23:27.077 [INFO  ] ADC result[0] Port=0xFF Pin=0x01 Value=0x0001 (1)
+17:23:27.077 [INFO  ] --- Channel 49/93: AN2 ---
+17:23:27.077 ------------------------------------------------------------------------
+17:23:27.077 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.077 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.078 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.078 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 02
+17:23:27.109 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 02 00 01
+17:23:27.110 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.111 [INFO  ] Extra response bytes: FF 02 00 01
+17:23:27.111 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 02 00 01
+17:23:27.111 [INFO  ] ADC result[0] Port=0xFF Pin=0x02 Value=0x0001 (1)
+17:23:27.112 [INFO  ] --- Channel 50/93: AN3 ---
+17:23:27.112 ------------------------------------------------------------------------
+17:23:27.112 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.112 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.112 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.113 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 03
+17:23:27.134 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 03 00 01
+17:23:27.134 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.135 [INFO  ] Extra response bytes: FF 03 00 01
+17:23:27.135 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 03 00 01
+17:23:27.135 [INFO  ] ADC result[0] Port=0xFF Pin=0x03 Value=0x0001 (1)
+17:23:27.136 [INFO  ] --- Channel 51/93: AN4 ---
+17:23:27.136 ------------------------------------------------------------------------
+17:23:27.136 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.136 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.137 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.137 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 04
+17:23:27.168 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 04 00 01
+17:23:27.169 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.169 [INFO  ] Extra response bytes: FF 04 00 01
+17:23:27.170 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 04 00 01
+17:23:27.170 [INFO  ] ADC result[0] Port=0xFF Pin=0x04 Value=0x0001 (1)
+17:23:27.171 [INFO  ] --- Channel 52/93: AN5 ---
+17:23:27.171 ------------------------------------------------------------------------
+17:23:27.171 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.172 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.172 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.172 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 05
+17:23:27.194 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 05 00 02
+17:23:27.194 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.195 [INFO  ] Extra response bytes: FF 05 00 02
+17:23:27.195 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 05 00 02
+17:23:27.195 [INFO  ] ADC result[0] Port=0xFF Pin=0x05 Value=0x0002 (2)
+17:23:27.195 [INFO  ] --- Channel 53/93: AN6 ---
+17:23:27.195 ------------------------------------------------------------------------
+17:23:27.196 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.196 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.196 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.196 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 06
+17:23:27.218 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 06 00 00
+17:23:27.219 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.219 [INFO  ] Extra response bytes: FF 06 00 00
+17:23:27.219 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 06 00 00
+17:23:27.220 [INFO  ] ADC result[0] Port=0xFF Pin=0x06 Value=0x0000 (0)
+17:23:27.221 [INFO  ] --- Channel 54/93: AN7 ---
+17:23:27.221 ------------------------------------------------------------------------
+17:23:27.221 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.222 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.222 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.222 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 07
+17:23:27.244 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 07 00 00
+17:23:27.244 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.244 [INFO  ] Extra response bytes: FF 07 00 00
+17:23:27.245 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 07 00 00
+17:23:27.245 [INFO  ] ADC result[0] Port=0xFF Pin=0x07 Value=0x0000 (0)
+17:23:27.246 [INFO  ] --- Channel 55/93: AN8 ---
+17:23:27.246 ------------------------------------------------------------------------
+17:23:27.246 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.246 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.246 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.247 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 08
+17:23:27.278 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 08 01 A4
+17:23:27.278 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.279 [INFO  ] Extra response bytes: FF 08 01 A4
+17:23:27.279 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 08 01 A4
+17:23:27.279 [INFO  ] ADC result[0] Port=0xFF Pin=0x08 Value=0x01A4 (420)
+17:23:27.280 [INFO  ] --- Channel 56/93: AN9 ---
+17:23:27.280 ------------------------------------------------------------------------
+17:23:27.280 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.280 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.280 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.281 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 09
+17:23:27.304 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 09 01 5F
+17:23:27.304 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.305 [INFO  ] Extra response bytes: FF 09 01 5F
+17:23:27.305 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 09 01 5F
+17:23:27.305 [INFO  ] ADC result[0] Port=0xFF Pin=0x09 Value=0x015F (351)
+17:23:27.306 [INFO  ] --- Channel 57/93: AN10 ---
+17:23:27.306 ------------------------------------------------------------------------
+17:23:27.307 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.307 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.308 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.308 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0A
+17:23:27.328 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0A 01 29
+17:23:27.329 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.329 [INFO  ] Extra response bytes: FF 0A 01 29
+17:23:27.330 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0A 01 29
+17:23:27.330 [INFO  ] ADC result[0] Port=0xFF Pin=0x0A Value=0x0129 (297)
+17:23:27.330 [INFO  ] --- Channel 58/93: AN11 ---
+17:23:27.330 ------------------------------------------------------------------------
+17:23:27.330 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.331 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.331 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.332 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0B
+17:23:27.355 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0B 00 98
+17:23:27.356 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.357 [INFO  ] Extra response bytes: FF 0B 00 98
+17:23:27.357 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0B 00 98
+17:23:27.357 [INFO  ] ADC result[0] Port=0xFF Pin=0x0B Value=0x0098 (152)
+17:23:27.357 [INFO  ] --- Channel 59/93: AN12 ---
+17:23:27.358 ------------------------------------------------------------------------
+17:23:27.358 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.358 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.359 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.359 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0C
+17:23:27.390 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0C 07 FE
+17:23:27.391 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.391 [INFO  ] Extra response bytes: FF 0C 07 FE
+17:23:27.392 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0C 07 FE
+17:23:27.392 [INFO  ] ADC result[0] Port=0xFF Pin=0x0C Value=0x07FE (2046)
+17:23:27.392 [INFO  ] --- Channel 60/93: AN13 ---
+17:23:27.393 ------------------------------------------------------------------------
+17:23:27.393 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.393 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.394 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.394 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0D
+17:23:27.416 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0D 00 00
+17:23:27.416 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.416 [INFO  ] Extra response bytes: FF 0D 00 00
+17:23:27.416 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0D 00 00
+17:23:27.416 [INFO  ] ADC result[0] Port=0xFF Pin=0x0D Value=0x0000 (0)
+17:23:27.416 [INFO  ] --- Channel 61/93: AN14 ---
+17:23:27.417 ------------------------------------------------------------------------
+17:23:27.417 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.417 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.418 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.418 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0E
+17:23:27.439 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0E 00 00
+17:23:27.439 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.440 [INFO  ] Extra response bytes: FF 0E 00 00
+17:23:27.440 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0E 00 00
+17:23:27.441 [INFO  ] ADC result[0] Port=0xFF Pin=0x0E Value=0x0000 (0)
+17:23:27.441 [INFO  ] --- Channel 62/93: AN15 ---
+17:23:27.441 ------------------------------------------------------------------------
+17:23:27.441 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.442 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.442 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.443 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 0F
+17:23:27.464 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 0F 01 BB
+17:23:27.465 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.466 [INFO  ] Extra response bytes: FF 0F 01 BB
+17:23:27.466 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 0F 01 BB
+17:23:27.466 [INFO  ] ADC result[0] Port=0xFF Pin=0x0F Value=0x01BB (443)
+17:23:27.467 [INFO  ] --- Channel 63/93: AN16 ---
+17:23:27.467 ------------------------------------------------------------------------
+17:23:27.467 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.467 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.467 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.468 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 10
+17:23:27.499 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 10 01 87
+17:23:27.499 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.500 [INFO  ] Extra response bytes: FF 10 01 87
+17:23:27.500 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 10 01 87
+17:23:27.501 [INFO  ] ADC result[0] Port=0xFF Pin=0x10 Value=0x0187 (391)
+17:23:27.501 [INFO  ] --- Channel 64/93: AN20 ---
+17:23:27.501 ------------------------------------------------------------------------
+17:23:27.502 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.502 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.502 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.502 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 14
+17:23:27.524 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 14 0F F8
+17:23:27.525 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.525 [INFO  ] Extra response bytes: FF 14 0F F8
+17:23:27.525 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 14 0F F8
+17:23:27.526 [INFO  ] ADC result[0] Port=0xFF Pin=0x14 Value=0x0FF8 (4088)
+17:23:27.526 [INFO  ] --- Channel 65/93: AN21 ---
+17:23:27.526 ------------------------------------------------------------------------
+17:23:27.527 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.527 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.527 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.527 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 15
+17:23:27.558 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 15 0F FA
+17:23:27.559 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.559 [INFO  ] Extra response bytes: FF 15 0F FA
+17:23:27.559 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 15 0F FA
+17:23:27.560 [INFO  ] ADC result[0] Port=0xFF Pin=0x15 Value=0x0FFA (4090)
+17:23:27.560 [INFO  ] --- Channel 66/93: AN22 ---
+17:23:27.560 ------------------------------------------------------------------------
+17:23:27.561 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.561 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.561 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.561 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 16
+17:23:27.583 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 16 00 00
+17:23:27.584 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.584 [INFO  ] Extra response bytes: FF 16 00 00
+17:23:27.585 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 16 00 00
+17:23:27.585 [INFO  ] ADC result[0] Port=0xFF Pin=0x16 Value=0x0000 (0)
+17:23:27.585 [INFO  ] --- Channel 67/93: AN23 ---
+17:23:27.585 ------------------------------------------------------------------------
+17:23:27.586 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.586 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.587 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.587 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 17
+17:23:27.608 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 17 00 00
+17:23:27.609 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.609 [INFO  ] Extra response bytes: FF 17 00 00
+17:23:27.610 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 17 00 00
+17:23:27.610 [INFO  ] ADC result[0] Port=0xFF Pin=0x17 Value=0x0000 (0)
+17:23:27.610 [INFO  ] --- Channel 68/93: AN30 ---
+17:23:27.610 ------------------------------------------------------------------------
+17:23:27.611 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.611 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.611 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.611 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 1E
+17:23:27.635 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 1E 00 01
+17:23:27.635 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.636 [INFO  ] Extra response bytes: FF 1E 00 01
+17:23:27.636 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 1E 00 01
+17:23:27.636 [INFO  ] ADC result[0] Port=0xFF Pin=0x1E Value=0x0001 (1)
+17:23:27.637 [INFO  ] --- Channel 69/93: AN31 ---
+17:23:27.637 ------------------------------------------------------------------------
+17:23:27.638 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.638 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.639 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.639 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 1F
+17:23:27.670 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 1F 01 B2
+17:23:27.671 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.671 [INFO  ] Extra response bytes: FF 1F 01 B2
+17:23:27.672 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 1F 01 B2
+17:23:27.672 [INFO  ] ADC result[0] Port=0xFF Pin=0x1F Value=0x01B2 (434)
+17:23:27.672 [INFO  ] --- Channel 70/93: AN34 ---
+17:23:27.672 ------------------------------------------------------------------------
+17:23:27.673 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.673 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.673 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.673 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 22
+17:23:27.695 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 22 09 DC
+17:23:27.695 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.696 [INFO  ] Extra response bytes: FF 22 09 DC
+17:23:27.697 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 22 09 DC
+17:23:27.697 [INFO  ] ADC result[0] Port=0xFF Pin=0x22 Value=0x09DC (2524)
+17:23:27.697 [INFO  ] --- Channel 71/93: AN35 ---
+17:23:27.698 ------------------------------------------------------------------------
+17:23:27.698 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.698 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.698 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.699 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 23
+17:23:27.720 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 23 00 01
+17:23:27.721 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.721 [INFO  ] Extra response bytes: FF 23 00 01
+17:23:27.721 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 23 00 01
+17:23:27.722 [INFO  ] ADC result[0] Port=0xFF Pin=0x23 Value=0x0001 (1)
+17:23:27.723 [INFO  ] --- Channel 72/93: AN40 ---
+17:23:27.723 ------------------------------------------------------------------------
+17:23:27.723 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.724 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.724 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.725 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 28
+17:23:27.758 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 28 00 00
+17:23:27.759 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.760 [INFO  ] Extra response bytes: FF 28 00 00
+17:23:27.760 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 28 00 00
+17:23:27.760 [INFO  ] ADC result[0] Port=0xFF Pin=0x28 Value=0x0000 (0)
+17:23:27.761 [INFO  ] --- Channel 73/93: AN41 ---
+17:23:27.761 ------------------------------------------------------------------------
+17:23:27.761 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.762 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.762 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.762 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 29
+17:23:27.784 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 29 00 00
+17:23:27.784 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.785 [INFO  ] Extra response bytes: FF 29 00 00
+17:23:27.785 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 29 00 00
+17:23:27.785 [INFO  ] ADC result[0] Port=0xFF Pin=0x29 Value=0x0000 (0)
+17:23:27.786 [INFO  ] --- Channel 74/93: AN42 ---
+17:23:27.786 ------------------------------------------------------------------------
+17:23:27.786 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.786 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.787 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.788 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2A
+17:23:27.820 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2A 00 00
+17:23:27.820 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.821 [INFO  ] Extra response bytes: FF 2A 00 00
+17:23:27.821 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2A 00 00
+17:23:27.822 [INFO  ] ADC result[0] Port=0xFF Pin=0x2A Value=0x0000 (0)
+17:23:27.822 [INFO  ] --- Channel 75/93: AN43 ---
+17:23:27.822 ------------------------------------------------------------------------
+17:23:27.823 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.823 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.824 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.824 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2B
+17:23:27.849 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2B 00 00
+17:23:27.850 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.850 [INFO  ] Extra response bytes: FF 2B 00 00
+17:23:27.850 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2B 00 00
+17:23:27.850 [INFO  ] ADC result[0] Port=0xFF Pin=0x2B Value=0x0000 (0)
+17:23:27.851 [INFO  ] --- Channel 76/93: AN44 ---
+17:23:27.851 ------------------------------------------------------------------------
+17:23:27.851 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.852 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.852 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.852 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2C
+17:23:27.876 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2C 00 00
+17:23:27.876 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.876 [INFO  ] Extra response bytes: FF 2C 00 00
+17:23:27.877 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2C 00 00
+17:23:27.877 [INFO  ] ADC result[0] Port=0xFF Pin=0x2C Value=0x0000 (0)
+17:23:27.878 [INFO  ] --- Channel 77/93: AN45 ---
+17:23:27.878 ------------------------------------------------------------------------
+17:23:27.878 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.878 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.879 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.879 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2D
+17:23:27.910 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2D 00 00
+17:23:27.910 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.911 [INFO  ] Extra response bytes: FF 2D 00 00
+17:23:27.911 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2D 00 00
+17:23:27.911 [INFO  ] ADC result[0] Port=0xFF Pin=0x2D Value=0x0000 (0)
+17:23:27.912 [INFO  ] --- Channel 78/93: AN46 ---
+17:23:27.912 ------------------------------------------------------------------------
+17:23:27.912 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.912 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.913 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.913 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2E
+17:23:27.934 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2E 00 00
+17:23:27.935 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.935 [INFO  ] Extra response bytes: FF 2E 00 00
+17:23:27.935 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2E 00 00
+17:23:27.935 [INFO  ] ADC result[0] Port=0xFF Pin=0x2E Value=0x0000 (0)
+17:23:27.935 [INFO  ] --- Channel 79/93: AN47 ---
+17:23:27.936 ------------------------------------------------------------------------
+17:23:27.936 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.936 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.936 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.937 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 2F
+17:23:27.960 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 2F 00 00
+17:23:27.961 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.961 [INFO  ] Extra response bytes: FF 2F 00 00
+17:23:27.961 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 2F 00 00
+17:23:27.961 [INFO  ] ADC result[0] Port=0xFF Pin=0x2F Value=0x0000 (0)
+17:23:27.962 [INFO  ] --- Channel 80/93: AN48 ---
+17:23:27.962 ------------------------------------------------------------------------
+17:23:27.962 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.962 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.962 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.963 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 30
+17:23:27.984 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 30 00 00
+17:23:27.986 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:27.986 [INFO  ] Extra response bytes: FF 30 00 00
+17:23:27.986 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 30 00 00
+17:23:27.987 [INFO  ] ADC result[0] Port=0xFF Pin=0x30 Value=0x0000 (0)
+17:23:27.987 [INFO  ] --- Channel 81/93: AN49 ---
+17:23:27.987 ------------------------------------------------------------------------
+17:23:27.988 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:27.988 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:27.988 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:27.989 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 31
+17:23:28.020 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 31 00 00
+17:23:28.020 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.021 [INFO  ] Extra response bytes: FF 31 00 00
+17:23:28.021 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 31 00 00
+17:23:28.021 [INFO  ] ADC result[0] Port=0xFF Pin=0x31 Value=0x0000 (0)
+17:23:28.021 [INFO  ] --- Channel 82/93: AN50 ---
+17:23:28.022 ------------------------------------------------------------------------
+17:23:28.022 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.022 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.023 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.023 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 32
+17:23:28.044 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 32 00 04
+17:23:28.044 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.045 [INFO  ] Extra response bytes: FF 32 00 04
+17:23:28.045 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 32 00 04
+17:23:28.045 [INFO  ] ADC result[0] Port=0xFF Pin=0x32 Value=0x0004 (4)
+17:23:28.046 [INFO  ] --- Channel 83/93: AN51 ---
+17:23:28.046 ------------------------------------------------------------------------
+17:23:28.046 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.046 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.046 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.047 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 33
+17:23:28.078 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 33 00 04
+17:23:28.079 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.079 [INFO  ] Extra response bytes: FF 33 00 04
+17:23:28.080 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 33 00 04
+17:23:28.080 [INFO  ] ADC result[0] Port=0xFF Pin=0x33 Value=0x0004 (4)
+17:23:28.080 [INFO  ] --- Channel 84/93: AN52 ---
+17:23:28.080 ------------------------------------------------------------------------
+17:23:28.081 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.081 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.081 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.081 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 34
+17:23:28.104 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 34 00 04
+17:23:28.104 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.105 [INFO  ] Extra response bytes: FF 34 00 04
+17:23:28.105 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 34 00 04
+17:23:28.106 [INFO  ] ADC result[0] Port=0xFF Pin=0x34 Value=0x0004 (4)
+17:23:28.106 [INFO  ] --- Channel 85/93: AN53 ---
+17:23:28.106 ------------------------------------------------------------------------
+17:23:28.107 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.107 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.107 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.107 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 35
+17:23:28.129 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 35 00 04
+17:23:28.129 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.130 [INFO  ] Extra response bytes: FF 35 00 04
+17:23:28.130 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 35 00 04
+17:23:28.130 [INFO  ] ADC result[0] Port=0xFF Pin=0x35 Value=0x0004 (4)
+17:23:28.131 [INFO  ] --- Channel 86/93: AN56 ---
+17:23:28.131 ------------------------------------------------------------------------
+17:23:28.131 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.132 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.132 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.132 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 38
+17:23:28.154 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 38 0F F8
+17:23:28.155 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.156 [INFO  ] Extra response bytes: FF 38 0F F8
+17:23:28.156 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 38 0F F8
+17:23:28.157 [INFO  ] ADC result[0] Port=0xFF Pin=0x38 Value=0x0FF8 (4088)
+17:23:28.158 [INFO  ] --- Channel 87/93: AN57 ---
+17:23:28.158 ------------------------------------------------------------------------
+17:23:28.159 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.159 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.160 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.160 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 39
+17:23:28.183 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 39 0F FA
+17:23:28.183 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.184 [INFO  ] Extra response bytes: FF 39 0F FA
+17:23:28.184 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 39 0F FA
+17:23:28.184 [INFO  ] ADC result[0] Port=0xFF Pin=0x39 Value=0x0FFA (4090)
+17:23:28.185 [INFO  ] --- Channel 88/93: AN58 ---
+17:23:28.185 ------------------------------------------------------------------------
+17:23:28.185 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.185 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.185 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.186 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 3A
+17:23:28.210 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 3A 00 05
+17:23:28.210 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.211 [INFO  ] Extra response bytes: FF 3A 00 05
+17:23:28.211 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 3A 00 05
+17:23:28.211 [INFO  ] ADC result[0] Port=0xFF Pin=0x3A Value=0x0005 (5)
+17:23:28.211 [INFO  ] --- Channel 89/93: AN59 ---
+17:23:28.211 ------------------------------------------------------------------------
+17:23:28.212 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.212 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.212 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.212 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 3B
+17:23:28.234 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 3B 00 04
+17:23:28.235 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.235 [INFO  ] Extra response bytes: FF 3B 00 04
+17:23:28.235 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 3B 00 04
+17:23:28.236 [INFO  ] ADC result[0] Port=0xFF Pin=0x3B Value=0x0004 (4)
+17:23:28.236 [INFO  ] --- Channel 90/93: AN60 ---
+17:23:28.236 ------------------------------------------------------------------------
+17:23:28.236 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.237 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.237 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.237 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 3C
+17:23:28.258 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 3C 00 00
+17:23:28.258 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.259 [INFO  ] Extra response bytes: FF 3C 00 00
+17:23:28.259 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 3C 00 00
+17:23:28.260 [INFO  ] ADC result[0] Port=0xFF Pin=0x3C Value=0x0000 (0)
+17:23:28.260 [INFO  ] --- Channel 91/93: AN61 ---
+17:23:28.260 ------------------------------------------------------------------------
+17:23:28.260 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.261 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.261 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.261 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 3D
+17:23:28.283 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 3D 00 00
+17:23:28.283 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.284 [INFO  ] Extra response bytes: FF 3D 00 00
+17:23:28.284 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 3D 00 00
+17:23:28.284 [INFO  ] ADC result[0] Port=0xFF Pin=0x3D Value=0x0000 (0)
+17:23:28.285 [INFO  ] --- Channel 92/93: AN65 ---
+17:23:28.285 ------------------------------------------------------------------------
+17:23:28.286 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.286 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.286 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.287 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 41
+17:23:28.318 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 41 00 00
+17:23:28.319 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.319 [INFO  ] Extra response bytes: FF 41 00 00
+17:23:28.319 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 41 00 00
+17:23:28.319 [INFO  ] ADC result[0] Port=0xFF Pin=0x41 Value=0x0000 (0)
+17:23:28.319 [INFO  ] --- Channel 93/93: AN66 ---
+17:23:28.320 ------------------------------------------------------------------------
+17:23:28.320 [STEP  ] 0x31 0x01 0xA043 ADC StartRoutine attempt 1
+17:23:28.320 [INFO  ] CAN route: request TX ID=0x772, response RX ID=0x77A
+17:23:28.320 [INFO  ] Expected ECU response: should receive a reply on CAN ID 0x77A within 2.000s
+17:23:28.320 [TX CAN 0x772 RoutineControl ADC Test] 31 01 A0 43 03 01 FF 42
+17:23:28.344 [RX CAN 0x77A] 71 01 A0 43 02 00 FF 42 00 00
+17:23:28.344 [INFO  ] Positive response: routineInfo=0x02 (RoutineResults), routineStatus=0x00 (RoutineExecutionSuccessful)
+17:23:28.345 [INFO  ] Extra response bytes: FF 42 00 00
+17:23:28.345 [PASS  ] ADC StartRoutine positive response | expected: 71 01 A0 43 (01|02) ... | received: 71 01 A0 43 02 00 FF 42 00 00
+17:23:28.345 [INFO  ] ADC result[0] Port=0xFF Pin=0x42 Value=0x0000 (0)
+17:23:28.346 [INFO  ] ==================================================
+17:23:28.346 [INFO  ] Channel read summary:
+17:23:28.347 [INFO  ] Channel    Status   ADC Value
+17:23:28.347 [INFO  ] P0.1       PASS     0x0009 (9)
+17:23:28.347 [INFO  ] P0.2       PASS     0x0000 (0)
+17:23:28.348 [INFO  ] P0.3       PASS     0x0000 (0)
+17:23:28.348 [INFO  ] P0.4       PASS     0x0000 (0)
+17:23:28.348 [INFO  ] P0.5       PASS     0x0000 (0)
+17:23:28.348 [INFO  ] P0.6       PASS     0x0FFF (4095)
+17:23:28.349 [INFO  ] P0.7       PASS     0x0D8C (3468)
+17:23:28.349 [INFO  ] P0.8       PASS     0x0FFF (4095)
+17:23:28.349 [INFO  ] P0.9       PASS     0x0FF8 (4088)
+17:23:28.349 [INFO  ] P0.10      PASS     0x053D (1341)
+17:23:28.349 [INFO  ] P0.11      PASS     0x07FF (2047)
+17:23:28.349 [INFO  ] P0.12      PASS     0x0000 (0)
+17:23:28.350 [INFO  ] P1.3       PASS     0x0000 (0)
+17:23:28.350 [INFO  ] P1.4       PASS     0x0000 (0)
+17:23:28.350 [INFO  ] P1.5       PASS     0x0000 (0)
+17:23:28.351 [INFO  ] P2.11      PASS     0x0000 (0)
+17:23:28.351 [INFO  ] P33.4      PASS     0x0002 (2)
+17:23:28.351 [INFO  ] P33.5      PASS     0x0000 (0)
+17:23:28.352 [INFO  ] P34.2      PASS     0x002F (47)
+17:23:28.352 [INFO  ] P34.3      PASS     0x0FFF (4095)
+17:23:28.352 [INFO  ] P34.4      PASS     0x0000 (0)
+17:23:28.353 [INFO  ] P40.0      PASS     0x0419 (1049)
+17:23:28.353 [INFO  ] P40.1      PASS     0x023A (570)
+17:23:28.353 [INFO  ] P40.2      PASS     0x0000 (0)
+17:23:28.353 [INFO  ] P40.3      PASS     0x0000 (0)
+17:23:28.353 [INFO  ] P40.4      PASS     0x0000 (0)
+17:23:28.354 [INFO  ] P40.5      PASS     0x0000 (0)
+17:23:28.354 [INFO  ] P40.6      PASS     0x0001 (1)
+17:23:28.354 [INFO  ] P40.7      PASS     0x0000 (0)
+17:23:28.354 [INFO  ] P40.8      PASS     0x0001 (1)
+17:23:28.355 [INFO  ] P40.9      PASS     0x0000 (0)
+17:23:28.355 [INFO  ] P40.10     PASS     0x0FF8 (4088)
+17:23:28.355 [INFO  ] P40.11     PASS     0x0FF9 (4089)
+17:23:28.355 [INFO  ] P40.12     PASS     0x0FF7 (4087)
+17:23:28.356 [INFO  ] P40.13     PASS     0x0181 (385)
+17:23:28.356 [INFO  ] P40.14     PASS     0x01B2 (434)
+17:23:28.356 [INFO  ] P40.15     PASS     0x0FF8 (4088)
+17:23:28.357 [INFO  ] P41.0      PASS     0x0FF7 (4087)
+17:23:28.357 [INFO  ] P41.1      PASS     0x0FF8 (4088)
+17:23:28.358 [INFO  ] P41.2      PASS     0x0FFA (4090)
+17:23:28.359 [INFO  ] P41.3      PASS     0x0FFB (4091)
+17:23:28.359 [INFO  ] P41.4      PASS     0x0008 (8)
+17:23:28.359 [INFO  ] P41.5      PASS     0x0001 (1)
+17:23:28.360 [INFO  ] P41.6      PASS     0x0006 (6)
+17:23:28.360 [INFO  ] P41.7      PASS     0x0004 (4)
+17:23:28.360 [INFO  ] P41.8      PASS     0x0004 (4)
+17:23:28.361 [INFO  ] AN0        PASS     0x0000 (0)
+17:23:28.361 [INFO  ] AN1        PASS     0x0001 (1)
+17:23:28.361 [INFO  ] AN2        PASS     0x0001 (1)
+17:23:28.361 [INFO  ] AN3        PASS     0x0001 (1)
+17:23:28.361 [INFO  ] AN4        PASS     0x0001 (1)
+17:23:28.362 [INFO  ] AN5        PASS     0x0002 (2)
+17:23:28.362 [INFO  ] AN6        PASS     0x0000 (0)
+17:23:28.363 [INFO  ] AN7        PASS     0x0000 (0)
+17:23:28.363 [INFO  ] AN8        PASS     0x01A4 (420)
+17:23:28.364 [INFO  ] AN9        PASS     0x015F (351)
+17:23:28.364 [INFO  ] AN10       PASS     0x0129 (297)
+17:23:28.365 [INFO  ] AN11       PASS     0x0098 (152)
+17:23:28.365 [INFO  ] AN12       PASS     0x07FE (2046)
+17:23:28.366 [INFO  ] AN13       PASS     0x0000 (0)
+17:23:28.366 [INFO  ] AN14       PASS     0x0000 (0)
+17:23:28.366 [INFO  ] AN15       PASS     0x01BB (443)
+17:23:28.367 [INFO  ] AN16       PASS     0x0187 (391)
+17:23:28.367 [INFO  ] AN20       PASS     0x0FF8 (4088)
+17:23:28.367 [INFO  ] AN21       PASS     0x0FFA (4090)
+17:23:28.367 [INFO  ] AN22       PASS     0x0000 (0)
+17:23:28.368 [INFO  ] AN23       PASS     0x0000 (0)
+17:23:28.368 [INFO  ] AN30       PASS     0x0001 (1)
+17:23:28.368 [INFO  ] AN31       PASS     0x01B2 (434)
+17:23:28.368 [INFO  ] AN34       PASS     0x09DC (2524)
+17:23:28.368 [INFO  ] AN35       PASS     0x0001 (1)
+17:23:28.369 [INFO  ] AN40       PASS     0x0000 (0)
+17:23:28.369 [INFO  ] AN41       PASS     0x0000 (0)
+17:23:28.369 [INFO  ] AN42       PASS     0x0000 (0)
+17:23:28.369 [INFO  ] AN43       PASS     0x0000 (0)
+17:23:28.369 [INFO  ] AN44       PASS     0x0000 (0)
+17:23:28.370 [INFO  ] AN45       PASS     0x0000 (0)
+17:23:28.370 [INFO  ] AN46       PASS     0x0000 (0)
+17:23:28.370 [INFO  ] AN47       PASS     0x0000 (0)
+17:23:28.371 [INFO  ] AN48       PASS     0x0000 (0)
+17:23:28.371 [INFO  ] AN49       PASS     0x0000 (0)
+17:23:28.371 [INFO  ] AN50       PASS     0x0004 (4)
+17:23:28.371 [INFO  ] AN51       PASS     0x0004 (4)
+17:23:28.372 [INFO  ] AN52       PASS     0x0004 (4)
+17:23:28.372 [INFO  ] AN53       PASS     0x0004 (4)
+17:23:28.372 [INFO  ] AN56       PASS     0x0FF8 (4088)
+17:23:28.373 [INFO  ] AN57       PASS     0x0FFA (4090)
+17:23:28.373 [INFO  ] AN58       PASS     0x0005 (5)
+17:23:28.373 [INFO  ] AN59       PASS     0x0004 (4)
+17:23:28.373 [INFO  ] AN60       PASS     0x0000 (0)
+17:23:28.373 [INFO  ] AN61       PASS     0x0000 (0)
+17:23:28.374 [INFO  ] AN65       PASS     0x0000 (0)
+17:23:28.374 [INFO  ] AN66       PASS     0x0000 (0)
+17:23:28.374 [INFO  ] Total: 93/93 PASS
+17:23:28.571 ========================================================================
+17:23:28.572 [SUMRY ] PASS=93 FAIL=0 TOTAL=93 ALL PASS
+17:23:28.572 ========================================================================

@@ -1,0 +1,98 @@
+18:23:52.503 ========================================================================
+18:23:52.503 [START ] Script : Service_11
+18:23:52.504 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_11_20260428_182352.log
+18:23:52.504 ========================================================================
+18:23:52.510 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+18:23:52.511 [INFO  ] ============================================================
+18:23:52.511 [INFO  ] Service 0x11 ECUReset – Full Test
+18:23:52.511 [INFO  ] ============================================================
+18:23:52.514 ------------------------------------------------------------------------
+18:23:52.514 [STEP  ] 0x22 F1 86 – Read Active Diagnostic Session
+18:23:52.514 [TX ReadDataByIdentifier activeDiagnosticSession] 22 F1 86
+18:23:52.515 [TX SF ] 67 03 22 F1 86 FF FF FF
+18:23:52.543 [RX SF ] 67 04 62 F1 86 02 FF FF
+18:23:52.543 [RX    ] 62 F1 86 02
+18:23:52.543 [INFO  ] Current session: 0x02 (ProgrammingSession)
+18:23:52.544 [PASS  ] Read active session OK
+18:23:52.544 [INFO  ] --- Physical Addressing Tests (NAD=0x67) ---
+18:23:52.545 [INFO  ] --- Positive Tests ---
+18:23:52.545 ------------------------------------------------------------------------
+18:23:52.545 [STEP  ] 0x11 01 – ECUReset hardReset
+18:23:52.545 [TX ECUReset hardReset] 11 01
+18:23:52.546 [TX SF ] 67 02 11 01 FF FF FF FF
+18:23:52.576 [RX SF ] 67 02 51 01 FF FF FF FF
+18:23:52.576 [RX    ] 51 01
+18:23:52.577 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+18:23:52.577 [INFO  ] Waiting 2.0s for ECU restart...
+18:23:54.579 [INFO  ] --- Suppress Positive Response Test ---
+18:23:54.579 ------------------------------------------------------------------------
+18:23:54.579 [STEP  ] 0x11 81 – ECUReset hardReset (suppress positive response)
+18:23:54.579 [TX ECUReset hardReset suppressPosRsp] 11 81
+18:23:54.580 [TX SF ] 67 02 11 81 FF FF FF FF
+18:23:54.751 [INFO  ] No response received (suppress positive response – expected)
+18:23:54.751 [RX    ] (no response)
+18:23:54.751 [PASS  ] No response expected (suppress bit set) | expected: (no response) | received: (empty)
+18:23:54.751 [INFO  ] Waiting 2.0s for ECU restart...
+18:23:56.752 [INFO  ] --- Negative Tests: NRC 0x12 subFunctionNotSupported ---
+18:23:56.752 ------------------------------------------------------------------------
+18:23:56.753 [STEP  ] 0x11 00 – NRC 0x12 subFunctionNotSupported (sub-function 0x00)
+18:23:56.753 [TX ECUReset subFunction=0x00] 11 00
+18:23:56.754 [TX SF ] 67 02 11 00 FF FF FF FF
+18:23:56.785 [RX SF ] 67 03 7F 11 12 FF FF FF
+18:23:56.785 [RX    ] 7F 11 12
+18:23:56.786 [PASS  ] NRC 0x12 for sub-function 0x00 | expected: 7F 11 12 | received: 7F 11 12
+18:23:56.786 ------------------------------------------------------------------------
+18:23:56.787 [STEP  ] 0x11 03 – NRC 0x12 subFunctionNotSupported (softReset not supported in FBL)
+18:23:56.787 [TX ECUReset softReset unsupported in FBL] 11 03
+18:23:56.788 [TX SF ] 67 02 11 03 FF FF FF FF
+18:23:56.818 [RX SF ] 67 03 7F 11 12 FF FF FF
+18:23:56.818 [RX    ] 7F 11 12
+18:23:56.818 [PASS  ] NRC 0x12 for sub-function 0x03 (FBL) | expected: 7F 11 12 | received: 7F 11 12
+18:23:56.818 ------------------------------------------------------------------------
+18:23:56.819 [STEP  ] 0x11 22 – NRC 0x12 subFunctionNotSupported (sub-function 0x22)
+18:23:56.819 [TX ECUReset subFunction=0x22] 11 22
+18:23:56.820 [TX SF ] 67 02 11 22 FF FF FF FF
+18:23:56.850 [RX SF ] 67 03 7F 11 12 FF FF FF
+18:23:56.850 [RX    ] 7F 11 12
+18:23:56.850 [PASS  ] NRC 0x12 for sub-function 0x22 | expected: 7F 11 12 | received: 7F 11 12
+18:23:56.851 ------------------------------------------------------------------------
+18:23:56.851 [STEP  ] 0x11 FF – NRC 0x12 subFunctionNotSupported (sub-function 0xFF)
+18:23:56.851 [TX ECUReset subFunction=0xFF] 11 FF
+18:23:56.852 [TX SF ] 67 02 11 FF FF FF FF FF
+18:23:56.882 [RX SF ] 67 03 7F 11 12 FF FF FF
+18:23:56.883 [RX    ] 7F 11 12
+18:23:56.883 [PASS  ] NRC 0x12 for sub-function 0xFF | expected: 7F 11 12 | received: 7F 11 12
+18:23:56.884 [INFO  ] --- Negative Tests: NRC 0x13 incorrectMessageLength ---
+18:23:56.884 ------------------------------------------------------------------------
+18:23:56.884 [STEP  ] 0x11 – NRC 0x13 incorrectMessageLength (length < 2, SID only)
+18:23:56.885 [TX ECUReset length=1 (too short)] 11
+18:23:56.885 [TX SF ] 67 01 11 FF FF FF FF FF
+18:23:56.915 [RX SF ] 67 03 7F 11 13 FF FF FF
+18:23:56.916 [RX    ] 7F 11 13
+18:23:56.916 [PASS  ] NRC 0x13 for length=1 | expected: 7F 11 13 | received: 7F 11 13
+18:23:56.916 ------------------------------------------------------------------------
+18:23:56.917 [STEP  ] 0x11 01 00 – NRC 0x13 incorrectMessageLength (length > 2)
+18:23:56.917 [TX ECUReset length=3 (too long)] 11 01 00
+18:23:56.918 [TX SF ] 67 03 11 01 00 FF FF FF
+18:23:56.948 [RX SF ] 67 03 7F 11 13 FF FF FF
+18:23:56.949 [RX    ] 7F 11 13
+18:23:56.949 [PASS  ] NRC 0x13 for length=3 | expected: 7F 11 13 | received: 7F 11 13
+18:23:56.949 [INFO  ] --- Functional Addressing Tests (NAD=0x7E) – no response expected ---
+18:23:56.950 ------------------------------------------------------------------------
+18:23:56.950 [STEP  ] 0x11 01 [NAD=7E] – Functional Addressing: hardReset (no response)
+18:23:56.950 [TX ECUReset hardReset (NAD=0x7E)] 11 01
+18:23:56.951 [TX SF ] 7E 02 11 01 FF FF FF FF
+18:23:57.141 [INFO  ] No response received (suppress positive response – expected)
+18:23:57.141 [RX    ] (no response)
+18:23:57.141 [PASS  ] No response expected for functional hardReset | expected: (no response) | received: (empty)
+18:23:58.143 ------------------------------------------------------------------------
+18:23:58.143 [STEP  ] 0x11 81 [NAD=7E] – Functional Addressing: hardReset suppressPosRsp (no response)
+18:23:58.144 [TX ECUReset hardReset suppressPosRsp (NAD=0x7E)] 11 81
+18:23:58.144 [TX SF ] 7E 02 11 81 FF FF FF FF
+18:23:58.334 [INFO  ] No response received (suppress positive response – expected)
+18:23:58.334 [RX    ] (no response)
+18:23:58.334 [PASS  ] No response expected for functional hardReset suppressPosRsp | expected: (no response) | received: (empty)
+18:23:58.335 [INFO  ] LIN TP transport closed
+18:23:58.335 ========================================================================
+18:23:58.335 [SUMRY ] PASS=11  FAIL=0  TOTAL=11  ALL PASS
+18:23:58.335 ========================================================================

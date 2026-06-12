@@ -1,0 +1,319 @@
+17:28:51.129 ========================================================================
+17:28:51.130 [START ] Script : Service_22
+17:28:51.130 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_22_20260430_172851.log
+17:28:51.131 ========================================================================
+17:28:51.139 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+17:28:51.141 [INFO  ] ============================================================
+17:28:51.141 [INFO  ] Service 0x22 ReadDataByIdentifier – Full Test
+17:28:51.142 [INFO  ] ============================================================
+17:28:51.142 ------------------------------------------------------------------------
+17:28:51.142 [STEP  ] 0x22 F1 86 – Read Active Diagnostic Session
+17:28:51.142 [TX ReadDataByIdentifier activeDiagnosticSession] 22 F1 86
+17:28:51.143 [TX SF ] 67 03 22 F1 86 FF FF FF
+17:28:51.176 [RX SF ] 67 04 62 F1 86 02 FF FF
+17:28:51.177 [RX    ] 62 F1 86 02
+17:28:51.177 [INFO  ] Current session: 0x02 (ProgrammingSession)
+17:28:51.178 [PASS  ] Read active session OK
+17:28:51.178 [INFO  ] --- Setup: Enter Programming Session ---
+17:28:51.178 ------------------------------------------------------------------------
+17:28:51.178 [STEP  ] 0x10 02 – Switch to Programming Session
+17:28:51.179 [TX DiagnosticSessionControl programmingSession] 10 02
+17:28:51.180 [TX SF ] 67 02 10 02 FF FF FF FF
+17:28:51.212 [RX SF ] 67 06 50 02 00 32 01 F4
+17:28:51.212 [RX    ] 50 02 00 32 01 F4
+17:28:51.213 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+17:28:51.313 [INFO  ] --- [N13] Negative Tests: NRC 0x13 incorrectMessageLength ---
+17:28:51.314 ------------------------------------------------------------------------
+17:28:51.314 [STEP  ] 0x22 F1 8C 01 – NRC 0x13 incorrectMessageLength (length > 3)
+17:28:51.315 [TX ReadDataByIdentifier length=4 (too long)] 22 F1 8C 01
+17:28:51.316 [TX SF ] 67 04 22 F1 8C 01 FF FF
+17:28:51.347 [RX SF ] 67 03 7F 22 13 FF FF FF
+17:28:51.348 [RX    ] 7F 22 13
+17:28:51.349 [PASS  ] NRC 0x13 length > 3 | expected: 7F 22 13 | received: 7F 22 13
+17:28:51.349 ------------------------------------------------------------------------
+17:28:51.350 [STEP  ] 0x22 F1 – NRC 0x13 incorrectMessageLength (length < 3)
+17:28:51.351 [TX ReadDataByIdentifier length=2 (too short)] 22 F1
+17:28:51.352 [TX SF ] 67 02 22 F1 FF FF FF FF
+17:28:51.381 [RX SF ] 67 03 7F 22 13 FF FF FF
+17:28:51.382 [RX    ] 7F 22 13
+17:28:51.383 [PASS  ] NRC 0x13 length < 3 | expected: 7F 22 13 | received: 7F 22 13
+17:28:51.383 [INFO  ] --- [N31] Negative Tests: NRC 0x31 requestOutOfRange ---
+17:28:51.384 ------------------------------------------------------------------------
+17:28:51.385 [STEP  ] 0x22 F1 FF – NRC 0x31 requestOutOfRange (unsupported DID)
+17:28:51.386 [TX ReadDataByIdentifier F1FF (unsupported DID)] 22 F1 FF
+17:28:51.387 [TX SF ] 67 03 22 F1 FF FF FF FF
+17:28:51.420 [RX SF ] 67 03 7F 22 31 FF FF FF
+17:28:51.421 [RX    ] 7F 22 31
+17:28:51.422 [PASS  ] NRC 0x31 unsupported DID | expected: 7F 22 31 | received: 7F 22 31
+17:28:51.422 [INFO  ] --- [D01C] 22 D0 1C – NRC 0x22 (not written) / 62 D0 1C +32B (written) ---
+17:28:51.437 ------------------------------------------------------------------------
+17:28:51.437 [STEP  ] D01C-1 | 22 D0 1C - NRC 0x22 conditionNotCorrect (key not written)
+17:28:51.438 [TX ReadDataByIdentifier D01C (before write)] 22 D0 1C
+17:28:51.439 [TX SF ] 67 03 22 D0 1C FF FF FF
+17:28:51.468 [RX SF ] 67 03 7F 22 22 FF FF FF
+17:28:51.469 [RX    ] 7F 22 22
+17:28:51.469 [PASS  ] D01C-1: NRC 0x22 key not written | expected: 7F 22 22 | received: 7F 22 22
+17:28:51.469 [INFO  ] --- D01C: SecurityAccess unlock (required for 2E D01C write) ---
+17:28:51.470 ------------------------------------------------------------------------
+17:28:51.470 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+17:28:51.471 [TX SecurityAccess requestSeed] 27 01
+17:28:51.472 [TX SF ] 67 02 27 01 FF FF FF FF
+17:28:51.500 [RX FF ] 67 10 12 67 01 43 78 8C
+17:28:51.510 [RX CF1] 67 21 7A C1 A2 FB 5A F0
+17:28:51.521 [RX CF2] 67 22 B7 22 E5 BE BD B2
+17:28:51.531 [RX CF3] 67 23 D7 FF FF FF FF FF
+17:28:51.531 [RX    ] 67 01 43 78 8C 7A C1 A2 FB 5A F0 B7 22 E5 BE BD B2 D7
+17:28:51.532 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 43 78 8C 7A C1 A2 FB 5A F0 B7 22 E5 BE BD B2 D7
+17:28:51.532 [INFO  ] Seed received: 43 78 8C 7A C1 A2 FB 5A F0 B7 22 E5 BE BD B2 D7
+17:28:51.533 ------------------------------------------------------------------------
+17:28:51.533 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+17:28:51.619 [TX SecurityAccess sendKey] 27 02 92 D3 29 93 D8 22 C5 35 44 F9 7F C5 D3 15 22 34
+17:28:51.621 [TX FF ] 67 10 12 27 02 92 D3 29
+17:28:51.641 [TX CF1] 67 21 93 D8 22 C5 35 44
+17:28:51.663 [TX CF2] 67 22 F9 7F C5 D3 15 22
+17:28:51.685 [TX CF3] 67 23 34 FF FF FF FF FF
+17:28:51.715 [RX SF ] 67 02 67 02 FF FF FF FF
+17:28:51.715 [RX    ] 67 02
+17:28:51.716 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+17:28:51.767 ------------------------------------------------------------------------
+17:28:51.767 [STEP  ] D01C-2 | 2E D0 1C + 292B - Write RSA public key -> 6E D0 1C
+17:28:51.767 [TX WriteDataByIdentifier D01C (292B RSA key)] 2E D0 1C B9 04 58 97 E1 2D ... (292B)
+17:28:51.769 [TX FF ] 67 11 27 2E D0 1C B9 04
+17:28:51.789 [TX CF1] 67 21 58 97 E1 2D AB C8
+17:28:51.810 [TX CF2] 67 22 87 F7 B0 B9 33 46
+17:28:51.832 [TX CF3] 67 23 82 F1 41 E0 F8 D0
+17:28:51.854 [TX CF4] 67 24 56 4E 26 97 2B 87
+17:28:51.876 [TX CF5] 67 25 13 60 97 74 6A 57
+17:28:51.899 [TX CF6] 67 26 5C BE 9D 59 48 9B
+17:28:51.920 [TX CF7] 67 27 A7 5E E9 59 A4 70
+17:28:51.940 [TX CF8] 67 28 0A B0 26 0C 19 3D
+17:28:51.963 [TX CF9] 67 29 F3 2A 47 57 00 3D
+17:28:51.984 [TX CF10] 67 2A 10 7F 26 07 5F EE
+17:28:52.006 [TX CF11] 67 2B 3F 48 2B 76 E3 C9
+17:28:52.028 [TX CF12] 67 2C 81 84 E0 83 B3 E0
+17:28:52.050 [TX CF13] 67 2D FE 7F 49 EB CE 98
+17:28:52.072 [TX CF14] 67 2E B7 BB E1 FE 72 89
+17:28:52.094 [TX CF15] 67 2F 3E AF DE A5 C3 99
+17:28:52.116 [TX CF0] 67 20 B3 1F B7 A8 9F CB
+17:28:52.138 [TX CF1] 67 21 F1 39 8B F6 A8 7B
+17:28:52.160 [TX CF2] 67 22 C0 A8 0E 79 E0 DC
+17:28:52.181 [TX CF3] 67 23 2E 22 EB F2 48 4E
+17:28:52.205 [TX CF4] 67 24 76 DF AD EF 46 AC
+17:28:52.227 [TX CF5] 67 25 05 F7 CA FB 1B EC
+17:28:52.250 [TX CF6] 67 26 50 36 5A 3C 9F 2C
+17:28:52.271 [TX CF7] 67 27 4F 7E B5 F9 02 32
+17:28:52.293 [TX CF8] 67 28 96 70 18 A3 9E 23
+17:28:52.315 [TX CF9] 67 29 41 2D 18 9B 60 A8
+17:28:52.335 [TX CF10] 67 2A 79 9F 50 FF 3A 17
+17:28:52.358 [TX CF11] 67 2B 1F 52 DE 53 68 48
+17:28:52.378 [TX CF12] 67 2C 2F A2 D5 E2 C3 20
+17:28:52.400 [TX CF13] 67 2D E0 8E A5 A2 76 A3
+17:28:52.421 [TX CF14] 67 2E 34 8E C9 C6 7D 75
+17:28:52.442 [TX CF15] 67 2F 2E 14 8D C8 DA 76
+17:28:52.463 [TX CF0] 67 20 9E 1A 34 F2 96 BC
+17:28:52.484 [TX CF1] 67 21 17 2D 57 25 E1 F5
+17:28:52.506 [TX CF2] 67 22 27 D4 03 C9 E3 2B
+17:28:52.528 [TX CF3] 67 23 78 FD 18 05 92 E0
+17:28:52.549 [TX CF4] 67 24 C1 47 9A E1 5B 27
+17:28:52.571 [TX CF5] 67 25 FD 1E E2 62 09 A3
+17:28:52.592 [TX CF6] 67 26 01 7F 90 DA 45 65
+17:28:52.613 [TX CF7] 67 27 9B 7E 7E AB 20 E6
+17:28:52.634 [TX CF8] 67 28 10 41 D8 9B F3 34
+17:28:52.657 [TX CF9] 67 29 ED 4B 2F 40 4B 3E
+17:28:52.679 [TX CF10] 67 2A 54 C0 6E 8A D5 50
+17:28:52.701 [TX CF11] 67 2B B7 A7 00 01 00 01
+17:28:52.721 [TX CF12] 67 2C 49 80 2E 7E 19 11
+17:28:52.743 [TX CF13] 67 2D 8B 19 F9 E6 76 2E
+17:28:52.763 [TX CF14] 67 2E BC F3 3F B8 CB 14
+17:28:52.785 [TX CF15] 67 2F 6F 9D 8D A2 43 5F
+17:28:52.807 [TX CF0] 67 20 0B 08 08 6B C7 CC
+17:28:52.829 [TX CF1] 67 21 D2 A5 FF FF FF FF
+17:28:52.861 [RX SF ] 67 03 6E D0 1C FF FF FF
+17:28:52.862 [RX    ] 6E D0 1C
+17:28:52.862 [PASS  ] D01C-2: positive 6E D0 1C | expected: 6E ... | received: 6E D0 1C
+17:28:52.862 ------------------------------------------------------------------------
+17:28:52.862 [STEP  ] D01C-3 | 22 D0 1C - 62 D0 1C + 32B checksum (key written)
+17:28:52.863 [TX ReadDataByIdentifier D01C (after write, read checksum)] 22 D0 1C
+17:28:52.864 [TX SF ] 67 03 22 D0 1C FF FF FF
+17:28:52.895 [RX FF ] 67 10 23 62 D0 1C 49 80
+17:28:52.905 [RX CF1] 67 21 2E 7E 19 11 8B 19
+17:28:52.914 [RX CF2] 67 22 F9 E6 76 2E BC F3
+17:28:52.923 [RX CF3] 67 23 3F B8 CB 14 6F 9D
+17:28:52.933 [RX CF4] 67 24 8D A2 43 5F 0B 08
+17:28:52.942 [RX CF5] 67 25 08 6B C7 CC D2 A5
+17:28:52.942 [RX    ] 62 D0 1C 49 80 2E 7E 19 11 8B 19 F9 E6 76 2E BC F3 3F B8 CB 14 6F 9D 8D A2 43 5F 0B 08 08 6B C7 CC D2 A5
+17:28:52.943 [PASS  ] D01C-3: checksum matches written key | expected: 62 D0 1C 49 80 2E 7E 19 11 8B 19 F9 E6 76 2E BC F3 3F B8 CB 14 6F 9D 8D A2 43 5F 0B 08 08 6B C7 CC D2 A5 | received: 62 D0 1C 49 80 2E 7E 19 11 8B 19 F9 E6 76 2E BC F3 3F B8 CB 14 6F 9D 8D A2 43 5F 0B 08 08 6B C7 CC D2 A5
+17:28:52.943 [INFO  ] --- [P] Positive Tests: Read all DIDs (physical NAD=0x67) ---
+17:28:52.943 ------------------------------------------------------------------------
+17:28:52.943 [STEP  ] 0x22 F1 86 – Active Diagnostic Session
+17:28:52.944 [TX ReadDataByIdentifier F1 86 (Active Diagnostic Session)] 22 F1 86
+17:28:52.945 [TX SF ] 67 03 22 F1 86 FF FF FF
+17:28:52.974 [RX SF ] 67 04 62 F1 86 02 FF FF
+17:28:52.975 [RX    ] 62 F1 86 02
+17:28:52.975 [PASS  ] ReadDataByIdentifier F1 86 length check | expected: 62 F1 86 + 1 data bytes | received: 62 F1 86 02
+17:28:53.027 ------------------------------------------------------------------------
+17:28:53.027 [STEP  ] 0x22 F1 21 – PBL Diagnostic DB Part Number (Volvo)
+17:28:53.028 [TX ReadDataByIdentifier F1 21 (PBL Diagnostic DB Part Number (Volvo))] 22 F1 21
+17:28:53.028 [TX SF ] 67 03 22 F1 21 FF FF FF
+17:28:53.059 [RX FF ] 67 10 0A 62 F1 21 00 00
+17:28:53.068 [RX CF1] 67 21 00 00 00 00 00 FF
+17:28:53.069 [RX    ] 62 F1 21 00 00 00 00 00 00 00
+17:28:53.069 [PASS  ] ReadDataByIdentifier F1 21 length check | expected: 62 F1 21 + 7 data bytes | received: 62 F1 21 00 00 00 00 00 00 00
+17:28:53.119 ------------------------------------------------------------------------
+17:28:53.119 [STEP  ] 0x22 F1 25 – PBL SW Part Number (Volvo)
+17:28:53.119 [TX ReadDataByIdentifier F1 25 (PBL SW Part Number (Volvo))] 22 F1 25
+17:28:53.121 [TX SF ] 67 03 22 F1 25 FF FF FF
+17:28:53.150 [RX FF ] 67 10 0A 62 F1 25 00 00
+17:28:53.160 [RX CF1] 67 21 00 00 00 00 00 FF
+17:28:53.161 [RX    ] 62 F1 25 00 00 00 00 00 00 00
+17:28:53.161 [PASS  ] ReadDataByIdentifier F1 25 length check | expected: 62 F1 25 + 7 data bytes | received: 62 F1 25 00 00 00 00 00 00 00
+17:28:53.211 ------------------------------------------------------------------------
+17:28:53.211 [STEP  ] 0x22 F1 2A – ECU Core Assembly Number (Volvo)
+17:28:53.212 [TX ReadDataByIdentifier F1 2A (ECU Core Assembly Number (Volvo))] 22 F1 2A
+17:28:53.213 [TX SF ] 67 03 22 F1 2A FF FF FF
+17:28:53.243 [RX FF ] 67 10 0A 62 F1 2A 00 00
+17:28:53.253 [RX CF1] 67 21 00 00 00 00 00 FF
+17:28:53.253 [RX    ] 62 F1 2A 00 00 00 00 00 00 00
+17:28:53.254 [PASS  ] ReadDataByIdentifier F1 2A length check | expected: 62 F1 2A + 7 data bytes | received: 62 F1 2A 00 00 00 00 00 00 00
+17:28:53.306 ------------------------------------------------------------------------
+17:28:53.307 [STEP  ] 0x22 F1 2B – ECU Delivery Assembly Number (Volvo)
+17:28:53.307 [TX ReadDataByIdentifier F1 2B (ECU Delivery Assembly Number (Volvo))] 22 F1 2B
+17:28:53.309 [TX SF ] 67 03 22 F1 2B FF FF FF
+17:28:53.339 [RX FF ] 67 10 0A 62 F1 2B 00 00
+17:28:53.348 [RX CF1] 67 21 00 00 00 00 00 FF
+17:28:53.348 [RX    ] 62 F1 2B 00 00 00 00 00 00 00
+17:28:53.349 [PASS  ] ReadDataByIdentifier F1 2B length check | expected: 62 F1 2B + 7 data bytes | received: 62 F1 2B 00 00 00 00 00 00 00
+17:28:53.401 ------------------------------------------------------------------------
+17:28:53.402 [STEP  ] 0x22 F1 8C – ECU Serial Number
+17:28:53.402 [TX ReadDataByIdentifier F1 8C (ECU Serial Number)] 22 F1 8C
+17:28:53.404 [TX SF ] 67 03 22 F1 8C FF FF FF
+17:28:53.435 [RX FF ] 67 10 07 62 F1 8C 00 00
+17:28:53.445 [RX CF1] 67 21 00 00 FF FF FF FF
+17:28:53.446 [RX    ] 62 F1 8C 00 00 00 00
+17:28:53.446 [PASS  ] ReadDataByIdentifier F1 8C length check | expected: 62 F1 8C + 4 data bytes | received: 62 F1 8C 00 00 00 00
+17:28:53.498 ------------------------------------------------------------------------
+17:28:53.499 [STEP  ] 0x22 F1 A1 – PBL Diagnostic DB Part Number (Geely)
+17:28:53.500 [TX ReadDataByIdentifier F1 A1 (PBL Diagnostic DB Part Number (Geely))] 22 F1 A1
+17:28:53.502 [TX SF ] 67 03 22 F1 A1 FF FF FF
+17:28:53.532 [RX FF ] 67 10 0B 62 F1 A1 66 08
+17:28:53.543 [RX CF1] 67 21 59 45 31 20 20 41
+17:28:53.543 [RX    ] 62 F1 A1 66 08 59 45 31 20 20 41
+17:28:53.545 [PASS  ] ReadDataByIdentifier F1 A1 length check | expected: 62 F1 A1 + 8 data bytes | received: 62 F1 A1 66 08 59 45 31 20 20 41
+17:28:53.595 ------------------------------------------------------------------------
+17:28:53.595 [STEP  ] 0x22 F1 A5 – PBL SW Part Number (Geely)
+17:28:53.596 [TX ReadDataByIdentifier F1 A5 (PBL SW Part Number (Geely))] 22 F1 A5
+17:28:53.597 [TX SF ] 67 03 22 F1 A5 FF FF FF
+17:28:53.628 [RX FF ] 67 10 0B 62 F1 A5 66 08
+17:28:53.637 [RX CF1] 67 21 59 45 32 20 20 41
+17:28:53.638 [RX    ] 62 F1 A5 66 08 59 45 32 20 20 41
+17:28:53.638 [PASS  ] ReadDataByIdentifier F1 A5 length check | expected: 62 F1 A5 + 8 data bytes | received: 62 F1 A5 66 08 59 45 32 20 20 41
+17:28:53.689 ------------------------------------------------------------------------
+17:28:53.689 [STEP  ] 0x22 F1 AA – ECU Core Assembly Number (Geely)
+17:28:53.690 [TX ReadDataByIdentifier F1 AA (ECU Core Assembly Number (Geely))] 22 F1 AA
+17:28:53.692 [TX SF ] 67 03 22 F1 AA FF FF FF
+17:28:53.722 [RX FF ] 67 10 0B 62 F1 AA FF FF
+17:28:53.733 [RX CF1] 67 21 FF FF FF FF FF FF
+17:28:53.734 [RX    ] 62 F1 AA FF FF FF FF FF FF FF FF
+17:28:53.735 [PASS  ] ReadDataByIdentifier F1 AA length check | expected: 62 F1 AA + 8 data bytes | received: 62 F1 AA FF FF FF FF FF FF FF FF
+17:28:53.787 ------------------------------------------------------------------------
+17:28:53.788 [STEP  ] 0x22 F1 AB – ECU Delivery Assembly Number (Geely)
+17:28:53.788 [TX ReadDataByIdentifier F1 AB (ECU Delivery Assembly Number (Geely))] 22 F1 AB
+17:28:53.790 [TX SF ] 67 03 22 F1 AB FF FF FF
+17:28:53.820 [RX FF ] 67 10 0B 62 F1 AB FF FF
+17:28:53.830 [RX CF1] 67 21 FF FF FF FF FF FF
+17:28:53.831 [RX    ] 62 F1 AB FF FF FF FF FF FF FF FF
+17:28:53.832 [PASS  ] ReadDataByIdentifier F1 AB length check | expected: 62 F1 AB + 8 data bytes | received: 62 F1 AB FF FF FF FF FF FF FF FF
+17:28:53.882 ------------------------------------------------------------------------
+17:28:53.883 [STEP  ] 0x22 ED 20 – Number Collection (Geely)
+17:28:53.883 [TX ReadDataByIdentifier ED 20 (Number Collection (Geely))] 22 ED 20
+17:28:53.884 [TX SF ] 67 03 22 ED 20 FF FF FF
+17:28:53.915 [RX FF ] 67 10 31 62 ED 20 F1 8C
+17:28:53.925 [RX CF1] 67 21 00 00 00 00 F1 A1
+17:28:53.935 [RX CF2] 67 22 66 08 59 45 31 20
+17:28:53.946 [RX CF3] 67 23 20 41 F1 A5 66 08
+17:28:53.955 [RX CF4] 67 24 59 45 32 20 20 41
+17:28:53.965 [RX CF5] 67 25 F1 AA FF FF FF FF
+17:28:53.974 [RX CF6] 67 26 FF FF FF FF F1 AB
+17:28:53.986 [RX CF7] 67 27 FF FF FF FF FF FF
+17:28:53.998 [RX CF8] 67 28 FF FF FF FF FF FF
+17:28:53.998 [RX    ] 62 ED 20 F1 8C 00 00 00 00 F1 A1 66 08 59 45 31 20 20 41 F1 A5 66 08 59 45 32 20 20 41 F1 AA FF FF FF FF FF FF FF FF F1 AB FF FF FF FF FF FF FF FF
+17:28:53.999 [PASS  ] ReadDataByIdentifier ED 20 length check | expected: 62 ED 20 + 46 data bytes | received: 62 ED 20 F1 8C 00 00 00 00 F1 A1 66 08 59 45 31 20 20 41 F1 A5 66 08 59 45 32 20 20 41 F1 AA FF FF FF FF FF FF FF FF F1 AB FF FF FF FF FF FF FF FF
+17:28:54.051 ------------------------------------------------------------------------
+17:28:54.051 [STEP  ] 0x22 ED A0 – Number Collection (Volvo)
+17:28:54.052 [TX ReadDataByIdentifier ED A0 (Number Collection (Volvo))] 22 ED A0
+17:28:54.053 [TX SF ] 67 03 22 ED A0 FF FF FF
+17:28:54.084 [RX FF ] 67 10 2D 62 ED A0 F1 21
+17:28:54.094 [RX CF1] 67 21 00 00 00 00 00 00
+17:28:54.106 [RX CF2] 67 22 00 F1 25 00 00 00
+17:28:54.118 [RX CF3] 67 23 00 00 00 00 F1 2A
+17:28:54.127 [RX CF4] 67 24 00 00 00 00 00 00
+17:28:54.138 [RX CF5] 67 25 00 F1 2B 00 00 00
+17:28:54.149 [RX CF6] 67 26 00 00 00 00 F1 8C
+17:28:54.160 [RX CF7] 67 27 00 00 00 00 FF FF
+17:28:54.161 [RX    ] 62 ED A0 F1 21 00 00 00 00 00 00 00 F1 25 00 00 00 00 00 00 00 F1 2A 00 00 00 00 00 00 00 F1 2B 00 00 00 00 00 00 00 F1 8C 00 00 00 00
+17:28:54.163 [PASS  ] ReadDataByIdentifier ED A0 length check | expected: 62 ED A0 + 42 data bytes | received: 62 ED A0 F1 21 00 00 00 00 00 00 00 F1 25 00 00 00 00 00 00 00 F1 2A 00 00 00 00 00 00 00 F1 2B 00 00 00 00 00 00 00 F1 8C 00 00 00 00
+17:28:54.213 [INFO  ] --- [P-F] Positive Tests: Read all DIDs (functional NAD=0x7E, no response) ---
+17:28:54.213 ------------------------------------------------------------------------
+17:28:54.214 [STEP  ] 0x22 F1 86 [NAD=0x7E] – Active Diagnostic Session (functional, no response)
+17:28:54.215 [TX ReadDataByIdentifier F1 86 (functional)] 22 F1 86
+17:28:54.217 [TX SF ] 7E 03 22 F1 86 FF FF FF
+17:28:54.390 [INFO  ] No response received (suppress positive response – expected)
+17:28:54.440 ------------------------------------------------------------------------
+17:28:54.441 [STEP  ] 0x22 F1 21 [NAD=0x7E] – PBL Diagnostic DB Part Number (Volvo) (functional, no response)
+17:28:54.441 [TX ReadDataByIdentifier F1 21 (functional)] 22 F1 21
+17:28:54.444 [TX SF ] 7E 03 22 F1 21 FF FF FF
+17:28:54.617 [INFO  ] No response received (suppress positive response – expected)
+17:28:54.668 ------------------------------------------------------------------------
+17:28:54.668 [STEP  ] 0x22 F1 25 [NAD=0x7E] – PBL SW Part Number (Volvo) (functional, no response)
+17:28:54.669 [TX ReadDataByIdentifier F1 25 (functional)] 22 F1 25
+17:28:54.670 [TX SF ] 7E 03 22 F1 25 FF FF FF
+17:28:54.843 [INFO  ] No response received (suppress positive response – expected)
+17:28:54.893 ------------------------------------------------------------------------
+17:28:54.894 [STEP  ] 0x22 F1 2A [NAD=0x7E] – ECU Core Assembly Number (Volvo) (functional, no response)
+17:28:54.895 [TX ReadDataByIdentifier F1 2A (functional)] 22 F1 2A
+17:28:54.896 [TX SF ] 7E 03 22 F1 2A FF FF FF
+17:28:55.087 [INFO  ] No response received (suppress positive response – expected)
+17:28:55.138 ------------------------------------------------------------------------
+17:28:55.139 [STEP  ] 0x22 F1 2B [NAD=0x7E] – ECU Delivery Assembly Number (Volvo) (functional, no response)
+17:28:55.139 [TX ReadDataByIdentifier F1 2B (functional)] 22 F1 2B
+17:28:55.141 [TX SF ] 7E 03 22 F1 2B FF FF FF
+17:28:55.314 [INFO  ] No response received (suppress positive response – expected)
+17:28:55.365 ------------------------------------------------------------------------
+17:28:55.366 [STEP  ] 0x22 F1 8C [NAD=0x7E] – ECU Serial Number (functional, no response)
+17:28:55.366 [TX ReadDataByIdentifier F1 8C (functional)] 22 F1 8C
+17:28:55.368 [TX SF ] 7E 03 22 F1 8C FF FF FF
+17:28:55.555 [INFO  ] No response received (suppress positive response – expected)
+17:28:55.605 ------------------------------------------------------------------------
+17:28:55.605 [STEP  ] 0x22 F1 A1 [NAD=0x7E] – PBL Diagnostic DB Part Number (Geely) (functional, no response)
+17:28:55.606 [TX ReadDataByIdentifier F1 A1 (functional)] 22 F1 A1
+17:28:55.607 [TX SF ] 7E 03 22 F1 A1 FF FF FF
+17:28:55.798 [INFO  ] No response received (suppress positive response – expected)
+17:28:55.848 ------------------------------------------------------------------------
+17:28:55.848 [STEP  ] 0x22 F1 A5 [NAD=0x7E] – PBL SW Part Number (Geely) (functional, no response)
+17:28:55.849 [TX ReadDataByIdentifier F1 A5 (functional)] 22 F1 A5
+17:28:55.850 [TX SF ] 7E 03 22 F1 A5 FF FF FF
+17:28:56.040 [INFO  ] No response received (suppress positive response – expected)
+17:28:56.092 ------------------------------------------------------------------------
+17:28:56.093 [STEP  ] 0x22 F1 AA [NAD=0x7E] – ECU Core Assembly Number (Geely) (functional, no response)
+17:28:56.093 [TX ReadDataByIdentifier F1 AA (functional)] 22 F1 AA
+17:28:56.095 [TX SF ] 7E 03 22 F1 AA FF FF FF
+17:28:56.268 [INFO  ] No response received (suppress positive response – expected)
+17:28:56.319 ------------------------------------------------------------------------
+17:28:56.320 [STEP  ] 0x22 F1 AB [NAD=0x7E] – ECU Delivery Assembly Number (Geely) (functional, no response)
+17:28:56.320 [TX ReadDataByIdentifier F1 AB (functional)] 22 F1 AB
+17:28:56.321 [TX SF ] 7E 03 22 F1 AB FF FF FF
+17:28:56.509 [INFO  ] No response received (suppress positive response – expected)
+17:28:56.560 ------------------------------------------------------------------------
+17:28:56.560 [STEP  ] 0x22 ED 20 [NAD=0x7E] – Number Collection (Geely) (functional, no response)
+17:28:56.561 [TX ReadDataByIdentifier ED 20 (functional)] 22 ED 20
+17:28:56.562 [TX SF ] 7E 03 22 ED 20 FF FF FF
+17:28:56.734 [INFO  ] No response received (suppress positive response – expected)
+17:28:56.786 ------------------------------------------------------------------------
+17:28:56.787 [STEP  ] 0x22 ED A0 [NAD=0x7E] – Number Collection (Volvo) (functional, no response)
+17:28:56.787 [TX ReadDataByIdentifier ED A0 (functional)] 22 ED A0
+17:28:56.789 [TX SF ] 7E 03 22 ED A0 FF FF FF
+17:28:56.976 [INFO  ] No response received (suppress positive response – expected)
+17:28:57.029 [INFO  ] LIN TP transport closed
+17:28:57.029 ========================================================================
+17:28:57.030 [SUMRY ] PASS=22  FAIL=0  TOTAL=22  ALL PASS
+17:28:57.030 ========================================================================

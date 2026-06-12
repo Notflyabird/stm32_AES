@@ -1,0 +1,49 @@
+11:07:56.012 ========================================================================
+11:07:56.012 [START ] Script : TC_1022547
+11:07:56.013 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_TC_1022547_20260430_110756.log
+11:07:56.013 ========================================================================
+11:07:56.022 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+11:07:56.024 [INFO  ] ============================================================
+11:07:56.025 [INFO  ] TC_1022547: PBL – Functional addressed request shall not disturb message transmission (R3)
+11:07:56.026 [INFO  ] ============================================================
+11:07:56.027 ------------------------------------------------------------------------
+11:07:56.027 [STEP  ] 0x22 F1 86 – Read Active Diagnostic Session
+11:07:56.028 [TX ReadDataByIdentifier activeDiagnosticSession] 22 F1 86
+11:07:56.029 [TX SF ] 67 03 22 F1 86 FF FF FF
+11:07:56.058 [RX SF ] 67 04 62 F1 86 02 FF FF
+11:07:56.058 [RX    ] 62 F1 86 02
+11:07:56.059 [INFO  ] Current session: 0x02 (ProgrammingSession)
+11:07:56.060 [PASS  ] Read active session OK
+11:07:56.060 [INFO  ] --- Setup: Enter PBL (hardReset + ProgrammingSession) ---
+11:07:56.061 ------------------------------------------------------------------------
+11:07:56.061 [STEP  ] 0x11 01 – ECUReset hardReset
+11:07:56.062 [TX ECUReset hardReset] 11 01
+11:07:56.064 [TX SF ] 67 02 11 01 FF FF FF FF
+11:07:56.094 [RX SF ] 67 02 51 01 FF FF FF FF
+11:07:56.095 [RX    ] 51 01
+11:07:56.096 [PASS  ] hardReset positive response | expected: 51 ... | received: 51 01
+11:07:56.096 [INFO  ] Waiting 2.0s for ECU restart...
+11:07:58.098 ------------------------------------------------------------------------
+11:07:58.098 [STEP  ] 0x10 02 – Switch to Programming Session
+11:07:58.099 [TX DiagnosticSessionControl programmingSession] 10 02
+11:07:58.100 [TX SF ] 67 02 10 02 FF FF FF FF
+11:07:58.129 [RX SF ] 67 06 50 02 00 32 01 F4
+11:07:58.129 [RX    ] 50 02 00 32 01 F4
+11:07:58.130 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+11:07:58.231 [INFO  ] --- Step1: Physical 22 F1 2A on 0x3C  (NAD=0x67) ---
+11:07:58.231 ------------------------------------------------------------------------
+11:07:58.232 [STEP  ] TC_1022547 – Physical 22 F1 2A  then  functional 3E 80  →  ECU must respond on 0x3D
+11:07:58.232 [TX ReadDataByIdentifier DID=0xF12A  (physical  NAD=0x67)] 22 F1 2A
+11:07:58.233 [TX SF ] 67 03 22 F1 2A FF FF FF
+11:07:58.255 [INFO  ] --- Step2: Functional 3E 80 on 0x3C  (NAD=0x7E, suppress) ---
+11:07:58.255 [TX TesterPresent suppressPosRsp  (functional  NAD=0x7E)] 3E 80
+11:07:58.257 [TX SF ] 7E 02 3E 80 FF FF FF FF
+11:07:58.277 [INFO  ] --- Check: Poll 0x3D for ECU response to physical request ---
+11:07:58.286 [RX FF ] 67 10 0A 62 F1 2A 00 00
+11:07:58.295 [RX CF1] 67 21 00 00 00 00 00 FF
+11:07:58.295 [RX    ] 62 F1 2A 00 00 00 00 00 00 00
+11:07:58.296 [PASS  ] TC_1022547: ECU responded – not disturbed by functional addressing | expected: any response on 0x3D (positive or NRC) | received: 62 F1 2A 00 00 00 00 00 00 00
+11:07:58.297 [INFO  ] LIN TP transport closed
+11:07:58.297 ========================================================================
+11:07:58.298 [SUMRY ] PASS=4  FAIL=0  TOTAL=4  ALL PASS
+11:07:58.298 ========================================================================

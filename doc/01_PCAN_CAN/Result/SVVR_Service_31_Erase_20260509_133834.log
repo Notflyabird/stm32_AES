@@ -1,0 +1,184 @@
+13:38:34.347 ========================================================================
+13:38:34.347 [START ] Script : Service_31_Erase
+13:38:34.347 [START ] Log    : U:\sandbox_2\TI\01_code\PCAN_LIN\PCAN_LIN\Result\SVVR_Service_31_Erase_20260509_133834.log
+13:38:34.347 ========================================================================
+13:38:34.353 [INFO  ] LIN TP transport open  (hw=1, channel=1, 19200 baud)
+13:38:34.355 [INFO  ] VBF erase regions: [('0xc000', '0x2d000')]
+13:38:34.358 [INFO  ] --- NRC Tests: 0x31 01 FF00 EraseMemory ---
+13:38:34.361 ------------------------------------------------------------------------
+13:38:34.361 [STEP  ] 0x10 02 – Switch to Programming Session
+13:38:34.361 [TX DiagnosticSessionControl programmingSession] 10 02
+13:38:34.362 [TX SF ] 67 02 10 02 FF FF FF FF
+13:38:34.382 [RX SF ] 67 06 50 02 00 32 01 F4
+13:38:34.382 [RX    ] 50 02 00 32 01 F4
+13:38:34.382 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+13:38:34.382 ------------------------------------------------------------------------
+13:38:34.383 [STEP  ] 0x31 01 FF00 – NRC 0x33 securityAccessDenied (no SA)
+13:38:34.383 [TX RoutineControl EraseMemory (no security access)] 31 01 FF 00 00 00 C0 00 00 02 D0 00
+13:38:34.384 [TX FF ] 67 10 0C 31 01 FF 00 00
+13:38:34.394 [TX CF1] 67 21 00 C0 00 00 02 D0
+13:38:34.405 [TX CF2] 67 22 00 FF FF FF FF FF
+13:38:34.427 [RX SF ] 67 03 7F 31 33 FF FF FF
+13:38:34.427 [RX    ] 7F 31 33
+13:38:34.427 [PASS  ] NRC 0x33 securityAccessDenied | expected: 7F 31 33 | received: 7F 31 33
+13:38:34.428 ------------------------------------------------------------------------
+13:38:34.428 [STEP  ] 0x10 02 – Switch to Programming Session
+13:38:34.428 [TX DiagnosticSessionControl programmingSession] 10 02
+13:38:34.428 [TX SF ] 67 02 10 02 FF FF FF FF
+13:38:34.450 [RX SF ] 67 06 50 02 00 32 01 F4
+13:38:34.450 [RX    ] 50 02 00 32 01 F4
+13:38:34.451 [PASS  ] ProgrammingSession positive response | expected: 50 ... | received: 50 02 00 32 01 F4
+13:38:34.451 ------------------------------------------------------------------------
+13:38:34.451 [STEP  ] 0x27 01 – SecurityAccess: Request Seed
+13:38:34.451 [TX SecurityAccess requestSeed] 27 01
+13:38:34.452 [TX SF ] 67 02 27 01 FF FF FF FF
+13:38:34.471 [RX FF ] 67 10 12 67 01 C9 67 AD
+13:38:34.481 [RX CF1] 67 21 B6 E3 86 2E 4F 3A
+13:38:34.490 [RX CF2] 67 22 1A 54 7E B3 22 84
+13:38:34.500 [RX CF3] 67 23 40 FF FF FF FF FF
+13:38:34.500 [RX    ] 67 01 C9 67 AD B6 E3 86 2E 4F 3A 1A 54 7E B3 22 84 40
+13:38:34.500 [PASS  ] Seed request positive response | expected: 67 ... | received: 67 01 C9 67 AD B6 E3 86 2E 4F 3A 1A 54 7E B3 22 84 40
+13:38:34.501 [INFO  ] Seed received: C9 67 AD B6 E3 86 2E 4F 3A 1A 54 7E B3 22 84 40
+13:38:34.501 ------------------------------------------------------------------------
+13:38:34.501 [STEP  ] 0x27 02 – SecurityAccess: Send Key
+13:38:34.628 [TX SecurityAccess sendKey] 27 02 CE 6A 86 43 46 E1 FC B4 8A 82 2B FF 5D D5 C4 94
+13:38:34.629 [TX FF ] 67 10 12 27 02 CE 6A 86
+13:38:34.639 [TX CF1] 67 21 43 46 E1 FC B4 8A
+13:38:34.650 [TX CF2] 67 22 82 2B FF 5D D5 C4
+13:38:34.660 [TX CF3] 67 23 94 FF FF FF FF FF
+13:38:34.679 [RX SF ] 67 02 67 02 FF FF FF FF
+13:38:34.679 [RX    ] 67 02
+13:38:34.680 [PASS  ] Key accepted positive response | expected: 67 ... | received: 67 02
+13:38:34.680 ------------------------------------------------------------------------
+13:38:34.680 [STEP  ] 0x31 01 FF – NRC 0x13 incorrectMessageLength (3 bytes, too short)
+13:38:34.681 [TX RoutineControl EraseMemory length=3 (too short)] 31 01 FF
+13:38:34.681 [TX SF ] 67 03 31 01 FF FF FF FF
+13:38:34.700 [RX SF ] 67 03 7F 31 13 FF FF FF
+13:38:34.700 [RX    ] 7F 31 13
+13:38:34.700 [PASS  ] NRC 0x13 for length=3 | expected: 7F 31 13 | received: 7F 31 13
+13:38:34.701 ------------------------------------------------------------------------
+13:38:34.701 [STEP  ] 0x31 01 FF00 – NRC 0x13 incorrectMessageLength (11 bytes, 1 byte short)
+13:38:34.701 [TX RoutineControl EraseMemory length=11 (too short)] 31 01 FF 00 00 00 C0 00 00 02 D0
+13:38:34.702 [TX FF ] 67 10 0B 31 01 FF 00 00
+13:38:34.713 [TX CF1] 67 21 00 C0 00 00 02 D0
+13:38:34.733 [RX SF ] 67 03 7F 31 13 FF FF FF
+13:38:34.733 [RX    ] 7F 31 13
+13:38:34.734 [PASS  ] NRC 0x13 for length=11 | expected: 7F 31 13 | received: 7F 31 13
+13:38:34.734 ------------------------------------------------------------------------
+13:38:34.734 [STEP  ] 0x31 01 FF00 – NRC 0x13 incorrectMessageLength (14 bytes, too long)
+13:38:34.734 [TX RoutineControl EraseMemory length=14 (too long)] 31 01 FF 00 00 00 C0 00 00 02 D0 00 AA AA
+13:38:34.734 [TX FF ] 67 10 0E 31 01 FF 00 00
+13:38:34.745 [TX CF1] 67 21 00 C0 00 00 02 D0
+13:38:34.756 [TX CF2] 67 22 00 AA AA FF FF FF
+13:38:34.777 [RX SF ] 67 03 7F 31 13 FF FF FF
+13:38:34.778 [RX    ] 7F 31 13
+13:38:34.778 [PASS  ] NRC 0x13 for length=14 | expected: 7F 31 13 | received: 7F 31 13
+13:38:34.778 ------------------------------------------------------------------------
+13:38:34.778 [STEP  ] 0x31 01 FF01 – NRC 0x31 requestOutOfRange (invalid routine ID FF01)
+13:38:34.778 [TX RoutineControl unknown routine FF01] 31 01 FF 01
+13:38:34.779 [TX SF ] 67 04 31 01 FF 01 FF FF
+13:38:34.799 [RX SF ] 67 03 7F 31 31 FF FF FF
+13:38:34.799 [RX    ] 7F 31 31
+13:38:34.799 [PASS  ] NRC 0x31 for routine ID FF01 | expected: 7F 31 31 | received: 7F 31 31
+13:38:34.800 ------------------------------------------------------------------------
+13:38:34.800 [STEP  ] 0x31 01 FF00 – NRC 0x31 requestOutOfRange (address 0xFFFFFF00 out of range)
+13:38:34.800 [TX RoutineControl EraseMemory invalid address 0xFFFFFF00] 31 01 FF 00 FF FF FF 00 00 00 60 00
+13:38:34.801 [TX FF ] 67 10 0C 31 01 FF 00 FF
+13:38:34.811 [TX CF1] 67 21 FF FF 00 00 00 60
+13:38:34.822 [TX CF2] 67 22 00 FF FF FF FF FF
+13:38:34.842 [RX SF ] 67 03 7F 31 31 FF FF FF
+13:38:34.843 [RX    ] 7F 31 31
+13:38:34.843 [PASS  ] NRC 0x31 for out-of-range address | expected: 7F 31 31 | received: 7F 31 31
+13:38:34.843 [INFO  ] --- Positive Test: EraseMemory ---
+13:38:34.843 ------------------------------------------------------------------------
+13:38:34.844 [STEP  ] 0x31 01 FF00 – EraseMemory @ 0x0000C000 len=0x0002D000
+13:38:34.844 [TX RoutineControl EraseMemory] 31 01 FF 00 00 00 C0 00 00 02 D0 00
+13:38:34.845 [TX FF ] 67 10 0C 31 01 FF 00 00
+13:38:34.856 [TX CF1] 67 21 00 C0 00 00 02 D0
+13:38:34.866 [TX CF2] 67 22 00 FF FF FF FF FF
+13:38:34.887 [RX SF ] 67 03 7F 31 78 FF FF FF
+13:38:34.887 [INFO  ] NRC 0x78 – ResponsePending, waiting P2*...
+13:38:34.897 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.905 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.914 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.923 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.931 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.940 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.951 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.960 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.970 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.979 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.988 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:34.997 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.006 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.015 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.024 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.033 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.041 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.050 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.059 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.068 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.078 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.089 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.099 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.109 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.119 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.128 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.139 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.148 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.158 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.167 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.176 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.186 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.197 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.206 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.215 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.225 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.234 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.243 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.252 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.264 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.273 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.283 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.294 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.304 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.314 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.324 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.334 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.345 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.355 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.365 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.374 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.382 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.391 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.400 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.408 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.417 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.426 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.436 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.446 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.454 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.465 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.475 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.485 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.494 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.503 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.513 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.523 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.532 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.543 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.554 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.565 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.575 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.584 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.594 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.604 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.615 [RX SF (after NRC78)] 67 03 7F 31 78 FF FF FF
+13:38:35.625 [RX SF (after NRC78)] 67 05 71 01 FF 00 10 FF
+13:38:35.626 [RX    ] 71 01 FF 00 10
+13:38:35.627 [PASS  ] EraseMemory positive response | expected: 71 ... | received: 71 01 FF 00 10
+13:38:35.627 [INFO  ] Erase routine status: 0x10
+13:38:35.629 [INFO  ] LIN TP transport closed
+13:38:35.629 ========================================================================
+13:38:35.630 [SUMRY ] PASS=11  FAIL=0  TOTAL=11  ALL PASS
+13:38:35.630 ========================================================================
