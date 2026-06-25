@@ -4,7 +4,7 @@ This document mainly to record CAN UDS the implementation process
 
 | Version | Date       | Author | Changes       |
 |---------|------------|--------|---------------|
-| 1.0     | 2025-08-01 | zhou   | implement IWDG |
+| 1.0     | 2025-08-01 | zhang   | implement IWDG |
 
 
 ## 1. Module Overview

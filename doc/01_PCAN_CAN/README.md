@@ -97,29 +97,3 @@ python Reprogramming_CAN_LZSS.py
 7. **CheckComplete** `31 01 0205` → `71 01 0205 10`
 8. **ECU Reset** `11 01` → ECU reboots
 
-## CAN ADC Routine
-
-`Service_31_ADC_CAN.py` sends the ADC start routine over CAN/ISO-TP using PCAN.
-
-```bash
-python Service_31_ADC_CAN.py --dry-run --tx-id 0x6F1 --rx-id 0x651 --adc-channel 0xFF:0x01
-python Service_31_ADC_CAN.py --tx-id 0x6F1 --rx-id 0x651 --adc-channel 0xFF:0x01 --adc-channel 0xFF:0x02
-```
-
-### Fixed Test Cases
-
-`Service_31_ADC_CAN_Cases.py` provides standalone fixed request cases for RID `0xA043`.
-
-```bash
-python Service_31_ADC_CAN_Cases.py --list-cases
-python Service_31_ADC_CAN_Cases.py --case a043_03_00_03 --dry-run
-```
-
-Built-in cases:
-
-```text
-a043_03_00_01 -> 31 01 A0 43 03 01 00 01
-a043_03_00_02 -> 31 01 A0 43 03 01 00 02
-a043_03_00_03 -> 31 01 A0 43 03 01 00 03
-```
-
